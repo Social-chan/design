@@ -5,7 +5,30 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    // Add options here
+    outputPaths: {
+      app: {
+        html: 'index.html',
+        css: {
+          'app': '/assets/socialchan.css'
+        },
+        js: '/assets/socialchan.js'
+      },
+      vendor: {
+        css: '/assets/vendor.css',
+        js: '/assets/vendor.js'
+      }
+    },
+    fingerprint: {
+      enabled: false
+    },
+    postcssOptions: {
+      compile: {
+        enabled: true,
+        plugins: [
+          require('tailwindcss')('./tailwind.js'),
+        ]
+      }
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

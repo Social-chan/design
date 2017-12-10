@@ -7,6 +7,10 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('anime');
+  this.route('manga');
+  this.route('groups');
+  this.route('login');
 });
 
 export default Router;

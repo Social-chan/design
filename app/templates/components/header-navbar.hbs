@@ -1,0 +1,48 @@
+<nav class="bg-blue py-3 navbar">
+  <div class="container mx-auto flex items-center justify-between flex-wrap">
+    <div class="flex items-center flex-no-shrink">
+      {{#link-to 'index'}}
+        <svg id="logo" class="fill-current text-grey-dark bg-white w-8 mr-6" viewBox="0 0 21170 21169.98" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 0h21170v12770.98c-2470-1297-5749-680-7282 1473-1227 1725-1556 4343-1075 6926h-1589c1095-2821 429-5115-1432-6606-1283-1028-3047-1732-4512-2448-750-366-1397-785-1913-1149-1598-1129-1800-3480.99-354-4694.98 1066-910 2836-850 4032-559 1493 365 2609 1333 3010 1321 657-50 424-2125 278-2299-100-120-154-216-251-280-2270-1459-5158-1569-7343-816C1583 4087 791 4602 0 5734zm8056 21169.98H0v-9476c835 1455 2818 2499 4474 3221 2989 1304 5470 2817 3582 6255zm13114-6145v6145h-5914c-365-1450-417-3851 278-5308 847-1773 2924-2705 5636-837z"/>
+        </svg>
+      {{/link-to}}
+    </div>
+    <div class="block lg:hidden">
+      <button class="flex items-center px-3 py-2 border rounded text-blue-lighter border-blue-light hover:text-white hover:border-white">
+        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
+      <form action="" class="flex items-center ml-auto">
+        <input class="appearance-none block bg-grey-lighter text-grey-darker border border-blue-dark rounded p-2 mr-3" id="login-user" type="text" placeholder="Nombre de usuario o email">
+        <input class="appearance-none block bg-grey-lighter text-grey-darker border border-blue-dark rounded p-2" id="login-pass" type="password" placeholder="Contraseña">
+        <button class="bg-blue-dark text-white font-bold py-2 px-4 rounded ml-3">
+          Acceder
+        </button>
+      </form>
+      {{!-- <div class="text-sm lg:flex-grow">
+        {{#link-to 'anime' class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4" activeClass="text-white"}}
+          Anime
+        {{/link-to}}
+        {{#link-to 'manga' class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4" activeClass="text-white"}}
+          Manga
+        {{/link-to}}
+        {{#link-to 'groups' class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4" activeClass="text-white"}}
+          Grupos
+        {{/link-to}}
+      </div>
+      <button class="bg-blue-dark text-white rounded-full flex items-center py-2 px-2 mr-2">
+        <img class="w-6 h-6 rounded-full mr-2" src="img/user_default.jpg" alt>
+        <span class="mr-1 text-sm">
+          D8vjork
+        </span>
+      </button>
+      <button class="bg-blue-dark text-white rounded-full flex items-center py-3 px-3">
+        <i class="fas fa-sign-out-alt"></i>
+      </button> --}}
+    </div>
+  </div>
+</nav>

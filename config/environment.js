@@ -3,7 +3,7 @@
 
 module.exports = function(environment) {
   let ENV = {
-    modulePrefix: 'socialchan-design',
+    modulePrefix: 'socialchan',
     environment,
     rootURL: '/',
     locationType: 'auto',
