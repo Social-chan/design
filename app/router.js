@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('manga');
   this.route('groups');
   this.route('login');
+  this.route('user');
 });
 
 export default Router;

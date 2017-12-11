@@ -16,14 +16,8 @@
       </button>
     </div>
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
-      <form action="" class="flex items-center ml-auto">
-        <input class="appearance-none block bg-grey-lighter text-grey-darker border border-blue-dark rounded p-2 mr-3" id="login-user" type="text" placeholder="Nombre de usuario o email">
-        <input class="appearance-none block bg-grey-lighter text-grey-darker border border-blue-dark rounded p-2" id="login-pass" type="password" placeholder="Contraseña">
-        <button class="bg-blue-dark text-white font-bold py-2 px-4 rounded ml-3">
-          Acceder
-        </button>
-      </form>
-      {{!-- <div class="text-sm lg:flex-grow">
+      {{#if user.current}}
+      <div class="text-sm lg:flex-grow">
         {{#link-to 'anime' class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4" activeClass="text-white"}}
           Anime
         {{/link-to}}
@@ -34,15 +28,24 @@
           Grupos
         {{/link-to}}
       </div>
-      <button class="bg-blue-dark text-white rounded-full flex items-center py-2 px-2 mr-2">
-        <img class="w-6 h-6 rounded-full mr-2" src="img/user_default.jpg" alt>
+      {{#link-to 'user' class="no-underline bg-blue-dark text-white rounded-full flex items-center py-2 px-2 mr-2"}}
+        <img class="w-6 h-6 rounded-full mr-2" src="{{ user.current.avatar }}" alt>
         <span class="mr-1 text-sm">
-          D8vjork
+          {{ user.current.name }}
         </span>
-      </button>
+      {{/link-to}}
       <button class="bg-blue-dark text-white rounded-full flex items-center py-3 px-3">
         <i class="fas fa-sign-out-alt"></i>
-      </button> --}}
+      </button>
+      {{else}}
+      <form action="" class="flex items-center ml-auto">
+        <input class="appearance-none block bg-grey-lighter text-grey-darker border border-blue-dark rounded p-2 mr-3" id="login-user" type="text" placeholder="Nombre de usuario o email">
+        <input class="appearance-none block bg-grey-lighter text-grey-darker border border-blue-dark rounded p-2" id="login-pass" type="password" placeholder="Contraseña">
+        <button class="bg-blue-dark text-white font-bold py-2 px-4 rounded ml-3">
+          Acceder
+        </button>
+      </form>
+      {{/if}}
     </div>
   </div>
 </nav>

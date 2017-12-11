@@ -1,7 +1,5 @@
-{{#unless fullpage}}
-  {{header-navbar}}
-{{/unless}}
-
-{{log fullpage}}
+{{#if fullpage}}
+  {{component 'header-navbar' user=user}}
+{{/if}}
 
 {{outlet}}
