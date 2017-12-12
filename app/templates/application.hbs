@@ -1,5 +1,13 @@
 {{#if fullpage}}
   {{component 'header-navbar' user=user}}
+
+  {{#if user}}
+    {{component 'side-bar'}}
+  {{/if}}
 {{/if}}
 
 {{outlet}}
+
+{{#if fullpage}}
+  {{component 'page-footer'}}
+{{/if}}
