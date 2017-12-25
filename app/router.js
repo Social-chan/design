@@ -12,6 +12,10 @@ Router.map(function() {
   this.route('groups');
   this.route('login');
   this.route('user');
+  this.route('list');
+  this.route('music');
+  this.route('settings');
+  this.route('feed');
 });
 
 export default Router;

@@ -4,6 +4,7 @@ export default Service.extend({
   // current: null,
   current: {
     name: 'd8vjork',
-    avatar: 'img/user_default.jpg'
+    avatar: 'img/user_default.jpg',
+    bkg: 'img/landing/img02.jpg'
   }
 });

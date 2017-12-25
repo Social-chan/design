@@ -1,13 +1,25 @@
-{{#if fullpage}}
-  {{component 'header-navbar' user=user}}
+<div class="font-sans antialiased h-screen flex overflow-hidden">
+  {{#if fullpage}}
+    {{!-- {{component 'header-navbar' user=user}} --}}
 
-  {{#if user}}
-    {{component 'side-bar'}}
+    {{#if user}}
+      {{component 'side-bar' class="h-full"}}
+    {{/if}}
   {{/if}}
-{{/if}}
 
-{{outlet}}
+  <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('img/landing/img02.jpg')">
+    {{outlet}}
 
-{{#if fullpage}}
-  {{component 'page-footer'}}
-{{/if}}
+    {{#if fullpage}}
+      {{#unless user}}
+        {{component 'page-footer'}}
+      {{/unless}}
+    {{/if}}
+  </div>
+
+  {{#if fullpage}}
+    {{#if user}}
+      {{component 'user-sidebar' class="h-full"}}
+    {{/if}}
+  {{/if}}
+</div>
