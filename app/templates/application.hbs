@@ -3,7 +3,8 @@
     {{!-- {{component 'header-navbar' user=user}} --}}
 
     {{#if user}}
-      {{component 'side-bar' class="h-full"}}
+      {{component 'user-sidebar' class="h-full"}}
+      {{component 'user-subsidebar' class="h-full"}}
     {{/if}}
   {{/if}}
 
@@ -19,7 +20,7 @@
 
   {{#if fullpage}}
     {{#if user}}
-      {{component 'user-sidebar' class="h-full"}}
+      {{component 'side-bar' class="h-full"}}
     {{/if}}
   {{/if}}
 </div>

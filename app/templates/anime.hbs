@@ -1,13 +1,13 @@
 <div class="container mx-auto py-6">
   <div class="flex">
     <div class="w-1/4 px-3">
-      <div class="bg-white shadow rounded p-4 mb-3">
+      <div class="bg-white shadow rounded p-4 mb-6">
         <h3 class="text-indigo-darkest mb-3">
-          Buscar y filtrar
+          Filtrar por
         </h3>
-        <input class="placeholder-grey-dark rounded bg-white border border-grey p-2 block w-full appearance-none" type="text" placeholder="Buscar anime">
 
-        <div class="flex flex-wrap items-center mt-6">
+        <h4 class="py-2">Género</h4>
+        <div class="flex flex-wrap items-center mb-2">
           <span class="bg-transparent border border-red rounded text-sm font-semibold text-red px-2 py-1 m-1">
             Acción
           </span>
@@ -39,26 +39,44 @@
             Escolar
           </span>
         </div>
+
+        <h4 class="py-2">Temporada</h4>
+        <a href="#" class="block no-underline bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
+          Primavera
+        </a>
+        <a href="#" class="block no-underline bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
+          Verano
+        </a>
+        <a href="#" class="block no-underline bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
+          Otoño
+        </a>
+        <a href="#" class="block no-underline bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
+          Invierno
+        </a>
       </div>
     </div>
-    <div class="w-3/4 flex bg-white shadow rounded p-4">
-      <div class="w-1/6 px-3">
-        {{component 'item-card'}}
-      </div>
-      <div class="w-1/6 px-3">
-        {{component 'item-card'}}
-      </div>
-      <div class="w-1/6 px-3">
-        {{component 'item-card'}}
-      </div>
-      <div class="w-1/6 px-3">
-        {{component 'item-card'}}
-      </div>
-      <div class="w-1/6 px-3">
-        {{component 'item-card'}}
-      </div>
-      <div class="w-1/6 px-3">
-        {{component 'item-card'}}
+    <div class="w-3/4 bg-white shadow rounded p-4">
+      <i class="fas fa-th"></i>
+      <i class="fas fa-th-list"></i>
+      <div class="flex flex-wrap mt-3">
+        <div class="w-1/6 px-1">
+          {{component 'item-card'}}
+        </div>
+        <div class="w-1/6 px-1">
+          {{component 'item-card'}}
+        </div>
+        <div class="w-1/6 px-1">
+          {{component 'item-card'}}
+        </div>
+        <div class="w-1/6 px-1">
+          {{component 'item-card'}}
+        </div>
+        <div class="w-1/6 px-1">
+          {{component 'item-card'}}
+        </div>
+        <div class="w-1/6 px-1">
+          {{component 'item-card'}}
+        </div>
       </div>
     </div>
   </div>
