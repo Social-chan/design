@@ -45,15 +45,18 @@
       </div>
       {{component 'ads-square'}}
       <div class="bg-white rounded shadow mb-3">
-        <div class="border-b">
-          <button class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-2">
+        <ul class="flex list-reset border-b px-3">
+          <li class="flex-1 py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mx-2">
             Anime
-          </button>
-          <button class="appearance-none py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mr-2">
+          </li>
+          <li class="flex-1 py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mx-2">
             Manga
-          </button>
-        </div>
-        <p>
+          </li>
+          <li class="flex-1 py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mx-2">
+            Personajes
+          </li>
+        </ul>
+        <p class="p-4">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda corrupti tenetur accusantium quia hic laborum.
           Nam asperiores, ad aperiam in sed eos quisquam explicabo iste debitis saepe dolores, consectetur hic!
         </p>
@@ -80,14 +83,14 @@
               </p>
 
               <div class="absolute pin-b w-full flex items-center justify-between mt-4">
-                <div class="w-1/2 flex items-center mr-auto">
+                <div class="flex items-center mr-auto">
                   <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
                   <div class="text-sm">
                     <p class="text-black leading-none">jdoe</p>
                     <p class="text-grey-dark text-xs">hace 10 horas</p>
                   </div>
                 </div>
-                <div class="w-1/2">
+                <div>
                   <div class="w-full text-yellow">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -95,7 +98,7 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
-                  <div class="text">
+                  <div class="text-sm">
                     3 comentarios
                   </div>
                 </div>
