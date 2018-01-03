@@ -1,23 +1,9 @@
-<div class="container mx-auto mt-3">
+<div class="container mx-auto px-4 mt-4">
+  {{component 'user-header'}}
+
   <div class="flex">
-    <div class="w-1/4 px-4">
+    <div class="w-1/4 pr-4">
       <div class="bg-white rounded shadow p-4 mb-3">
-        {{!-- <div class="flex items-center pb-4 mb-4">
-          <img class="h-24 rounded-full mr-4" style="top:-30px" src="img/user_default.jpg">
-          <span class="text-left">
-            <h2 class="font-semibold text-center text-indigo-darkest mb-3">
-              @jdoe
-            </h2>
-            <p class="text-indigo-darkest font-semibold">
-              <i class="fas fa-user"></i>
-              Usuario (3K)
-            </p>
-            <button class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1">
-              <i class="fas fa-user-plus"></i>
-              Seguir
-            </button>
-          </span>
-        </div> --}}
         <div class="border-b border-grey-light pb-4 mb-4">
           <p class="text-black group-hover:text-white mb-1">Nombre</p>
           <p class="text-grey-darker group-hover:text-white">
@@ -45,24 +31,40 @@
       </div>
       {{component 'ads-square'}}
       <div class="bg-white rounded shadow mb-3">
-        <ul class="flex list-reset border-b px-3">
-          <li class="flex-1 py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mx-2">
+        <ul class="flex items-center list-reset border-b px-3">
+          <li class="flex-1 text-indigo-darker text-sm">
+            <i class="fas fa-star"></i>
+          </li>
+          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark mx-2">
             Anime
           </li>
-          <li class="flex-1 py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mx-2">
+          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark mx-2">
             Manga
           </li>
-          <li class="flex-1 py-4 text-grey-dark border-b border-transparent hover:border-grey-dark mx-2">
+          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark mx-2">
             Personajes
           </li>
         </ul>
-        <p class="p-4">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Assumenda corrupti tenetur accusantium quia hic laborum.
-          Nam asperiores, ad aperiam in sed eos quisquam explicabo iste debitis saepe dolores, consectetur hic!
-        </p>
+        <ul class="list-reset p-3">
+          <li class="my-1">
+            <a href="#" class="no-underline text-indigo-dark text-sm">
+              Steins;gate
+            </a>
+          </li>
+          <li class="my-1">
+            <a href="#" class="no-underline text-indigo-dark text-sm">
+              Sword Art Online
+            </a>
+          </li>
+          <li class="my-1">
+            <a href="#" class="no-underline text-indigo-dark text-sm">
+              Love Live! School Idol Project
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-    <div class="w-3/4 px-4">
+    <div class="w-3/4">
       <div class="w-full lg:flex mb-4">
         <div class="border border-grey-light bg-white rounded shadow flex flex-col justify-between leading-normal">
           <div class="flex flex-wrap p-4">

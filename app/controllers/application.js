@@ -4,11 +4,19 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   user: service(),
-  fullpage: computed('currentRouteName', function () {
-    if (this.get('currentRouteName') === 'login') {
+  inApp: computed('currentRouteName', function () {
+    if (this.get('currentRouteName') === 'login'
+    || this.get('currentRouteName') === 'index') {
       return false;
     }
 
     return true;
+  }),
+  isHeaderpage: computed('currentRouteName', function () {
+    if (this.get('currentRouteName') === 'index') {
+      return true;
+    }
+
+    return false;
   })
 });

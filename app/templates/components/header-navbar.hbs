@@ -1,4 +1,4 @@
-<nav class="absolute pin-x pin-t bg-blue py-3 navbar z-40">
+<nav class="bg-blue py-3 z-50">
   <div class="container mx-auto flex items-center justify-between flex-wrap">
     <div class="flex items-center flex-no-shrink">
       {{#link-to 'index'}}
@@ -18,15 +18,9 @@
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
       {{#if user.current}}
       <div class="text-sm lg:flex-grow">
-        {{#link-to 'anime' class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4" activeClass="text-white"}}
-          Anime
-        {{/link-to}}
-        {{#link-to 'manga' class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4" activeClass="text-white"}}
-          Manga
-        {{/link-to}}
-        {{#link-to 'groups' class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4" activeClass="text-white"}}
-          Grupos
-        {{/link-to}}
+        <a href="#" class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-blue-lighter hover:text-white mr-4">
+          Inicio
+        </a>
       </div>
       <button class="bg-blue-dark text-white rounded-full flex items-center py-3 px-3">
         <i class="fas fa-bell"></i>

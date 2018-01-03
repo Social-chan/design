@@ -1,0 +1,20 @@
+<div class="fixed pin z-50 overflow-auto bg-smoke-light flex">
+  <div class="fixed max-w-md md:relative pin-b pin-x align-top m-auto justify-end md:justify-center p-8 bg-white md:rounded w-full md:h-auto md:shadow flex">
+    {{#if isSelecting}}
+      <button {{action "changePostSelection"}} class="bg-grey-light hover:bg-grey text-grey-darker rounded p-4">
+        <i class="far fa-comments fa-3x"></i>
+      </button>
+      <button {{action "changePostSelection"}} class="bg-grey-light hover:bg-grey text-grey-darker rounded p-4 mx-2">
+        <i class="fas fa-film fa-3x"></i>
+      </button>
+      <button {{action "changePostSelection"}} class="bg-grey-light hover:bg-grey text-grey-darker rounded p-4 mx-2">
+        <i class="fas fa-book fa-3x"></i>
+      </button>
+      <button {{action "changePostSelection"}} class="bg-grey-light hover:bg-grey text-grey-darker rounded p-4 mx-2">
+        <i class="fas fa-music fa-3x"></i>
+      </button>
+    {{else}}
+      <textarea class="appearance-none bg-grey-light w-full" rows="5"></textarea>
+    {{/if}}
+  </div>
+</div>

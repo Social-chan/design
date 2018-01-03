@@ -1,11 +1,11 @@
 import Component from '@ember/component';
 
 export default Component.extend({
-  isSubsidebarActive: false,
+  isSelecting: true,
 
   actions: {
-    toggleSubsidebar() {
-      this.toggleProperty('isSubsidebarActive');
+    changePostSelection() {
+      this.set('isSelecting', false);
     }
   }
 });
