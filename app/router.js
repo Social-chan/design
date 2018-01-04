@@ -16,6 +16,7 @@ Router.map(function() {
   this.route('music');
   this.route('settings');
   this.route('feed');
+  this.route('concepts');
 });
 
 export default Router;

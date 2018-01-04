@@ -1,19 +1,21 @@
-<div class="overflow-hidden bg-indigo-darker text-purple-lighter flex-none w-64 hidden md:block h-full">
-  <div class="p-4">
-    {{#link-to 'anime' class="flex justify-between no-underline text-white"}}
+<div class="overflow-hidden bg-indigo-darker text-white flex-none w-64 hidden md:block h-full">
+  {{#if (eq activeSection "anime")}}
+    {{#link-to 'anime' class="flex justify-between no-underline text-white p-4"}}
       <div class="flex-auto">
-        <h1 class="font-semibold text-xl leading-tight mb-3 truncate">
+        <h1 class="font-semibold text-xl leading-tight truncate">
           Anime
         </h1>
       </div>
-      <div>
-        <i class="far fa-share-square"></i>
+      <div class="opacity-25">
+        <i class="far fa-share-square fa-lg"></i>
       </div>
     {{/link-to}}
-    <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo-darkest rounded py-2 px-3 mb-6" type="text" placeholder="Buscar anime">
+    <div class="px-4">
+      <input class="appearance-none w-full bg-grey-lighter text-indigo-darkest border border-indigo-darkest rounded py-2 px-3 mb-4" type="text" placeholder="Buscar anime">
+    </div>
 
-    <div class="mb-8">
-      <div class="text-white flex justify-between items-center mb-3">
+    <div class="mb-4 p-4">
+      <div class="flex justify-between items-center mb-3">
         <div class="text-grey-light text-lg">
           Vistos recientemente
         </div>
@@ -42,5 +44,28 @@
         </li>
       </ul>
     </div>
-  </div>
+  {{else if (eq activeSection "monitor")}}
+    <div class="flex justify-between p-4">
+      <div class="flex-auto">
+        <h1 class="font-semibold text-xl leading-tight truncate">
+          Notificaciones
+        </h1>
+      </div>
+      <div class="opacity-25">
+        <i class="far fa-bell fa-lg"></i>
+      </div>
+    </div>
+
+    <ul class="list-reset border-t border-indigo-dark text-sm mt-4">
+      <li class="cursor-pointer border-b border-indigo-dark hover:bg-indigo-dark truncate py-2 px-4">
+        <i class="fas fa-eye mr-1"></i> @d8vjork ha empezado a seguirte
+      </li>
+      <li class="cursor-pointer border-b border-indigo-dark hover:bg-indigo-dark truncate py-2 px-4">
+        <i class="fas fa-eye mr-1"></i> @gabrielpb1 ha empezado a seguirte
+      </li>
+      <li class="cursor-pointer border-b border-indigo-dark hover:bg-indigo-dark truncate py-2 px-4">
+        <i class="fas fa-comment mr-1"></i> @d8vjork ha comentado tu publicación
+      </li>
+    </ul>
+  {{/if}}
 </div>

@@ -1,6 +1,6 @@
 {{#if inApp}}
   <div class="font-sans antialiased h-screen flex overflow-hidden">
-    {{component 'user-sidebar' class="flex h-full"}}
+    {{component 'user-sidebar' class="flex h-full" currentRouteName=currentRouteName}}
 
     <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('img/landing/img02.jpg')">
       {{outlet}}

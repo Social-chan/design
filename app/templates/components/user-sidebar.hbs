@@ -1,11 +1,13 @@
 <!-- User / Nav sidebar -->
 <div class="bg-indigo-darkest text-purple-lighter flex-none p-4 h-full z-50 hidden md:block">
-  {{#link-to 'user' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
-    <div class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <img src="img/user_default.jpg" alt="">
+  <button {{action "toggleSubsidebar" "monitor"}} class="block opacity-50 mb-4">
+    <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
+      <i class="far fa-bell"></i>
     </div>
-    <div class="text-center text-white text-sm">Perfil</div>
-  {{/link-to}}
+    <div class="text-center text-white text-sm">
+      Monitor
+    </div>
+  </button>
   {{#link-to 'feed' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
       <i class="far fa-comments"></i>
@@ -18,24 +20,18 @@
     </div>
     <div class="text-center text-white text-sm">Grupos</div>
   {{/link-to}}
-  <button {{action "toggleSharing"}} class="block opacity-50 no-underline mb-4">
+  <button class="block opacity-50 no-underline mb-4">
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
       <i class="far fa-share-square"></i>
     </div>
     <div class="text-center text-white text-sm">Publicar</div>
   </button>
-  <button {{action "toggleSubsidebar"}} class="block opacity-50 no-underline mb-4">
+  <button {{action "toggleSubsidebar" "anime"}} class="block {{if (eq currentRouteName "anime") "opacity-75" "opacity-50"}} mb-4">
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
       <i class="fas fa-film"></i>
     </div>
     <div class="text-center text-white text-sm">Anime</div>
   </button>
-  {{!-- {{#link-to 'anime' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
-    <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-film"></i>
-    </div>
-    <div class="text-center text-white text-sm">Anime</div>
-  {{/link-to}} --}}
   {{#link-to 'manga' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
       <i class="fas fa-book"></i>
@@ -58,7 +54,7 @@
 
 <!-- User / subsidebar -->
 {{#if isSubsidebarActive}}
-  {{component 'user-subsidebar'}}
+  {{component 'user-subsidebar' activeSection=activeSection}}
 {{/if}}
 
 {{#if isSharing}}
