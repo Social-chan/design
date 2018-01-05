@@ -2,34 +2,79 @@
   {{component 'user-header'}}
 
   <div class="flex">
-    <div class="w-1/4 pr-4">
+    <div class="w-1/4 pr-4 hidden lg:block">
       <div class="bg-white rounded shadow p-4 mb-3">
         <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">Nombre</p>
+          <p class="text-black group-hover:text-white mb-1">
+            Nombre
+          </p>
           <p class="text-grey-darker group-hover:text-white">
             John Doe
           </p>
         </div>
         <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">Bio</p>
+          <p class="text-black group-hover:text-white mb-1">
+            Bio
+          </p>
           <p class="text-grey-darker group-hover:text-white">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit quae, impedit architecto aliquid inventore vitae...
           </p>
         </div>
         <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">País</p>
+          <p class="text-black group-hover:text-white mb-1">
+            País
+          </p>
           <p class="text-grey-darker group-hover:text-white">
             España
           </p>
         </div>
         <div class="">
-          <p class="text-black group-hover:text-white mb-1">Ingreso</p>
+          <p class="text-black group-hover:text-white mb-1">
+            Ingreso
+          </p>
           <p class="text-grey-darker group-hover:text-white">
             21 de diciembre de 2017
           </p>
         </div>
       </div>
       {{component 'ads-square'}}
+      <div class="bg-indigo-dark text-white rounded shadow mb-3">
+        <div class="flex justify-between p-4">
+          <span class="text-lg">
+            Progreso
+          </span>
+          <i class="fas fa-info"></i>
+        </div>
+        <div class="bg-white h-1 w-full">
+          <div class="bg-indigo-darker h-1 w-32"></div>
+        </div>
+        <ul class="flex list-reset text-indigo-darker p-4">
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+          <li class="cursor-pointer mr-2">
+            <i class="fas fa-trophy fa-lg"></i>
+          </li>
+        </ul>
+      </div>
       <div class="bg-white rounded shadow mb-3">
         <ul class="flex items-center list-reset border-b px-3">
           <li class="flex-1 text-indigo-darker text-sm">
@@ -64,45 +109,56 @@
         </ul>
       </div>
     </div>
-    <div class="w-3/4">
+    <div class="w-full lg:w-3/4">
       <div class="w-full lg:flex mb-4">
         <div class="border border-grey-light bg-white rounded shadow flex flex-col justify-between leading-normal">
           <div class="flex flex-wrap p-4">
-            <div class="w-1/5 px-4">
-              <img src="img/mockup/anime_cover01.jpg" class="w-full" alt="">
+            <div class="relative w-1/2 lg:w-1/5 bg-no-repeat bg-cover bg-center" style="background-image:url(img/mockup/anime_cover01.jpg)">
+              <div class="absolute pin-x pin-b w-full bg-smoke-light text-yellow text-center">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
             </div>
-            <div class="w-4/5 relative">
-              <p class="text-sm text-grey-dark flex items-center">
+            <div class="w-1/2 lg:w-4/5 px-4">
+              <span class="text-sm text-grey-dark">
                 <i class="fas fa-heart mr-2"></i>
-                Recomendó ver
-                <a href="#" class="no-underline font-medium text-grey-dark ml-1">
+                Ha escrito su opinión sobre
+                <a href="#" class="no-underline font-medium text-grey-dark">
                   Steins;Gate
                 </a>
-              </p>
+              </span>
               <p class="text-grey-darker text-base mt-2">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
                 eaque, exercitationem praesentium nihil.
               </p>
 
-              <div class="absolute pin-b w-full flex items-center justify-between mt-4">
+              <div class="w-full flex items-center justify-between mt-4">
                 <div class="flex items-center mr-auto">
                   <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
                   <div class="text-sm">
-                    <p class="text-black leading-none">jdoe</p>
-                    <p class="text-grey-dark text-xs">hace 10 horas</p>
+                    <a href="#" class="text-indigo-darkest no-underline">
+                      jdoe
+                    </a>
+                    <p class="text-grey-dark text-xs">
+                      hace 10 horas
+                    </p>
                   </div>
                 </div>
-                <div>
-                  <div class="w-full text-yellow">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                <div class="flex items-center text-grey-dark text-xs">
+                  <div class="text-sm text-right">
+                    <a href="#" class="text-indigo-darkest no-underline">
+                      1 kokoro
+                    </a>
+                    <p class="text-grey-dark text-xs">
+                      3 comentarios
+                    </p>
                   </div>
-                  <div class="text-sm">
-                    3 comentarios
-                  </div>
+                  <button class="bg-indigo-dark hover:bg-indigo-darker text-white rounded-full p-3 ml-3">
+                    <i class="fas fa-heart fa-lg"></i>
+                  </button>
                 </div>
               </div>
             </div>

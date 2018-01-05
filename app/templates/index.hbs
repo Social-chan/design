@@ -1,9 +1,9 @@
 <div class="bg-indigo-light py-8">
   <div class="container mx-auto">
-    <div class="flex flex-wrap -mx-2 py-8 text-white">
-      <div class="w-1/2 mx-auto pl-8">
-        <form class="w-full max-w-md">
-          <div class="-mx-3 md:flex mb-6">
+    <div class="flex flex-wrap py-8 text-white">
+      <div class="w-full md:w-1/2 mx-auto">
+        <form class="w-full md:max-w-md">
+          <div class="md:flex mb-6">
             <div class="md:w-1/2 px-3 mb-6 md:mb-0">
               <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
                 Nombre
@@ -17,7 +17,7 @@
               <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4 mb-3" id="grid-last-name" type="text" placeholder="Hatsune">
             </div>
           </div>
-          <div class="-mx-3 md:flex mb-6">
+          <div class="md:flex mb-6">
             <div class="md:w-full px-3">
               <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-user-email">
                 Email
@@ -25,7 +25,7 @@
               <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4" id="grid-user-email" type="email" placeholder="miku@vocaloid.moe">
             </div>
           </div>
-          <div class="-mx-3 md:flex mb-6">
+          <div class="md:flex mb-6">
             <div class="md:w-full px-3">
               <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-user-name">
                 Nombre de usuario
@@ -33,7 +33,7 @@
               <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4" id="grid-user-name" type="text" placeholder="@miku">
             </div>
           </div>
-          <div class="-mx-3 md:flex mb-6">
+          <div class="md:flex mb-6">
             <div class="md:w-full px-3">
               <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
                 Contraseña
@@ -41,12 +41,14 @@
               <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4 mb-3" id="grid-password" type="password" placeholder="Mi waifu secreta... woops!">
             </div>
           </div>
-          <button class="bg-indigo-dark w-full text-white border-b-4 border-indigo-darker rounded font-semibold px-2 py-3">
-            Crear cuenta
-          </button>
-          <p class="text-white text-xs mt-3">
-            Al crear cuenta en este sitio estas aceptando los <a href="#" class="text-indigo-darker">Términos y condiciones</a> del mismo.
-          </p>
+          <div class="px-3">
+            <button class="bg-indigo-dark w-full text-white border-b-4 border-indigo-darker rounded font-semibold px-2 py-3">
+              Crear cuenta
+            </button>
+            <p class="text-white text-xs mt-3">
+              Al crear cuenta en este sitio estas aceptando los <a href="#" class="text-indigo-darker">Términos y condiciones</a> del mismo.
+            </p>
+          </div>
         </form>
       </div>
     </div>
