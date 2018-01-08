@@ -15,29 +15,31 @@
       {{/link-to}}
     </div>
     <div class="hidden md:flex md:items-center lg:w-auto">
-      {{#if user.current}}
-      <div class="flex text-sm">
+      {{!-- <div class="flex text-sm">
         <a href="#" class="no-underline block mt-4 lg:inline-block text-base lg:mt-0 text-indigo-lighter hover:text-white mr-4">
           Inicio
         </a>
-      </div>
-      {{#link-to 'user' class="no-underline bg-indigo-darker text-white rounded-full flex items-center py-2 px-2 mx-2"}}
-        <img class="w-6 h-6 rounded-full mr-2" src="{{ user.current.avatar }}" alt="">
-        <span class="mr-1 text-sm">
-          {{ user.current.name }}
-        </span>
-      {{/link-to}}
-      <button class="bg-indigo-darker text-white rounded-full flex items-center py-3 px-3">
-        <i class="fas fa-sign-out-alt"></i>
-      </button>
+      </div> --}}
+      {{#if session.isAuthenticated}}
+        {{#if auth.account}}
+          {{#link-to 'user' class="no-underline bg-indigo-darker text-white rounded-full flex items-center py-2 px-2 mx-2"}}
+            <img class="w-6 h-6 rounded-full mr-2" src="{{ user.current.avatar }}" alt="">
+            <span class="mr-1 text-sm">
+              {{ model.nickname }}
+            </span>
+          {{/link-to}}
+          <button class="bg-indigo-darker text-white rounded-full flex items-center py-3 px-3">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        {{/if}}
       {{else}}
-      <form action="" class="flex items-center ml-auto">
-        <input class="appearance-none block bg-grey-lighter text-blue-darker border border-blue-dark rounded p-2 mr-3" id="login-user" type="text" placeholder="Nombre de usuario o email">
-        <input class="appearance-none block bg-grey-lighter text-blue-darker border border-blue-dark rounded p-2" id="login-pass" type="password" placeholder="Contraseña">
-        <button class="bg-blue-dark text-white font-bold py-2 px-4 rounded ml-3">
-          Acceder
-        </button>
-      </form>
+        <form {{action "authenticate" on="submit"}} class="flex items-center ml-auto">
+          {{input id="identification" class="appearance-none block bg-grey-lighter text-indigo-darker border border-indigo-dark rounded p-2 mr-3" placeholder="Nombre de usuario o email" value=identification}}
+          {{input id="password" class="appearance-none block bg-grey-lighter text-indigo-darker border border-indigo-dark rounded p-2" type="password" placeholder="Contraseña" value=password}}
+          <button type="submit" class="bg-indigo-darker text-white font-bold py-2 px-4 rounded ml-3">
+            Acceder
+          </button>
+        </form>
       {{/if}}
     </div>
   </div>

@@ -1,9 +1,10 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
+import {inject as service} from '@ember/service';
+import {computed} from '@ember/object';
 
 export default Controller.extend({
-  user: service(),
+  session: service(),
+
   inApp: computed('currentRouteName', function () {
     if (this.get('currentRouteName') === 'login'
     || this.get('currentRouteName') === 'index') {
@@ -18,5 +19,11 @@ export default Controller.extend({
     }
 
     return false;
-  })
+  }),
+
+  actions: {
+    logout() {
+      this.get('session').invalidate();
+    }
+  }
 });

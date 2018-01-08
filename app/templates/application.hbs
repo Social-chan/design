@@ -15,5 +15,7 @@
 
   {{outlet}}
 
-  {{component 'page-footer'}}
+  {{#if (eq currentRouteName "index")}}
+    {{component 'page-footer'}}
+  {{/if}}
 {{/if}}

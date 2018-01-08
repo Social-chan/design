@@ -1,7 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  name: DS.attr('string'),
-  surname: DS.attr('string'),
-  birthday: DS.attr('date')
+  nickname: DS.attr('string'),
+  active: DS.attr('boolean'),
+  created_at: DS.attr('date'),
+
+  profile: DS.belongsTo('profile'),
+
 });

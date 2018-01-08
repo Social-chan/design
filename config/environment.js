@@ -21,6 +21,12 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    moment: {
+      allowEmpty: true,
+      includeTimezone: 'all',
+      includeLocales: ['es']
     }
   };
 
@@ -30,6 +36,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    ENV.apiHost = 'http://192.168.100.2:8000';
   }
 
   if (environment === 'test') {
@@ -45,6 +53,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.apiHost = 'https://api.social-chan.com';
   }
 
   return ENV;

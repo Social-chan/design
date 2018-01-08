@@ -1,14 +1,17 @@
 import DS from 'ember-data';
-import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
+import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import config from '../config/environment';
+import {underscore} from '@ember/string';
 
-export default DS.JSONAPIAdapter.extend({
-  host: 'https://api.social-chan.com',
-  session: service('session'),
-  headers: computed('session.authToken', function() {
-    return {
-      'API_KEY': this.get('session.authToken'),
-      'API_VERSION': 1
-    };
-  })
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
+  authorizer: 'authorizer:application',
+  host: config.apiHost,
+  headers: {
+    'Content-Type': 'application/json',
+    // 'API_VERSION': 1
+  },
+
+  pathForType: function(type) {
+    return underscore(type);
+  }
 });
