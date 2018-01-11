@@ -4,8 +4,11 @@ import {task} from 'ember-concurrency';
 
 export default Controller.extend({
   session: service(),
+  isPage: true,
 
   authenticate: task(function* () {
+    const { identification, password } = this.getProperties('identification', 'password');
+
     yield this.get('session').authenticate(
       'authenticator:oauth2',
       identification, password,
@@ -15,7 +18,7 @@ export default Controller.extend({
       }
     ).catch((reason) => {
       this.set('errorMessage', reason.error);
-    }).then((response) => {
+    }).then(() => {
       this.transitionTo('feed');
     });
 

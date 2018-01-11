@@ -17,6 +17,12 @@ Router.map(function() {
   this.route('settings');
   this.route('feed');
   this.route('concepts');
+  this.route('cookies');
+  this.route('about');
+  this.route('dmca');
+  this.route('policies');
+  this.route('suscribe');
+  this.route('contact');
 });
 
 export default Router;

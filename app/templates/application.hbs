@@ -1,4 +1,12 @@
-{{#if inApp}}
+{{#if (array-contains pagesInArray currentRouteName)}}
+  {{#if (not-eq currentRouteName "login")}}
+    {{component 'header-navbar' user=user}}
+    {{outlet}}
+    {{component 'page-footer'}}
+  {{else}}
+    {{outlet}}
+  {{/if}}
+{{else}}
   <div class="font-sans antialiased h-screen flex overflow-hidden">
     {{component 'user-sidebar' class="flex h-full" currentRouteName=currentRouteName}}
 
@@ -8,14 +16,4 @@
 
     {{component 'side-bar' class="h-full"}}
   </div>
-{{else}}
-  {{#if isHeaderpage}}
-    {{component 'header-navbar' user=user}}
-  {{/if}}
-
-  {{outlet}}
-
-  {{#if (eq currentRouteName "index")}}
-    {{component 'page-footer'}}
-  {{/if}}
 {{/if}}
