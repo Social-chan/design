@@ -11,7 +11,10 @@ Router.map(function() {
   this.route('manga');
   this.route('groups');
   this.route('login');
-  this.route('user');
+  this.route('user', function () {
+    this.route('index', { path: '/' });
+    this.route('user', { path: '/user/:id' });
+  });
   this.route('list');
   this.route('music');
   this.route('settings');
@@ -23,6 +26,7 @@ Router.map(function() {
   this.route('policies');
   this.route('suscribe');
   this.route('contact');
+  this.route('not-found', { path: '/*path' });
 });
 
 export default Router;

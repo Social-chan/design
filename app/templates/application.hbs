@@ -2,7 +2,7 @@
   {{#if (not-eq currentRouteName "login")}}
     {{component 'header-navbar' user=user}}
     {{outlet}}
-    {{component 'page-footer'}}
+    {{component 'page-footer' class="pt-8"}}
   {{else}}
     {{outlet}}
   {{/if}}

@@ -4,8 +4,20 @@ import {inject as service} from '@ember/service';
 
 export default Route.extend(ApplicationRouteMixin, {
   moment: service(),
+  session: service(),
+  currentUser: service(),
 
   beforeModel() {
     this.get('moment').setLocale('es');
+    this._loadCurrentUser();
+  },
+
+  sessionAuthenticated() {
+    this._super(...arguments);
+    this._loadCurrentUser();
+  },
+
+  _loadCurrentUser() {
+    return this.get('currentUser').load().catch(() => this.get('session').invalidate());
   }
 });

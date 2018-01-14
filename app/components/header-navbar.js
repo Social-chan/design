@@ -3,6 +3,7 @@ import {inject as service} from '@ember/service';
 
 export default Component.extend({
   session: service(),
+  currentUser: service(),
 
   actions: {
     authenticate() {
@@ -15,6 +16,10 @@ export default Component.extend({
           'Content-Type': 'application/x-www-form-urlencoded',
         }
       );
+    },
+
+    logout() {
+      this.get('session').invalidate();
     }
   }
 });
