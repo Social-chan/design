@@ -13,7 +13,8 @@ Router.map(function() {
   this.route('login');
   this.route('user', function () {
     this.route('index', { path: '/' });
-    this.route('user', { path: '/user/:id' });
+    this.route('show', { path: '/:user_id' });
+    this.route('groups');
   });
   this.route('list');
   this.route('music');
