@@ -1,5 +1,6 @@
 import Service from '@ember/service';
 import {inject as service} from '@ember/service';
+import RSVP from 'rsvp';
 
 export default Service.extend({
   session: service(),
@@ -10,6 +11,8 @@ export default Service.extend({
       return this.get('store').queryRecord('user', {}).then((user) => {
         this.set('data', user);
       });
+    } else {
+      return RSVP.resolve();
     }
   }
 });
