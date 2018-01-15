@@ -9,7 +9,9 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('anime');
   this.route('manga');
-  this.route('groups');
+  this.route('group', function() {
+    this.route('found');
+  });
   this.route('login');
   this.route('user', function () {
     this.route('index', { path: '/' });

@@ -16,7 +16,7 @@
       Muro
     </div>
   {{/link-to}}
-  {{#link-to 'groups' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
+  {{#link-to 'group' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
       <i class="fas fa-users"></i>
     </div>
@@ -68,7 +68,7 @@
 
 <!-- User / subsidebar -->
 {{#if isSubsidebarActive}}
-  {{component 'user-subsidebar' activeSection=activeSection}}
+  {{component 'left-sub-sidebar' activeSection=activeSection}}
 {{/if}}
 
 <div class="fixed pin-b pin-l bg-indigo-darkest text-white rounded ml-2 mb-2 p-4 z-50 block md:hidden">

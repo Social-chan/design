@@ -14,4 +14,8 @@ a {
   @apply .no-underline .text-indigo-dark;
 }
 
+.mr-9 {
+  margin-right: 7rem;
+}
+
 @tailwind utilities;

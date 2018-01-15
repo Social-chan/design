@@ -8,12 +8,13 @@
   {{/if}}
 {{else}}
   <div class="font-sans antialiased h-screen flex overflow-hidden">
-    {{component 'user-sidebar' class="flex h-full" currentRouteName=currentRouteName}}
+    {{component 'left-sidebar' class="flex h-full" currentRouteName=currentRouteName}}
 
     <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('img/landing/img02.jpg')">
       {{outlet}}
     </div>
 
-    {{component 'side-bar' class="h-full"}}
+    {{component 'user-chat' class="fixed pin-b pin-r mr-9 z-50 hidden md:block"}}
+    {{component 'right-sidebar' class="h-full"}}
   </div>
 {{/if}}

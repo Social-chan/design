@@ -816,7 +816,7 @@ module.exports = {
     resize: [],
     shadows: ['hover'],
     svgFill: [],
-    svgStroke: false,
+    svgStroke: [],
     textAlign: [],
     textColors: ['hover', 'group-hover'],
     textSizes: ['responsive'],

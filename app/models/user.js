@@ -7,6 +7,7 @@ export default DS.Model.extend({
   session: service(),
 
   nickname: DS.attr('string'),
+  email: DS.attr('string'),
   active: DS.attr('boolean'),
   created_at: DS.attr('date'),
 
@@ -15,6 +16,7 @@ export default DS.Model.extend({
   isLoggedIn: computed('id', 'session.user.id', function () {
     return this.get('id') === this.get('session.user.id');
   }),
-  isActive: equal('active', true)
+  isActive: equal('active', true),
+  // isSuscriber: equal('role.suscriber')
 
 });
