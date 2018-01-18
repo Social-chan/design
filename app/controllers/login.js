@@ -1,10 +1,9 @@
 import Controller from '@ember/controller';
-import {inject as service} from '@ember/service';
-import {task} from 'ember-concurrency';
+import { inject as service } from '@ember/service';
+import { task } from 'ember-concurrency';
 
 export default Controller.extend({
   session: service(),
-  isPage: true,
 
   authenticate: task(function* () {
     const { identification, password } = this.getProperties('identification', 'password');
@@ -19,9 +18,10 @@ export default Controller.extend({
     ).catch((reason) => {
       this.set('errorMessage', reason.error);
     }).then(() => {
+      // TODO: GA metrics event
+      // get(this, 'metrics').trackEvent(metrics);
       this.transitionTo('feed');
     });
-
 
   }).drop(),
 

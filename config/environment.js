@@ -27,7 +27,25 @@ module.exports = function(environment) {
       allowEmpty: true,
       includeTimezone: 'all',
       includeLocales: ['es']
-    }
+    },
+
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['production'],
+        config: {
+          id: 'UA-46471023-1',
+          // Use `analytics_debug.js` in development
+          debug: environment === 'development',
+          // Use verbose tracing of GA events
+          trace: environment === 'development',
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development',
+          // Specify Google Analytics plugins
+          require: []
+        }
+      },
+    ],
   };
 
   if (environment === 'development') {
