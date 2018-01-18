@@ -5,35 +5,35 @@
     <div class="w-1/4 pr-4 hidden lg:block">
       <div class="bg-white rounded shadow p-4 mb-3">
         <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">
+          <p class="text-black mb-1">
             Nombre
           </p>
-          <p class="text-grey-darker group-hover:text-white">
-            {{currentUser.data.profile.name}} {{currentUser.data.profile.surname}}
+          <p class="text-grey-darker">
+            {{model.profile.name}} {{currentUser.data.profile.surname}}
           </p>
         </div>
         <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">
+          <p class="text-black mb-1">
             Bio
           </p>
-          <p class="text-grey-darker group-hover:text-white">
-            {{currentUser.data.profile.bio}}
+          <p class="text-grey-darker">
+            {{model.profile.bio}}
           </p>
         </div>
         <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">
+          <p class="text-black mb-1">
             País
           </p>
-          <p class="text-grey-darker group-hover:text-white">
-            España
+          <p class="text-grey-darker">
+            {{model.profile.country}}
           </p>
         </div>
         <div class="">
-          <p class="text-black group-hover:text-white mb-1">
+          <p class="text-black mb-1">
             Ingreso
           </p>
-          <p class="text-grey-darker group-hover:text-white">
-            {{moment-format model.created_at 'LL'}}
+          <p class="text-grey-darker">
+            {{moment-format currentUser.data.created_at 'LL'}}
           </p>
         </div>
       </div>

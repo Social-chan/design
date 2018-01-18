@@ -2,7 +2,11 @@
 <div class="bg-indigo-darkest flex-none p-4 h-full select-none scrolling-auto overflow-auto z-50 hidden md:block">
   <button {{action "toggleSubsidebar" "monitor"}} class="block opacity-50 mb-4">
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="far fa-bell"></i>
+      <span class="fa-layers">
+        <i class="far fa-bell"></i>
+        <i class="fa fa-circle fa-inverse" data-fa-transform="shrink-5 up-5 right-3.5"></i>
+        <i class="fa fa-circle text-red fill-current" data-fa-transform="shrink-8 up-5 right-3.5"></i>
+      </span>
     </div>
     <div class="text-center text-white text-sm">
       Monitor

@@ -46,6 +46,10 @@ module.exports = function(environment) {
         }
       },
     ],
+
+    chatkit: {
+      instanceLocator: '',
+    },
   };
 
   if (environment === 'development') {
