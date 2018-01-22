@@ -1,7 +1,11 @@
 import Controller from '@ember/controller';
-import {inject as service} from '@ember/service';
+// import Ember from 'ember';
+// import {computed} from '@ember/object';
 
 export default Controller.extend({
-  session: service(),
-  currentUser: service()
+  // appController: Ember.inject.controller('application'),
+
+  // currentRouteName: computed(function () {
+  //   return this.get('appController.currentRouteName')
+  // })
 });

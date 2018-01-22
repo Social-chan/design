@@ -31,14 +31,21 @@ Router.map(function() {
     this.route('found');
   });
   this.route('login');
-  this.route('user', function () {
-    this.route('index', { path: '/' });
-    this.route('show', { path: '/:user_id' });
+  this.route('user', { path: '/user/:user_id' }, function () {
+    this.route('posts', { path: '/' });
     this.route('groups');
+    this.route('followers');
+    this.route('follows');
+    this.route('anime');
+    this.route('manga');
+    this.route('music');
   });
   this.route('list');
   this.route('music');
-  this.route('settings');
+  this.route('settings', function() {
+    this.route('privacy');
+    this.route('removal');
+  });
   this.route('feed');
   this.route('concepts');
   this.route('cookies');

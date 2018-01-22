@@ -119,11 +119,9 @@
       </div>
     </div>
     <div class="w-full lg:w-3/4 px-3">
-      {{component 'user-post'}}
-      {{component 'user-post'}}
-      {{component 'user-post'}}
-      {{component 'user-post'}}
-      {{component 'user-post'}}
+      {{#each model as |post|}}
+        {{user-post post=post}}
+      {{/each}}
     </div>
   </div>
 </div>

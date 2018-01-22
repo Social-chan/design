@@ -1,10 +1,11 @@
 import SessionService from 'ember-simple-auth/services/session';
+import {inject as service} from '@ember/service';
 import {computed} from '@ember/object';
 
 export default SessionService.extend({
-  // store: service(),
+  store: service(),
 
   user: computed(function () {
-    return this.get('store').findAll('user');
+    return this.get('store').queryRecord('user', {})
   })
 })

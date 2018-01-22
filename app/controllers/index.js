@@ -19,7 +19,7 @@ export default Controller.extend({
     yield user.save().catch((reason) => {
       this.set('errorMessage', reason.error);
     }).then(() => {
-      this.transitionTo('login');
+      this.transitionToRoute('login');
     });
   }).drop(),
 

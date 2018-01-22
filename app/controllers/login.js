@@ -20,7 +20,7 @@ export default Controller.extend({
     }).then(() => {
       // TODO: GA metrics event
       // get(this, 'metrics').trackEvent(metrics);
-      this.transitionTo('feed');
+      this.transitionToRoute('feed');
     });
 
   }).drop(),
