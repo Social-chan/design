@@ -1,7 +1,7 @@
 import DS from 'ember-data';
-import {inject as service} from '@ember/service';
-import {computed} from '@ember/object';
-import {equal} from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { equal } from '@ember/object/computed';
 
 export default DS.Model.extend({
   session: service(),

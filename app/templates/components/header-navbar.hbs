@@ -21,7 +21,7 @@
         </a>
       </div> --}}
       {{#if session.isAuthenticated}}
-        {{#link-to 'user' class="no-underline bg-indigo-darker text-white rounded-full flex items-center py-2 px-2 mx-2"}}
+        {{#link-to 'user' session.user.id class="no-underline bg-indigo-darker text-white rounded-full flex items-center py-2 px-2 mx-2"}}
           <img class="w-6 h-6 rounded-full mr-2" src="{{ session.user.profile.avatar }}" alt="">
           <span class="mr-1 text-sm">
             {{ session.user.nickname }}
