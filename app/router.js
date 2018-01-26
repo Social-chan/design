@@ -29,6 +29,7 @@ Router.map(function() {
   this.route('manga');
   this.route('group', function() {
     this.route('found');
+    this.route('show', { path: '/:group_id' });
   });
   this.route('login');
   this.route('user', { path: '/user/:user_id' }, function () {

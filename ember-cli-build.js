@@ -28,6 +28,9 @@ module.exports = function(defaults) {
           require('tailwindcss')('./tailwind.js'),
         ]
       }
+    },
+    '@ember-decorators/babel-transforms': {
+      disable: false
     }
   });
 

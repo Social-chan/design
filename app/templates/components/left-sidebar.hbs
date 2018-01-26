@@ -1,8 +1,12 @@
+<div class="hidden md:block px-2">
+  <div class="w-16"></div>
+</div>
+
 <!-- User / Nav sidebar -->
-<div class="absolute bg-indigo-darkest flex-none p-4 h-full select-none scrolling-auto overflow-x-scroll z-50 hidden md:block">
+<div id="nav-sidebar" class="absolute bg-indigo-darkest flex-none p-4 h-full select-none scrolling-auto overflow-x-scroll z-50 hidden md:block">
   {{#link-to 'user' session.user.id class="block opacity-75 no-underline mb-4"}}
     <div class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <img src="{{ session.user.profile.avatar }}" alt="">
+      <img class="bg-grey" src="{{ session.user.profile.avatar }}" alt="">
     </div>
     <div class="text-center text-white text-sm">
       Perfil
@@ -76,11 +80,27 @@
       Listas
     </div>
   {{/link-to}}
+  <button class="block opacity-50 mb-4">
+    <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="text-center text-white text-sm">
+      Buscar
+    </div>
+  </button>
+  {{#link-to 'concepts' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
+    <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
+      <i class="fas fa-binoculars"></i>
+    </div>
+    <div class="text-center text-white text-sm">
+      Next
+    </div>
+  {{/link-to}}
 </div>
 
 <!-- User / subsidebar -->
 {{#if isSubsidebarActive}}
-  {{component 'left-sub-sidebar' activeSection=activeSection}}
+  {{component 'left-sub-sidebar' class="absolute h-full" activeSection=activeSection}}
 {{/if}}
 
 <div class="fixed pin-b pin-l bg-indigo-darkest text-white rounded ml-2 mb-2 p-4 z-50 block md:hidden">

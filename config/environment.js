@@ -50,6 +50,12 @@ module.exports = function(environment) {
     chatkit: {
       instanceLocator: '',
     },
+
+    emberAttacher: {
+      tooltipClass: '',
+      animation: 'shift',
+      arrow: true
+    }
   };
 
   if (environment === 'development') {

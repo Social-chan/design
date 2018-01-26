@@ -1,5 +1,7 @@
 @tailwind preflight;
 
+@tailwind utilities;
+
 html { @apply .h-screen; }
 
 body {
@@ -19,4 +21,7 @@ div.absolute::-webkit-scrollbar {
   width: 0;
 }
 
-@tailwind utilities;
+.ember-attacher-tooltip > div[x-arrow] {
+  @apply .bg-white .shadow !important;
+  border-color: transparent transparent #fff #fff !important;
+}

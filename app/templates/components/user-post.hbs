@@ -10,7 +10,7 @@
   </div>
   <div class="w-full flex items-center justify-between mt-4">
     {{#link-to 'user' post.author.id class="inline-flex items-center"}}
-      <img class="w-10 h-10 rounded-full mr-3" src="{{post.author.profile.avatar}}" alt="avatar de {{post.author.nickname}}">
+      <img class="w-10 h-10 bg-grey rounded-full mr-3" src="{{post.author.profile.avatar}}">
       <div class="text-sm">
         <p class="leading-none">
           {{post.author.nickname}}
@@ -19,16 +19,30 @@
           {{moment-from-now post.created_at}}
         </p>
       </div>
+      {{#attach-tooltip class="max-w-xs bg-white rounded-lg shadow p-0" showDelay=300 lazyRender=true interactive=true}}
+        <img src="{{post.author.profile.bg_image}}" class="w-full rounded-t-lg" />
+        <div class="flex justify-center -mt-6">
+          <img src="{{post.author.profile.avatar}}" class="w-16 h-16 rounded-full border-solid border-white border-2 -mt-3">
+        </div>
+        <div class="text-center px-3 pb-6 pt-2">
+          <h3 class="text-black font-normal font-sans">
+            {{post.author.nickname}}
+          </h3>
+          <p class="mt-2 font-sans font-light text-sm text-grey-dark">
+            {{post.author.profile.bio}}
+          </p>
+        </div>
+      {{/attach-tooltip}}
     {{/link-to}}
     <div class="flex items-center text-grey-dark text-xs ml-auto">
-      <div class="text-sm text-right">
-        <a href="#" class="text-indigo-darkest no-underline">
-          1 kokoro
-        </a>
-        <p class="text-grey-dark text-xs">
-          3 comentarios
+      <a href="#" class="text-sm text-right">
+        <p class="leading-none">
+          0 kokoros
         </p>
-      </div>
+        <p class="text-grey-dark">
+          0 comentarios
+        </p>
+      </a>
       <button class="bg-indigo-dark hover:bg-indigo-darker text-white rounded-full p-3 ml-3">
         <i class="fas fa-heart fa-lg"></i>
       </button>
