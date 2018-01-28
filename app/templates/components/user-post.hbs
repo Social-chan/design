@@ -1,14 +1,33 @@
-<div class="bg-white border border-grey-light rounded shadow flex flex-col justify-between leading-normal p-4 mb-3">
-  <div class="mb-8">
-    <p class="text-sm text-grey-dark flex items-center">
-      <i class="fas fa-comment mr-2"></i>
-      Ha creado una <a href="#" class="no-underline font-medium text-grey-dark ml-1">publicación</a>
-    </p>
+<div class="bg-white rounded shadow flex flex-col justify-between leading-normal mb-3">
+  <div class="p-4">
+    <div class="text-sm text-grey-dark flex items-center">
+      <div class="mr-auto">
+        <i class="fas fa-comment mr-2"></i>
+        Ha creado una <a href="#" class="no-underline font-medium text-grey-dark ml-1">publicación</a>
+      </div>
+      <a class="text-grey-dark" href="#">
+        <i class="fas fa-ellipsis-h fill-current"></i>
+        {{#attach-tooltip class="flex flex-col max-w-xs bg-white rounded shadow text-sm text-left text-black p-0" showDelay=300 lazyRender=true interactive=true}}
+          <div class="rounded-t hover:bg-indigo hover:text-white cursor-pointer p-2">
+            <i class="fas fa-edit fa-fw"></i>
+            Editar
+          </div>
+          <div class="hover:bg-indigo hover:text-white cursor-pointer p-2">
+            <i class="fas fa-flag fa-fw"></i>
+            Reportar
+          </div>
+          <div class="rounded-b hover:bg-indigo hover:text-white cursor-pointer p-2">
+            <i class="far fa-trash-alt fa-fw"></i>
+            Eliminar
+          </div>
+        {{/attach-tooltip}}
+      </a>
+    </div>
     <p class="text-grey-darkest text-base mt-2">
       {{post.content}}
     </p>
   </div>
-  <div class="w-full flex items-center justify-between mt-4">
+  <div class="w-full flex items-center justify-between p-4">
     {{#link-to 'user' post.author.id class="inline-flex items-center"}}
       <img class="w-10 h-10 bg-grey rounded-full mr-3" src="{{post.author.profile.avatar}}">
       <div class="text-sm">
@@ -20,32 +39,52 @@
         </p>
       </div>
       {{#attach-tooltip class="max-w-xs bg-white rounded-lg shadow p-0" showDelay=300 lazyRender=true interactive=true}}
-        <img src="{{post.author.profile.bg_image}}" class="w-full rounded-t-lg" />
-        <div class="flex justify-center -mt-6">
-          <img src="{{post.author.profile.avatar}}" class="w-16 h-16 rounded-full border-solid border-white border-2 -mt-3">
-        </div>
-        <div class="text-center px-3 pb-6 pt-2">
-          <h3 class="text-black font-normal font-sans">
-            {{post.author.nickname}}
-          </h3>
-          <p class="mt-2 font-sans font-light text-sm text-grey-dark">
-            {{post.author.profile.bio}}
-          </p>
-        </div>
+        {{component 'user/user-hovercard' user=post.author}}
       {{/attach-tooltip}}
     {{/link-to}}
     <div class="flex items-center text-grey-dark text-xs ml-auto">
-      <a href="#" class="text-sm text-right">
+      <a {{action "toggleActive"}} href="#" class="text-sm text-right">
         <p class="leading-none">
-          0 kokoros
+          {{post.kokoros_count}} kokoros
         </p>
         <p class="text-grey-dark">
-          0 comentarios
+          {{post.comments_count}} comentarios
         </p>
       </a>
-      <button class="bg-indigo-dark hover:bg-indigo-darker text-white rounded-full p-3 ml-3">
-        <i class="fas fa-heart fa-lg"></i>
-      </button>
+      {{component 'kokoro-button' post=post isKokored=post.kokored}}
     </div>
   </div>
+  {{#if isActive}}
+    <div class="bg-grey-lighter rounded-b p-4">
+      <div class="flex flex-col text-grey-darkest text-sm">
+        <div class="flex mb-3">
+          <div class="w-24 content-center">
+            <img class="w-8 h-8 rounded-full" src="/img/socialchan.jpg">
+          </div>
+          <div>
+            <span class="flex font-medium">
+              <a class="mr-auto" href="#">
+                socialchan
+              </a>
+              <span class="text-grey-dark font-normal">
+                hace 2 horas
+                <a class="text-grey-dark font-normal ml-2" href="#">
+                  <i class="fas fa-ellipsis-h fill-current"></i>
+                </a>
+              </span>
+            </span>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, deserunt praesentium? Alias, modi voluptas quaerat pariatur ipsa placeat aperiam officiis praesentium dolore nostrum quod ducimus molestias? Adipisci porro reprehenderit quaerat.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex mt-2">
+        <div class="w-12 content-center">
+          <img class="w-8 h-8 rounded-full" src="{{session.user.profile.avatar}}">
+        </div>
+        <input type="text" class="w-full appearance-none border border-grey-dark p-2" placeholder="Escribe un comentario...">
+      </div>
+    </div>
+  {{/if}}
 </div>

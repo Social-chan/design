@@ -1,17 +1,25 @@
-{{!-- <div class="flex items-center bg-indigo-dark hover:bg-indigo w-64 rounded-t shadow-inner text-white text-sm py-2 px-4 cursor-pointer">
-  <span class="w-8 h-8 fa-layers mr-3">
-    <img class="rounded-full" src="/img/user_default.jpg" alt="">
-    <i class="fa fa-circle fa-inverse" data-fa-transform="shrink-1 down-12 right-10"></i>
-    <i class="fa fa-circle fa-sm text-green fill-current" data-fa-transform="shrink-2 down-13 right-11"></i>
-  </span>
-  <div>
-    Global Test
-    <span class="block text-xs">
-      online
-    </span>
-  </div>
-</div> --}}
 <div class="w-16 h-16 cursor-pointer bg-indigo rounded-full p-1">
-  <img class="rounded-full" src="/img/user_default.jpg" alt="">
+  <img class="rounded-full" src="/img/user_default.jpg">
+  {{#attach-popover class="max-w-xs bg-white border border-indigo-dark rounded-lg shadow p-0" animation="fill" showOn="click" hideOn="click" arrow=false as |attacher|}}
+    <div {{action attacher.hide}} class="flex items-center bg-indigo-dark hover:bg-indigo rounded-t-lg text-white text-sm py-2 px-4 cursor-pointer">
+      <img class="w-8 h-8 rounded-full mr-3" src="/img/user_default.jpg">
+      <div>
+        Global Test
+        <span class="block text-xs">
+          <i class="fa fa-circle text-green fill-current"></i>
+          conectado
+        </span>
+      </div>
+    </div>
+    <div class="max-w-xs h-64 flex flex-col bg-grey-light overflow-y-scroll text-sm p-2">
+      <div class="bg-indigo-lightest text-indigo-darkest rounded shadow mb-2 p-2">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
+      <div class="bg-white rounded shadow p-2">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      </div>
+    </div>
+    <input type="text" class="w-full appearance-none rounded-b-lg p-2" placeholder="Escribe un mensaje...">
+  {{/attach-popover}}
 </div>
 {{yield}}

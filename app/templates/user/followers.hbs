@@ -1,1 +1,17 @@
-{{outlet}}
+<div class="bg-white rounded shadow p-4">
+  <ul class="flex flex-col list-reset">
+    {{#each model as |user|}}
+      <li class="flex">
+        {{#link-to 'user' user.id class="w-1/6"}}
+          <img class="w-8 h-8 rounded-full" src="{{user.profile.avatar}}">
+        {{/link-to}}
+        <div class="w-5/6">
+          {{#link-to 'user' user.id}}
+            @{{user.nickname}}
+          {{/link-to}}
+          <p>{{user.profile.bio}}</p>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>

@@ -7,76 +7,32 @@
         </p>
         Invita a todos tus amigos y empieza a compartir anime y manga con ellos.
       </a>
-      <div class="bg-white shadow rounded p-4 mb-3">
-        <p class="text-lg text-indigo-darkest font-bold mb-2">
-          ¿Ves esto muy vacío?
-        </p>
-        <p class="mb-2">
-          Sigue a estos usuarios populares
-        </p>
-        <ul class="list-reset">
-          <li class="inline-flex items-center my-2">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <span>
-              <a href="#" class="no-underline text-black font-bold">
-                John Doe
-              </a>
-              <span class="text-grey-dark text-sm">
-                @jdoe
-              </span>
-              <button class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
-                <i class="fas fa-user-plus"></i>
-                Seguir
-              </button>
-            </span>
-          </li>
-          <li class="inline-flex items-center my-2">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <span>
-              <a href="#" class="no-underline text-black font-bold">
-                Rubén Robles
-              </a>
-              <span class="text-grey-dark text-sm">
-                @d8vjork
-              </span>
-              <button class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
-                <i class="fas fa-user-plus"></i>
-                Seguir
-              </button>
-            </span>
-          </li>
-          <li class="inline-flex items-center my-2">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <span>
-              <a href="#" class="no-underline text-black font-bold">
-                Gabriel Chan
-              </a>
-              <span class="text-grey-dark text-sm">
-                @gabrielpb1
-              </span>
-              <button class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
-                <i class="fas fa-user-plus"></i>
-                Seguir
-              </button>
-            </span>
-          </li>
-          <li class="inline-flex items-center my-2">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <span>
-              <a href="#" class="no-underline text-black font-bold">
-                Rhady Sama
-              </a>
-              <span class="text-grey-dark text-sm">
-                @Dante0611
-              </span>
-              <button class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
-                <i class="fas fa-user-plus"></i>
-                Seguir
-              </button>
-            </span>
-          </li>
-        </ul>
-      </div>
+      {{#if (gt model.populars.length 0)}}
+        <div class="bg-white shadow rounded p-4 mb-3">
+          <p class="text-lg text-indigo-darkest font-bold mb-2">
+            ¿Ves esto muy vacío?
+          </p>
+          <p class="mb-2">
+            Sigue a estos usuarios populares
+          </p>
+          <ul class="list-reset">
+            {{#each model.populars as |user|}}
+              <li class="inline-flex items-center my-2">
+                <img class="w-10 h-10 bg-grey rounded-full mr-3" src="{{user.profile.avatar}}">
+                <span>
+                  <a href="#" class="no-underline text-black font-bold">
+                    {{user.profile.name}} {{user.profile.surname}}
+                  </a>
+                  <span class="text-grey-dark text-sm">
+                    @{{user.nickname}}
+                  </span>
+                  {{component 'user/follow-button' isFollowed=data.following user_id=data.id}}
+                </span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
       {{component 'ads-square'}}
       <div class="bg-white shadow rounded p-4 mb-3">
         <p class="text-lg text-indigo-darkest font-bold mb-2">
@@ -119,7 +75,7 @@
       </div>
     </div>
     <div class="w-full lg:w-3/4 px-3">
-      {{#each model as |post|}}
+      {{#each model.posts as |post|}}
         {{user-post post=post}}
       {{/each}}
     </div>

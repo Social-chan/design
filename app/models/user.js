@@ -9,6 +9,7 @@ export default DS.Model.extend({
   nickname: DS.attr('string'),
   email: DS.attr('string'),
   active: DS.attr('boolean'),
+  following: DS.attr('boolean'),
   created_at: DS.attr('date'),
 
   profile: DS.belongsTo('profile'),

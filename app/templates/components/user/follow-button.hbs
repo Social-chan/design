@@ -1,3 +1,11 @@
-<button class="border border-indigo rounded text-indigo text-sm py-1 px-2">
-  Seguir
-</button>
+{{#if isFollowed}}
+  <button {{action 'toggleFollow' user_id}} class="block bg-transparent hover:bg-red border border-red text-red hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
+    <i class="fas fa-user-times"></i>
+    No seguir
+  </button>
+{{else}}
+  <button {{action 'toggleFollow' user_id}} class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
+    <i class="fas fa-user-plus"></i>
+    Seguir
+  </button>
+{{/if}}
