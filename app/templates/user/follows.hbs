@@ -1,1 +1,20 @@
-{{outlet}}
+<div class="bg-white rounded shadow p-4">
+  <ul class="flex flex-col list-reset">
+    {{#each model as |user|}}
+      <li class="w-full flex items-center">
+        {{#link-to 'user' user.id class="w-16 mr-4"}}
+          <img class="rounded-full" src="{{user.profile.avatar}}">
+        {{/link-to}}
+        <div class="w-full mr-auto">
+          {{#link-to 'user' user.id}}
+            @{{user.nickname}}
+          {{/link-to}}
+          <p>{{user.profile.bio}}</p>
+        </div>
+        {{#if (not user.isLoggedIn)}}
+          {{component 'user/follow-button' class="flex-no-shrink" isFollowed=user.following user_id=user.id}}
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

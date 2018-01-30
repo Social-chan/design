@@ -15,6 +15,9 @@
     </div>
 
     {{component 'user-chat' class="fixed pin-b pin-r mr-8 mb-4 z-50 hidden md:block"}}
-    {{!-- {{component 'right-sidebar' class="h-full"}} --}}
+
+    {{#ember-notify classPrefix="max-w-xs fixed pin-t pin-r mt-4 mr-8 z-40" as |message close|}}
+      <p {{action close}} class="p-3">{{message.text}}</p>
+    {{/ember-notify}}
   </div>
 {{/if}}

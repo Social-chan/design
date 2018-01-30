@@ -27,7 +27,7 @@
     <div class="w-1/4 text-indigo-darker text-lg hidden lg:flex items-center justify-center">
       @{{data.nickname}}
       {{#if (not data.isLoggedIn)}}
-        {{component 'user/follow-button' isFollowed=data.following user_id=data.id class="ml-4"}}
+        {{component 'user/follow-button' size="sm" isFollowed=data.following user_id=data.id class="ml-4"}}
       {{/if}}
     </div>
     <ul class="w-full lg:w-3/4 flex select-none scrolling-touch overflow-auto list-reset px-2">

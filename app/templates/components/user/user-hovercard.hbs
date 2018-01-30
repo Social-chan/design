@@ -1,12 +1,15 @@
-<img src="{{user.profile.bg_image}}" class="w-full rounded-t-lg" />
+<div class="w-full h-24 rounded-t-lg bg-grey bg-cover bg-no-repeat" style="background-image:url('{{user.profile.bg_image}}')"></div>
 <div class="flex justify-center -mt-6">
   <img src="{{user.profile.avatar}}" class="w-16 h-16 rounded-full border-solid border-white border-2 -mt-3">
 </div>
 <div class="text-center px-3 pb-6 pt-2">
   <h3 class="text-black font-normal font-sans">
     {{user.nickname}}
+    {{#if (not user.isLoggedIn)}}
+      {{component 'user/follow-button' isFollowed=user.following user_id=user.id size="xs" class="inline ml-2"}}
+    {{/if}}
   </h3>
-  <p class="mt-2 font-sans font-light text-sm text-grey-dark">
+  <p class="mt-2 font-sans font-light truncate text-sm text-grey-dark">
     {{user.profile.bio}}
   </p>
 </div>

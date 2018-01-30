@@ -3,23 +3,27 @@
 @tailwind utilities;
 
 html { @apply .h-screen; }
+body { @apply .relative .min-h-screen; }
+a { @apply .no-underline .text-indigo-dark; }
 
-body {
-  @apply .relative .min-h-screen;
-}
-
-.table-collapse {
-  border-collapse: collapse;
-}
-
-a {
-  @apply .no-underline .text-indigo-dark;
-}
+.table-collapse { border-collapse: collapse; }
+.break-words { word-break: break-all; }
+.text-shadow { text-shadow: 1px 1px #000; }
 
 div.absolute::-webkit-scrollbar {
   background: transparent;
   width: 0;
 }
+
+.ember-notify {
+  @apply .rounded-lg .text-sm .cursor-pointer .mb-2;
+}
+.ember-notify:hover { @apply .opacity-75; }
+
+.callout.success { @apply .bg-green .text-white; }
+.callout.warning { @apply .bg-red .text-white; }
+.callout.alert { @apply .bg-yellow .text-yellow-darkest; }
+.callout.info { @apply .bg-indigo .text-white; }
 
 .ember-attacher-tooltip > div[x-arrow] {
   @apply .bg-white .shadow !important;

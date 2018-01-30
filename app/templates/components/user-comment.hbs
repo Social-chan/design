@@ -1,0 +1,22 @@
+<div class="flex mb-3">
+  <img class="w-8 h-8 bg-grey rounded-full" src="{{comment.author.profile.avatar}}">
+  <div class="w-full ml-3">
+    <span class="flex font-medium">
+      {{#link-to 'user' comment.author.id}}
+        {{comment.author.nickname}}
+      {{/link-to}}
+      <span class="mr-auto">
+        {{#if isKokored}}
+          <i class="fas fa-heart fill-current text-red ml-1" title="Ha dado kokoro al post"></i>
+        {{/if}}
+      </span>
+      <span class="text-grey-dark font-normal">
+        {{moment-from-now comment.created_at}}
+        <a class="text-grey-dark font-normal ml-2" href="#">
+          <i class="fas fa-ellipsis-h fill-current"></i>
+        </a>
+      </span>
+    </span>
+    <p class="whitespace-normal break-words">{{comment.content}}</p>
+  </div>
+</div>

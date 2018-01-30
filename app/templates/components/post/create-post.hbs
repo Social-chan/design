@@ -1,0 +1,12 @@
+<form {{action "createPost" on="submit"}} class="flex flex-col justify-between bg-white rounded shadow leading-normal p-4 mb-3">
+  {{textarea id="content" value=content rows="4" class="appearance-none bg-grey-lighter text-grey-darker rounded-lg p-3 mb-3"}}
+
+  <div class="flex items-center justify-between">
+    <div class="w-5/6"></div>
+    <div class="w-1/6">
+      <button type="submit" class="bg-indigo w-full text-white border-b-4 border-indigo-dark rounded font-semibold px-1 py-2">
+        Enviar
+      </button>
+    </div>
+  </div>
+</form>
