@@ -1,8 +1,24 @@
 <form {{action "createPost" on="submit"}} class="flex flex-col justify-between bg-white rounded shadow leading-normal p-4 mb-3">
-  {{textarea id="content" value=content rows="4" class="appearance-none bg-grey-lighter text-grey-darker rounded-lg p-3 mb-3"}}
+  {{textarea id="content" value=content rows="4" class="appearance-none bg-grey-lighter text-grey-darker rounded-lg p-3 mb-3" placeholder=placeholder}}
 
   <div class="flex items-center justify-between">
-    <div class="w-5/6"></div>
+    <div class="w-5/6">
+      <button class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
+        <i class="fas fa-camera"></i>
+      </button>
+      <button class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
+        <i class="fab fa-youtube"></i>
+      </button>
+      <button class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
+        <i class="fas fa-link"></i>
+      </button>
+      <button class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
+        <i class="far fa-eye-slash"></i>
+      </button>
+      <button class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-4 py-2">
+        <i class="fas fa-info"></i>
+      </button>
+    </div>
     <div class="w-1/6">
       <button type="submit" class="bg-indigo w-full text-white border-b-4 border-indigo-dark rounded font-semibold px-1 py-2">
         Enviar

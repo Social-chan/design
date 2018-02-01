@@ -17,6 +17,8 @@
         </a>
       </span>
     </span>
-    <p class="whitespace-normal break-words">{{comment.content}}</p>
+    <p class="whitespace-normal break-words">
+      {{markdown-to-html comment.content}}
+    </p>
   </div>
 </div>

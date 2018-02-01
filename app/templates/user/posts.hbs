@@ -1,3 +1,4 @@
-{{#each model as |post|}}
+{{component 'post/create-post' placeholder=(concat "Publicar en el perfil de @" model.user.nickname "...")}}
+{{#each model.posts as |post|}}
   {{user-post post=post}}
 {{/each}}

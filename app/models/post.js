@@ -7,7 +7,6 @@ export default DS.Model.extend({
   session: service(),
 
   content: DS.attr('string'),
-  sticky: DS.attr('boolean'),
   comments_count: DS.attr('number', {
     defaultValue() { return 0; }
   }),
@@ -27,5 +26,8 @@ export default DS.Model.extend({
 
   isKokored: computed('kokored', 'session.user.id', function () {
     return Ember.String.w(this.get('kokored')).indexOf(this.get('session.user.id')) > -1
+  }),
+  isSticky: computed('author.profile.post_id', 'session.profile.post_id', function () {
+    return this.get('author.profile.post_id') == this.get('session.profile.post_id');
   })
 });

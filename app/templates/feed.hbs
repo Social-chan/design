@@ -79,7 +79,7 @@
       </div>
     </div>
     <div class="w-full lg:w-3/4 px-3">
-      {{component 'post/create-post'}}
+      {{component 'post/create-post' placeholder="Publicar algo en mi muro..."}}
       {{#each model.posts as |post|}}
         {{user-post post=post}}
       {{/each}}

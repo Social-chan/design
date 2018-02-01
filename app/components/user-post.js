@@ -5,6 +5,7 @@ import { task } from 'ember-concurrency';
 export default Component.extend({
   session: service(),
   store: service(),
+  ajax: service(),
   isActive: false,
 
   postComment: task(function* () {
@@ -26,6 +27,12 @@ export default Component.extend({
     // TODO: Load comments at once, and no more times
   }).drop(),
 
+  postPin: task(function* () {
+    yield this.get('ajax').post(
+      'post/'+this.get('post.id')+'/sticky'
+    );
+  }).drop(),
+
   actions: {
     toggleActive() {
       this.get('store').query('comment', {
@@ -38,6 +45,10 @@ export default Component.extend({
 
     createComment() {
       this.get('postComment').perform();
+    },
+
+    addPin() {
+      this.get('postPin').perform();
     }
   }
 });

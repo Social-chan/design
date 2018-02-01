@@ -7,14 +7,14 @@
     {{outlet}}
   {{/if}}
 {{else}}
-  <div class="font-sans antialiased h-screen flex overflow-hidden">
+  <div class="inner-application font-sans antialiased h-screen flex overflow-hidden">
     {{component 'left-sidebar' class="flex h-full overflow-hidden" currentRouteName=currentRouteName}}
 
     <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('{{session.user.profile.bg_image}}')">
       {{outlet}}
     </div>
 
-    {{component 'user-chat' class="fixed pin-b pin-r mr-8 mb-4 z-50 hidden md:block"}}
+    {{!-- {{component 'user-chat' class="fixed pin-b pin-r mr-8 mb-4 z-50 hidden md:block"}} --}}
 
     {{#ember-notify classPrefix="max-w-xs fixed pin-t pin-r mt-4 mr-8 z-40" as |message close|}}
       <p {{action close}} class="p-3">{{message.text}}</p>

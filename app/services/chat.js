@@ -53,7 +53,7 @@ export default Service.extend({
         }
       }
     });
-  }).drop(),
+  }).restartable(),
 
   createUser: task(function * () {
       yield request('/user', {

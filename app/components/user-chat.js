@@ -8,6 +8,7 @@ export default Component.extend({
   session: service(),
   isRoomsActive: false,
 
+  // TODO: Auto-init with init()
   // init() {
   //   this._super(...arguments);
   //   // console.log(this.get('session.user.nickname'));

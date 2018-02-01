@@ -48,6 +48,8 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
   app.import('node_modules/pusher-chatkit-client/dist/web/chatkit.js');
   app.import('vendor/shims/chatkit.js');
+  app.import('node_modules/push.js/bin/push.js');
+  app.import('vendor/shims/push.js');
 
   return app.toTree();
 };

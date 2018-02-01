@@ -6,6 +6,7 @@ html { @apply .h-screen; }
 body { @apply .relative .min-h-screen; }
 a { @apply .no-underline .text-indigo-dark; }
 
+body .inner-application { @apply .overflow-hidden; }
 .table-collapse { border-collapse: collapse; }
 .break-words { word-break: break-all; }
 .text-shadow { text-shadow: 1px 1px #000; }

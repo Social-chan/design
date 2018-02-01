@@ -10,4 +10,6 @@ export default DS.Model.extend({
   birthday: DS.attr('date'),
   gender: DS.attr('boolean'),
 
+  sticky: DS.belongsTo('post'),
+
 });
