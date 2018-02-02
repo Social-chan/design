@@ -29,7 +29,7 @@
             {{model.profile.country}}
           </p>
         </div>
-        <div class="">
+        <div class="border-b border-grey-light pb-4 mb-4">
           <p class="text-black mb-1">
             Ingreso
           </p>
@@ -37,6 +37,9 @@
             {{moment-format model.created_at 'LL'}}
           </p>
         </div>
+        {{#if (not model.isLoggedIn)}}
+          {{component 'user/follow-button' size="lg" isFollowed=model.following user_id=model.id addClass="w-full"}}
+        {{/if}}
       </div>
       {{component 'ads-square'}}
       <div class="bg-indigo-dark text-white rounded shadow mb-3">

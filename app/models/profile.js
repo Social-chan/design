@@ -5,8 +5,8 @@ export default DS.Model.extend({
   surname: DS.attr('string'),
   bio: DS.attr('string'),
   avatar: DS.attr('string'),
-  country: DS.attr('string'),
   bg_image: DS.attr('string'),
+  country: DS.attr('string'),
   birthday: DS.attr('date'),
   gender: DS.attr('boolean'),
 

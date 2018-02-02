@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import RSVP from 'rsvp';
+import { get } from '@ember/object';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
@@ -8,8 +9,8 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
     return RSVP.hash({
       user: user,
-      posts: this.get('store').query('post', {
-        author: user.get('id'),
+      posts: get(this, 'store').query('post', {
+        author: get(user, 'id'),
       }),
     });
   },

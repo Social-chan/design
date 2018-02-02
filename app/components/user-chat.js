@@ -16,7 +16,7 @@ export default Component.extend({
   // },
 
   getAllRooms: task(function * () {
-    this.get('chat.currentUser').getAllRooms((rooms) => {
+    yield this.get('chat.currentUser').getAllRooms((rooms) => {
       this.set('rooms', rooms);
       this.toggleProperty('isRoomsActive');
     }, (error) => {
@@ -25,7 +25,7 @@ export default Component.extend({
   }).drop(),
 
   joinRoom: task(function * (room) {
-    this.get('chat.currentUser').joinRoom(room, {
+    yield this.get('chat.currentUser').joinRoom(room, {
       newMessage: (message) => {
         this.get('notify').info(`Received new message: ${message.text}`);
       }

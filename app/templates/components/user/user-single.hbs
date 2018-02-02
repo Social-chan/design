@@ -1,0 +1,14 @@
+<li class="flex w-full items-center mb-4">
+  {{#link-to 'user' user.id class="w-16 mr-4"}}
+    <img class="rounded-full" src="{{user.profile.avatar}}">
+  {{/link-to}}
+  <div class="w-full mr-auto">
+    {{#link-to 'user' user.id}}
+      @{{user.nickname}}
+    {{/link-to}}
+    <p class="text-grey-dark text-sm mt-1">{{user.profile.bio}}</p>
+  </div>
+  {{#if (not user.isLoggedIn)}}
+    {{component 'user/follow-button' class="flex-no-shrink" isFollowed=user.following user_id=user.id}}
+  {{/if}}
+</li>

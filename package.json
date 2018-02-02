@@ -1,10 +1,10 @@
 {
   "name": "socialchan",
-  "version": "2.12.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Small description for socialchan-design goes here",
   "license": "MIT",
-  "author": "",
+  "author": "Social-chan Team",
   "directories": {
     "doc": "doc",
     "test": "tests"

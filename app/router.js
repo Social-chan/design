@@ -29,7 +29,11 @@ Router.map(function() {
   this.route('manga');
   this.route('group', function() {
     this.route('found');
-    this.route('show', { path: '/:group_id' });
+    this.route('show', { path: '/:group_id' }, function () {
+      this.route('posts', { path: '/' });
+      this.route('members');
+      this.route('settings');
+    });
   });
   this.route('login');
   this.route('user', { path: '/user/:user_id' }, function () {
@@ -43,7 +47,7 @@ Router.map(function() {
   });
   this.route('list');
   this.route('music');
-  this.route('settings', function() {
+  this.route('settings', function () {
     this.route('privacy');
     this.route('removal');
   });

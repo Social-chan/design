@@ -16,6 +16,7 @@ export default DS.Model.extend({
   followers: DS.hasMany('user', { inverse: null }),
   follows: DS.hasMany('user', { inverse: null }),
   posts: DS.hasMany('post'),
+  groups: DS.hasMany('group'),
 
   isLoggedIn: computed('id', 'session.user.id', function () {
     return this.get('id') === this.get('session.user.id');

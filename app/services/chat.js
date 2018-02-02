@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import config from '../config/environment';
 import { task } from 'ember-concurrency';
 import request from 'ember-ajax/request';
-import { computed } from '@ember/object';
+// import { computed } from '@ember/object';
 
 export default Service.extend({
   notify: service(),
@@ -46,7 +46,6 @@ export default Service.extend({
       },
       onError: (error) => {
         if (error.statusCode === 404) {
-          console.log(error);
           this.get('createUser').perform();
         } else {
           this.get('notify').error(error.info.error_description);

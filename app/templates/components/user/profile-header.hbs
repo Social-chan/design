@@ -26,9 +26,6 @@
   <div class="flex items-center bg-white rounded-b">
     <div class="w-1/4 text-indigo-darker text-lg hidden lg:flex items-center justify-center">
       @{{data.nickname}}
-      {{#if (not data.isLoggedIn)}}
-        {{component 'user/follow-button' size="sm" isFollowed=data.following user_id=data.id class="ml-4"}}
-      {{/if}}
     </div>
     <ul class="w-full lg:w-3/4 flex select-none scrolling-touch overflow-auto list-reset px-2">
       {{#link-to 'user.posts' class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
@@ -52,8 +49,7 @@
       {{#link-to 'user.music' class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
         Música
       {{/link-to}}
+      {{yield}}
     </ul>
   </div>
 </div>
-
-{{yield}}

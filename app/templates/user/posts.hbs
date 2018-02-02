@@ -1,4 +1,6 @@
-{{component 'post/create-post' placeholder=(concat "Publicar en el perfil de @" model.user.nickname "...")}}
+{{#if model.user.following}}
+  {{component 'post/create-post' placeholder=(concat "Publicar en el perfil de @" model.user.nickname "...")}}
+{{/if}}
 {{#each model.posts as |post|}}
   {{user-post post=post}}
 {{/each}}

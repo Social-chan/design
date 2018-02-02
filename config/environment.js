@@ -67,8 +67,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.apiHost = 'http://192.168.100.2:8000';
-    // ENV.apiHost = 'http://localhost:8000';
+    // ENV.apiHost = 'http://192.168.100.2:8000';
+    ENV.apiHost = 'http://localhost:8000';
 
     ENV.proxyHost = 'http://192.168.100.2:3001';
     ENV.chatkit.tokenProvider = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/47788d05-ce54-4833-8249-dee98c28480f/token?instance_locator=v1:us1:47788d05-ce54-4833-8249-dee98c28480f';
@@ -87,6 +87,10 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // here you can enable a production-specific feature
+    ENV.apiHost = 'https://api.social-chan.com';
+  }
+
+  if (environment === 'next') {
     ENV.apiHost = 'https://api.social-chan.com';
   }
 

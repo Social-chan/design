@@ -5,18 +5,15 @@
         <p class="text-lg text-indigo-darkest font-bold mb-2">
           <i class="fas fa-users"></i> Tus grupos
         </p>
-        <ul class="flex list-reset my-3">
-          <li>
-            <a href="#">
-              <img class="w-10 h-10 rounded-full mr-3" src="/img/user_default.jpg">
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <img class="w-10 h-10 rounded-full mr-3" src="/img/user_default.jpg">
-            </a>
-          </li>
-        </ul>
+        <div class="flex my-3">
+          {{#each model.myGroups as |mygroup|}}
+            <div>
+              {{#link-to 'group.show' mygroup.id}}
+                <img class="w-10 h-10 rounded-full mr-3" src="{{mygroup.image}}">
+              {{/link-to}}
+            </div>
+          {{/each}}
+        </div>
 
         {{#link-to "group.found" class="block w-full bg-indigo text-white text-center border-b-4 border-indigo-dark rounded font-semibold px-1 py-2"}}
           <i class="fab fa-font-awesome-flag fa-fw"></i>
@@ -30,92 +27,21 @@
         <p class="uppercase tracking-wide text-c2 mb-4">
           Categorías
         </p>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-film mr-3"></i>
-          Anime
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-book mr-3"></i>
-          Manga
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-headphones mr-3"></i>
-          Música
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-comments mr-3"></i>
-          Comunidades
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-language mr-3"></i>
-          Fansubs
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-podcast mr-3"></i>
-          Radios
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-coffee mr-3"></i>
-          Fuera de tema
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-paw mr-3"></i>
-          Mascotas
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-desktop mr-3"></i>
-          Tecnología
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-paint-brush mr-3"></i>
-          Artistas
-        </a>
-        <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
-          <i class="fas fa-gamepad mr-3"></i>
-          Juegos
-        </a>
+        {{#each model.groupTypes as |type|}}
+          <a href="#" class="flex border px-4 py-2 text-lg text-grey-darkest">
+            <i class="{{type.icon}} mr-3"></i>
+            {{type.name}}
+          </a>
+        {{/each}}
       </div>
     </div>
     <div class="w-full lg:w-3/4">
       <div class="flex flex-wrap bg-white shadow rounded p-4">
-        <ul class="list-reset">
-          <li class="flex items-center my-2">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <span>
-              <a href="#" class="no-underline text-indigo-dark">
-                Social-chan
-              </a>
-              <button class="block bg-transparent hover:bg-red border border-red text-red hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
-                <i class="fas fa-user-times"></i>
-                Abandonar
-              </button>
-            </span>
-          </li>
-          <li class="flex items-center my-2">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <span>
-              <a href="#" class="no-underline text-indigo-dark">
-                LLSIT
-              </a>
-              <button class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
-                <i class="fas fa-user-plus"></i>
-                Unirse
-              </button>
-            </span>
-          </li>
-          <li class="flex items-center my-2">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <span>
-              <a href="#" class="no-underline text-indigo-dark">
-                Cafetería Albinas Neko-dev
-              </a>
-              <button class="block bg-transparent hover:bg-blue border border-blue text-blue hover:text-white text-sm font-semibold rounded px-2 py-1 mt-1">
-                <i class="fas fa-user-plus"></i>
-                Unirse
-              </button>
-            </span>
-          </li>
-        </ul>
+        <div class="flex flex-col">
+          {{#each model.groups as |group|}}
+            {{component 'group/group-single' group=group}}
+          {{/each}}
+        </div>
       </div>
     </div>
   </div>
