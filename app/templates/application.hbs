@@ -1,5 +1,5 @@
-{{#if (array-contains pagesInArray currentRouteName)}}
-  {{#if (not-eq currentRouteName "login")}}
+{{#if (array-contains landingPages currentRouteName)}}
+  {{#if (not (array-contains authPages currentRouteName))}}
     {{component 'header-navbar' user=user}}
     {{outlet}}
     {{component 'page-footer' class="pt-8"}}

@@ -4,8 +4,12 @@ import { inject as service } from '@ember/service';
 export default Controller.extend({
   session: service(),
 
-  pagesInArray: [
-    'index', 'login', 'cookies', 'about', 'suscribe',
-    'contact', 'dmca', 'policies', 'not-found',
-  ]
+  landingPages: [
+    'index', 'login', 'recover', 'oauth', 'page.cookies',
+    'page.about', 'page.subscribe', 'page.contact',
+    'page.dmca', 'page.policies', 'not-found',
+  ],
+  authPages: [
+    'login', 'recover', 'oauth',
+  ],
 });

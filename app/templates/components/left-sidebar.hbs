@@ -1,19 +1,15 @@
-<div class="hidden md:block px-2">
-  <div class="w-16"></div>
-</div>
-
 <!-- User / Nav sidebar -->
-<div id="nav-sidebar" class="absolute bg-indigo-darkest flex-none p-4 h-full select-none scrolling-auto overflow-x-scroll z-50 hidden md:block">
-  {{#link-to 'user' session.user.id class="block opacity-75 no-underline mb-4"}}
-    <div class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
+<div id="nav-sidebar" class="absolute hidden md:block h-full bg-indigo-darkest select-none scrolling-auto overflow-x-scroll p-4 z-50">
+  {{#link-to 'user' session.user.id class="block opacity-50 mb-4" activeClass="opacity-75"}}
+    <div class="flex items-center justify-center h-12 w-12 bg-indigo-lightest rounded-full mb-1 overflow-hidden">
       <img class="bg-grey" src="{{ session.user.profile.avatar }}" alt="">
     </div>
     <div class="text-center text-white text-sm">
       Perfil
     </div>
   {{/link-to}}
-  <button {{action "toggleSubsidebar" "monitor"}} class="block opacity-50 mb-4">
-    <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
+  <div {{action "toggleSubsidebar" "monitor"}} class="{{if (eq activeSection "monitor") "opacity-75" "opacity-50"}} cursor-pointer mb-4">
+    <div class="flex items-center justify-center h-12 w-12 bg-indigo-lightest text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
       <span class="fa-layers">
         <i class="far fa-bell"></i>
         <i class="fa fa-circle fa-inverse" data-fa-transform="shrink-5 up-5 right-3.5"></i>
@@ -23,74 +19,74 @@
     <div class="text-center text-white text-sm">
       Monitor
     </div>
-  </button>
-  {{#link-to 'feed' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
+  </div>
+  {{#link-to 'feed' class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="far fa-comments"></i>
+      <i class="far fa-comments fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Muro
     </div>
   {{/link-to}}
-  {{#link-to 'group' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
+  {{#link-to 'group' class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-users"></i>
+      <i class="fas fa-users fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Grupos
     </div>
   {{/link-to}}
-  <button {{action "toggleSubsidebar" "share"}} class="block {{if (eq currentRouteName "share") "opacity-75" "opacity-50"}} mb-4">
+  {{!-- <div {{action "toggleSubsidebar" "share"}} class="{{if (eq currentRouteName "share") "opacity-75" "opacity-50"}} mb-4">
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-upload"></i>
+      <i class="fas fa-upload fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Publicar
     </div>
-  </button>
-  <button {{action "toggleSubsidebar" "anime"}} class="block {{if (eq currentRouteName "anime") "opacity-75" "opacity-50"}} mb-4">
+  </div> --}}
+  <div {{action "toggleSubsidebar" "anime"}} class="{{if (or (eq currentRouteName 'anime') (eq activeSection 'anime')) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-film"></i>
+      <i class="fas fa-film fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Anime
     </div>
-  </button>
-  <button {{action "toggleSubsidebar" "manga"}} class="block {{if (eq currentRouteName "manga") "opacity-75" "opacity-50"}} mb-4">
+  </div>
+  <div {{action "toggleSubsidebar" "manga"}} class="{{if (or (eq currentRouteName 'manga') (eq activeSection 'manga')) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-book"></i>
+      <i class="fas fa-book fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Manga
     </div>
-  </button>
-  <button {{action "toggleSubsidebar" "music"}} class="block {{if (eq currentRouteName "music") "opacity-75" "opacity-50"}} mb-4">
+  </div>
+  <div {{action "toggleSubsidebar" "music"}} class="{{if (or (eq currentRouteName 'music') (eq activeSection 'music')) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-music"></i>
+      <i class="fas fa-music fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Música
     </div>
-  </button>
-  {{#link-to 'list' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
+  </div>
+  {{#link-to 'list' class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="far fa-bookmark"></i>
+      <i class="far fa-bookmark fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Listas
     </div>
   {{/link-to}}
-  <button class="block opacity-50 mb-4">
+  {{#link-to 'search' class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-search"></i>
+      <i class="fas fa-search fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Buscar
     </div>
-  </button>
-  {{#link-to 'concepts' class="block opacity-50 no-underline mb-4" activeClass="opacity-75"}}
+  {{/link-to}}
+  {{#link-to 'concepts' class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <i class="fas fa-binoculars"></i>
+      <i class="fas fa-gem fill-current"></i>
     </div>
     <div class="text-center text-white text-sm">
       Next
@@ -99,14 +95,16 @@
 </div>
 
 <!-- User / subsidebar -->
+{{component 'left-sub-sidebar' class=(concat 'absolute h-full sub-sidebar z-40 ' (if isSubsidebarActive 'opened' '')) activeSection=activeSection}}
+
 {{#if isSubsidebarActive}}
-  {{component 'left-sub-sidebar' class="absolute h-full" activeSection=activeSection}}
+  <div {{action "toggleSubsidebar" activeSection}} class="fixed pin bg-black opacity-50 z-30"></div>
 {{/if}}
 
 <div class="fixed pin-b pin-l bg-indigo-darkest text-white rounded ml-2 mb-2 p-4 z-50 block md:hidden">
   <i class="fas fa-bars"></i>
 </div>
 
-{{#if isSharing}}
+{{!-- {{#if isSharing}}
   {{component 'share-modal'}}
-{{/if}}
+{{/if}} --}}

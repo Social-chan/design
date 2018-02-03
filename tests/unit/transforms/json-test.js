@@ -1,6 +1,6 @@
 import { moduleFor, test } from 'ember-qunit';
 
-moduleFor('transform:application', 'Unit | Transform | application', {
+moduleFor('transform:json', 'Unit | Transform | json', {
   // Specify the other units that are required for this test.
   // needs: ['serializer:foo']
 });

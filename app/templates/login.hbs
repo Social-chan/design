@@ -14,12 +14,12 @@
         {{input id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3" placeholder="Contraseña" type="password" value=password}}
       </div>
       <div class="flex items-center justify-between">
-        <button type="submit" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
+        <button type="submit" class="bg-indigo-dark hover:bg-indigo-darker text-white font-bold py-2 px-4 rounded">
           Acceder
         </button>
-        <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+        {{#link-to 'recover' class="inline-block align-baseline font-bold text-sm hover:text-indigo-darker"}}
           Recordar contraseña
-        </a>
+        {{/link-to}}
       </div>
     </form>
     <p class="text-center text-white text-shadow text-xs">

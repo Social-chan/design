@@ -6,14 +6,13 @@ export default Component.extend({
   ajax: service(),
 
   postJoin: task(function * (id) {
-    yield this.get('ajax').post(
-      'group/'+id+'/join'
-    );
+    yield this.get('ajax').post(`group/${id}/join`);
   }).drop(),
 
   actions: {
     join(id) {
       this.get('postJoin').perform(id);
+      this.toggleProperty('isMember');
     }
   }
 });

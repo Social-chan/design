@@ -76,24 +76,11 @@
         </button>
       </div>
       <div class="flex flex-wrap mt-3">
-        <div class="w-1/3 lg:w-1/6 mb-2 px-1">
-          {{component 'item-card'}}
-        </div>
-        <div class="w-1/3 lg:w-1/6 mb-2 px-1">
-          {{component 'item-card'}}
-        </div>
-        <div class="w-1/3 lg:w-1/6 mb-2 px-1">
-          {{component 'item-card'}}
-        </div>
-        <div class="w-1/3 lg:w-1/6 mb-2 px-1">
-          {{component 'item-card'}}
-        </div>
-        <div class="w-1/3 lg:w-1/6 mb-2 px-1">
-          {{component 'item-card'}}
-        </div>
-        <div class="w-1/3 lg:w-1/6 mb-2 px-1">
-          {{component 'item-card'}}
-        </div>
+        {{#each model as |anime|}}
+          <div class="w-1/3 lg:w-1/6 mb-2 px-1">
+            {{component 'media/item-card' item=anime}}
+          </div>
+        {{/each}}
       </div>
     </div>
   </div>

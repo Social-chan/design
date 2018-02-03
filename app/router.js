@@ -25,6 +25,17 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('login');
+  this.route('recover');
+  this.route('oauth');
+  this.route('page', function () {
+    this.route('cookies');
+    this.route('about');
+    this.route('dmca');
+    this.route('policies');
+    this.route('subscribe');
+    this.route('contact');
+  });
   this.route('anime');
   this.route('manga');
   this.route('group', function() {
@@ -35,7 +46,6 @@ Router.map(function() {
       this.route('settings');
     });
   });
-  this.route('login');
   this.route('user', { path: '/user/:user_id' }, function () {
     this.route('posts', { path: '/' });
     this.route('groups');
@@ -53,13 +63,8 @@ Router.map(function() {
   });
   this.route('feed');
   this.route('concepts');
-  this.route('cookies');
-  this.route('about');
-  this.route('dmca');
-  this.route('policies');
-  this.route('suscribe');
-  this.route('contact');
   this.route('not-found', { path: '/*path' });
+  this.route('search');
 });
 
 export default Router;
