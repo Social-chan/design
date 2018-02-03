@@ -13,6 +13,8 @@
 # Production context: All deploys to the main
 # repository branch will inherit these settings.
 [context.production]
+  base    = "dist"
+  publish = "public"
   command = "ember build --prod"
   # [context.production.environment]
     # ACCESS_TOKEN = "super secret"
@@ -20,6 +22,8 @@
 # Branch Deploy context: All deploys that are not in
 # an active Deploy Preview will inherit these settings.
 [context.next]
+  base    = "dist"
+  publish = "public"
   command = "ember build --environment next"
   # [context.next.environment]
     # ACCESS_TOKEN = "super secret"
