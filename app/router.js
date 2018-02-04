@@ -36,7 +36,9 @@ Router.map(function() {
     this.route('subscribe');
     this.route('contact');
   });
-  this.route('anime');
+  this.route('anime', function() {
+    this.route('show', { path: '/:anime_id' });
+  });
   this.route('manga');
   this.route('group', function() {
     this.route('found');
@@ -65,6 +67,7 @@ Router.map(function() {
   this.route('concepts');
   this.route('not-found', { path: '/*path' });
   this.route('search');
+  this.route('chat');
 });
 
 export default Router;

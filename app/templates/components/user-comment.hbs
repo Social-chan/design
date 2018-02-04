@@ -1,6 +1,6 @@
-<div class="flex mb-3">
+<div class="flex items-center mb-3">
   <img class="w-8 h-8 bg-grey rounded-full" src="{{comment.author.profile.avatar}}">
-  <div class="w-full ml-3">
+  <div class="w-full bg-white rounded-full ml-3 px-6 py-1">
     <span class="flex font-medium">
       {{#link-to 'user' comment.author.id}}
         {{comment.author.nickname}}

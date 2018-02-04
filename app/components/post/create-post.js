@@ -1,10 +1,14 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { task } from 'ember-concurrency';
+import EmberRouter from '@ember/routing/router';
 
 export default Component.extend({
   session: service(),
   store: service(),
+
+  content: '',
+  isSpoiler: false,
 
   doPublish: task(function* () {
     const { content } = this.getProperties('content');
@@ -19,8 +23,23 @@ export default Component.extend({
   }),
 
   actions: {
+    wrap(text) {
+      this.set('content', this.get('content') + ' ' + text);
+    },
+    spoiler() {
+      this.toggleProperty('isSpoiler');
+    },
+    info() {
+      let newwindow = window.open(
+        `${EmberRouter.rootURL}about`,
+        'gugul',
+        'height=200,width=150'
+      );
+      if (window.focus) newwindow.focus();
+      return false;
+    },
     createPost() {
       this.get('doPublish').perform();
-    }
+    },
   }
 });

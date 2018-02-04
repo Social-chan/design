@@ -1,5 +1,20 @@
 <!-- User / Nav sidebar -->
-<div id="nav-sidebar" class="absolute hidden md:block h-full bg-indigo-darkest select-none scrolling-auto overflow-x-scroll p-4 z-50">
+<div id="nav-sidebar" class="absolute h-full bg-indigo-darkest select-none scrolling-auto overflow-x-scroll p-4 z-50">
+  {{!-- {{#each items as |item|}}
+    {{#if (not-eq item.param '')}}
+      {{#link-to item.route item.param class="border-b-2 border-transparent hover:border-white py-4 px-6" activeClass="border-white"}}
+        <div class="text-white text-2xl font-semibold">
+          <i class="{{item.icon}} fill-current"></i>
+        </div>
+      {{/link-to}}
+    {{else}}
+      {{#link-to item.route class="border-b-2 border-transparent hover:border-white py-4 px-6" activeClass="border-white"}}
+        <div class="text-white text-2xl font-semibold">
+          <i class="{{item.icon}} fill-current"></i>
+        </div>
+      {{/link-to}}
+    {{/if}}
+  {{/each}} --}}
   {{#link-to 'user' session.user.id class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="flex items-center justify-center h-12 w-12 bg-indigo-lightest rounded-full mb-1 overflow-hidden">
       <img class="bg-grey" src="{{ session.user.profile.avatar }}" alt="">
@@ -100,10 +115,6 @@
 {{#if isSubsidebarActive}}
   <div {{action "toggleSubsidebar" activeSection}} class="fixed pin bg-black opacity-50 z-30"></div>
 {{/if}}
-
-<div class="fixed pin-b pin-l bg-indigo-darkest text-white rounded ml-2 mb-2 p-4 z-50 block md:hidden">
-  <i class="fas fa-bars"></i>
-</div>
 
 {{!-- {{#if isSharing}}
   {{component 'share-modal'}}

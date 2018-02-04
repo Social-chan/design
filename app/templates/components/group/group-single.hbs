@@ -1,12 +1,21 @@
 <div class="flex items-center mb-4">
-  {{#link-to 'group.show' group.id class="w-32 mr-4"}}
-    <img class="p-2 rounded-full" src="{{group.image}}">
-  {{/link-to}}
-  <div>
+  <div class="w-1/5 flex flex-col justify-center text-center">
+    {{#link-to 'group.show' group.id class="px-1 md:px-4"}}
+      <img class="rounded-full" src="{{group.image}}">
+    {{/link-to}}
+
+    {{#if (not joinDisabled)}}
+      <div class="inline-block lg:hidden mt-2">
+        {{component 'group/join-button' groupId=group.id isMember=group.is_member}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="w-4/5 pl-4 lg:pl-0">
     {{#link-to 'group.show' group.id class="text-lg"}}
       {{group.name}}
     {{/link-to}}
-    <p class="text-grey-dark text-sm mt-1 mb-4">
+    <p class="text-grey-dark text-sm sm:truncate md:whitespace-normal mt-1 mb-4">
       {{group.about}}
     </p>
     <div class="flex items-center">
@@ -15,7 +24,7 @@
         {{group.groupType.name}}
       {{/link-to}}
       {{#link-to 'user' group.author.id class=(concat 'inline-block bg-' group.groupType.color '-lightest hover:bg-' group.groupType.color '-light rounded-full text-' group.groupType.color '-darker text-sm font-bold pr-2 mr-2')}}
-        <img class="inline-block w-6 align-middle rounded-full mr-1" src="{{group.author.profile.avatar}}">
+        <img class="inline-block w-6 align-middle rounded-full" src="{{group.author.profile.avatar}}">
         {{group.author.nickname}}
       {{/link-to}}
       {{#link-to 'group.show.members' group.id class=(concat 'bg-' group.groupType.color '-lightest hover:bg-' group.groupType.color '-light rounded-full text-' group.groupType.color '-darker text-sm font-bold py-1 px-2 mr-2')}}
@@ -23,10 +32,11 @@
         {{group.members_count}}
       {{/link-to}}
       {{#if (not joinDisabled)}}
-        <div class="ml-auto">
-          {{component 'group/join-button' id=group.id isMember=group.is_member}}
+        <div class="hidden lg:inline-block">
+          {{component 'group/join-button' groupId=group.id isMember=group.is_member}}
         </div>
       {{/if}}
     </div>
   </div>
+
 </div>

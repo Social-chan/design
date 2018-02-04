@@ -28,6 +28,8 @@ export default DS.Model.extend({
     return w(this.get('kokored')).indexOf(this.get('session.user.id')) > -1
   }),
   isSticky: computed('author.profile.post_id', 'session.profile.post_id', function () {
-    return this.get('author.profile.post_id') == this.get('session.profile.post_id');
+    if (this.get('session.profile.post_id') !== null) {
+      return this.get('author.profile.post_id') === this.get('session.profile.post_id');
+    }
   })
 });

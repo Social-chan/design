@@ -5,6 +5,11 @@ import config from '../config/environment';
 export default Route.extend({
   session: service(),
 
+  redirect() {
+    if (this.get('session.isAuthenticated'))
+      this.transitionTo('feed');
+  },
+
   headTags: function () {
     const obj = config.APP.meta;
     let arr = [];

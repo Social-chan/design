@@ -4,14 +4,25 @@
   <div class="flex flex-col lg:flex-row">
     <div class="w-1/4 pr-4 hidden lg:block">
       <div class="bg-white shadow rounded p-4 mb-3">
-        <p class="text-lg text-indigo-darkest font-bold mb-2">
-          <i class="fas fa-users"></i> Miembros
+        <p class="text-lg text-indigo-darkest font-bold mb-3">
+          <i class="fas fa-info fa-fw"></i> Acerca
+        </p>
+        <p class="text-sm text-grey-dark leading-normal">
+          {{model.group.about}}
+        </p>
+      </div>
+      <div class="bg-white shadow rounded p-4 mb-3">
+        <p class="text-lg text-indigo-darkest font-bold mb-3">
+          <i class="fas fa-users fa-fw"></i> Miembros
         </p>
         <ul class="flex list-reset my-3">
           {{#each model.members as |member|}}
             <li>
-              {{#link-to 'user' member.id}}
-                <img class="w-10 h-10 rounded-full mr-3" src="{{member.profile.avatar}}">
+              {{#link-to 'user' member.id class="relative inline-block pr-2"}}
+                <img class="w-10 rounded-full" src="{{member.profile.avatar}}">
+                <span class="absolute pin-t pin-r bg-purple border border-white rounded-full text-xs p-1">
+                  <i class="fas fa-cog text-white fill-current"></i>
+                </span>
               {{/link-to}}
             </li>
           {{/each}}

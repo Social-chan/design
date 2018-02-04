@@ -1,4 +1,4 @@
-{{#if model.user.following}}
+{{#if (or model.user.following model.user.isLoggedIn)}}
   {{component 'post/create-post' placeholder=(concat "Publicar en el perfil de @" model.user.nickname "...")}}
 {{/if}}
 {{#each model.posts as |post|}}

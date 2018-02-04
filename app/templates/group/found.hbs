@@ -7,11 +7,62 @@
           <p class="self-center text-grey-darker">Subir imagen</p>
         </div>
       </div>
+      <div class="bg-white rounded w-full shadow select-none overflow-hidden p-4 mb-3">
+        <h3>Ayuda</h3>
+      </div>
     </div>
     <div class="w-full md:w-3/4 bg-white rounded shadow p-4">
       <h2 class="text-indigo-darkest mb-6">
         Creación de grupo
       </h2>
+      <div class="flex items-center my-8">
+        <div class="w-1/2 border-r border-grey-light text-center px-3">
+          <h3 class="text-indigo-darker">
+            <i class="fas fa-star"></i>
+            Página
+            <small class="text-indigo-dark italic">
+              fanpage
+            </small>
+          </h3>
+          <p class="my-2">
+            Una página o fanpage es útil cuando no se requiera
+            de la participación de todos los usuarios que puedan
+            suscribirse (unirse) a esta, aunque podrán ver todo
+            lo que escribes en esta. Recuerda que tambien puedes
+            asignar miembros al Staff, los cuales podrán ayudarte
+            a redactar y/o administrar.
+          </p>
+          <label class="select-none">
+            {{input type="radio" name="groupType" value="1"}}
+            Página
+          </label>
+        </div>
+        <div class="w-1/2 text-center px-3">
+          <h3 class="text-indigo-darker">
+            <i class="fas fa-users"></i>
+            Grupo
+            <small class="text-indigo-dark italic">
+              community
+            </small>
+          </h3>
+          <p class="my-2">
+            Un grupo o community es lo mejor cuando quieres
+            charlar y organizar cosas junto a tus amigos
+            y el resto de miembros del grupo. En este
+            dispones de chat grupal y un staff, también
+            puedes ocultar el grupo de forma que solo tú y
+            los miembros de este puedan verlo.
+          </p>
+          <label class="select-none mr-2">
+            {{input type="radio" name="groupType" value="2"}}
+            Grupo
+          </label>
+          <label class="font-bold select-none">
+            {{input type="checkbox" name="isHidden" checked=isHidden}}
+            ¿oculto?
+          </label>
+        </div>
+      </div>
       <form class="w-full">
         <div class="flex flex-wrap mb-6">
           <div class="w-full px-3">
@@ -19,6 +70,12 @@
               Nombre
             </label>
             {{input type="text" id="name" value=group.name class="appearance-none block w-full bg-grey-lighter text-indigo-darker rounded py-3 px-4 mb-3" placeholder="Nombre del grupo"}}
+          </div>
+          <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-indigo-darker text-xs font-bold mb-2" for="name">
+              Slug
+            </label>
+            {{input type="text" id="slug" value=group.slug class="appearance-none block w-full bg-grey-lighter text-indigo-darker rounded py-3 px-4 mb-3" placeholder="Slug del grupo"}}
           </div>
           <div class="w-full px-3">
             <label class="block uppercase tracking-wide text-indigo-darker text-xs font-bold mb-2" for="about">

@@ -10,7 +10,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     return RSVP.hash({
       user: user,
       posts: get(this, 'store').query('post', {
-        author: get(user, 'id'),
+        user_id: get(user, 'id'),
       }),
     });
   },
