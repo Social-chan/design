@@ -2,7 +2,6 @@
   {{#if (not (array-contains authPages currentRouteName))}}
     {{component 'header-navbar' user=user}}
     {{outlet}}
-    {{component 'page-footer' class="pt-8"}}
   {{else}}
     {{outlet}}
   {{/if}}

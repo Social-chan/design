@@ -3,7 +3,6 @@ import { inject as service } from '@ember/service';
 import { task } from 'ember-concurrency';
 
 export default Component.extend({
-  notify: service(),
   chat: service(),
   session: service(),
   isRoomsActive: false,
@@ -20,14 +19,14 @@ export default Component.extend({
       this.set('rooms', rooms);
       this.toggleProperty('isRoomsActive');
     }, (error) => {
-      this.get('notify').error(`Error getting rooms: ${error}`);
+      console.error(`Error getting rooms: ${error}`);
     });
   }).drop(),
 
   joinRoom: task(function * (room) {
     yield this.get('chat.currentUser').joinRoom(room, {
       newMessage: (message) => {
-        this.get('notify').info(`Received new message: ${message.text}`);
+        console.log(`Received new message: ${message.text}`);
       }
     });
   }).drop(),

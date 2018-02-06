@@ -6,6 +6,7 @@ import EmberRouter from '@ember/routing/router';
 export default Component.extend({
   session: service(),
   store: service(),
+  push: service(),
 
   content: '',
   isSpoiler: false,
@@ -24,6 +25,10 @@ export default Component.extend({
 
   actions: {
     wrap(text) {
+      console.log(this.toString());
+      this.get('push').create('Test de notificación', {
+        icon: '/img/user_default.jpg'
+      });
       this.set('content', this.get('content') + ' ' + text);
     },
     spoiler() {

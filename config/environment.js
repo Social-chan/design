@@ -48,6 +48,11 @@ module.exports = function(environment) {
       },
     ],
 
+    push: {
+      icon: '/img/socialchan.jpg',
+      // tag: 'socialchan',
+    },
+
     chatkit: {
       instanceLocator: 'v1:us1:47788d05-ce54-4833-8249-dee98c28480f',
       secretKey: '4248a786-81c1-4647-9e82-b67656e3b7d6:VJrU7I5eW+FqdAsVZw8LmV8s9tnEIZOQue4Pnz0p5r8=',
@@ -67,8 +72,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.apiHost = 'http://192.168.100.2:8000';
-    // ENV.apiHost = 'http://localhost:8000';
+    // ENV.apiHost = 'http://192.168.100.2:8000';
+    ENV.apiHost = 'http://localhost:8000';
 
     ENV.proxyHost = 'http://192.168.100.2:3001';
     ENV.chatkit.tokenProvider = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/47788d05-ce54-4833-8249-dee98c28480f/token?instance_locator=v1:us1:47788d05-ce54-4833-8249-dee98c28480f';

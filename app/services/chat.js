@@ -6,7 +6,6 @@ import request from 'ember-ajax/request';
 // import { computed } from '@ember/object';
 
 export default Service.extend({
-  notify: service(),
   session: service(),
 
   init() {
@@ -41,14 +40,14 @@ export default Service.extend({
 
       },
       onSuccess: (currentUser) => {
-        this.get('notify').success(`Conectado con éxito como ${currentUser.name}`);
+        console.log(`Conectado con éxito como ${currentUser.name}`);
         this.set('currentUser', currentUser);
       },
       onError: (error) => {
         if (error.statusCode === 404) {
           this.get('createUser').perform();
         } else {
-          this.get('notify').error(error.info.error_description);
+          console.error(error.info.error_description);
         }
       }
     });
