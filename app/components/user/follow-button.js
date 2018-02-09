@@ -6,7 +6,7 @@ export default Component.extend({
   ajax: service(),
 
   followUser: task(function* (id) {
-    yield this.get('ajax').post('user/' + id + '/follow');
+    yield this.get('ajax').post(`user/${id}/follow`);
   }).drop(),
 
   actions: {

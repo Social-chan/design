@@ -1,5 +1,5 @@
-export function initialize(/* appInstance */) {
-  // appInstance.inject('route', 'foo', 'service:foo');
+export function initialize(application) {
+  // application.inject('route', 'chat', 'service:chat');
 }
 
 export default {

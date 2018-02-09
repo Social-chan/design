@@ -15,8 +15,8 @@ export default Controller.extend({
       {
         'Content-Type': 'application/json',
       }
-    ).catch((reason) => {
-      this.set('errorMessage', reason.error);
+    ).catch((error) => {
+      this.set('errorMessage', error);
     }).then(() => {
       // TODO: GA metrics event
       // get(this, 'metrics').trackEvent(metrics);

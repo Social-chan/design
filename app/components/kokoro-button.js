@@ -6,7 +6,7 @@ export default Component.extend({
   ajax: service(),
 
   kokoroPost: task(function * (id) {
-    yield this.get('ajax').post('post/' + id + '/kokoro').then(response => {
+    yield this.get('ajax').post(`post/${id}/kokoro`).then(response => {
       return this.set('post.kokoros_count', response);
     });
   }).drop(),

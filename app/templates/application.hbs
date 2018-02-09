@@ -1,6 +1,6 @@
 {{#if (array-contains landingPages currentRouteName)}}
   {{#if (not (array-contains authPages currentRouteName))}}
-    {{component 'header-navbar' user=user}}
+    {{component 'header-navbar' user=user class="fixed pin-t w-full z-50"}}
     {{outlet}}
   {{else}}
     {{outlet}}

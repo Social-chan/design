@@ -12,8 +12,8 @@ module.exports = function(/* environment, appConfig */) {
     lang: "es-ES",
     start_url: "/",
     display: "standalone",
-    background_color: "#fff",
-    theme_color: "#fff",
+    background_color: "#6574CD",
+    theme_color: "#6574CD",
 
     icons: [
       {
@@ -32,7 +32,7 @@ module.exports = function(/* environment, appConfig */) {
     },
 
     ms: {
-      tileColor: '#fff'
+      tileColor: '#6574CD'
     }
   };
 }

@@ -17,17 +17,17 @@ export default Service.extend({
     }));
   },
 
-  connect: task(function * () {
+  connectUser: task(function * () {
     let chatManager;
 
     // eslint-disable-next-line no-undef
-    yield chatManager = new Chatkit.ChatManager({
+    chatManager = new Chatkit.ChatManager({
       instanceLocator: config.chatkit.instanceLocator,
       tokenProvider: this.get('tokenProvider'),
       userId: this.get('session.user.id'),
     });
 
-    chatManager.connect({
+    yield chatManager.connect({
       delegate: {
         addedToRoom: (room) => {
           // eslint-disable-next-line no-console
@@ -54,15 +54,15 @@ export default Service.extend({
   }).restartable(),
 
   createUser: task(function * () {
-      yield request('/user', {
-        method: 'POST',
-        host: config.proxyHost,
-        data: {
-          id: this.get('session.user.id'),
-          name: this.get('session.user.nickname'),
-        }
-      }).then(result => {
-        this.get('connect').perform(result.id);
-      });
-    }).drop(),
+    yield request('/user', {
+      method: 'POST',
+      host: config.proxyHost,
+      data: {
+        id: this.get('session.user.id'),
+        name: this.get('session.user.nickname'),
+      }
+    }).then(result => {
+      this.get('connect').perform(result.id);
+    });
+  }).drop(),
 });

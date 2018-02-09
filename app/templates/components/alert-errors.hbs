@@ -1,0 +1,15 @@
+<div class="relative bg-red-lightest border-l-4 border-red rounded text-red-dark px-4 py-3 mb-6" role="alert">
+  <p class="font-bold">
+    {{errorMessage.message}}
+  </p>
+  {{#if errorMessage.errors}}
+    <ul class="">
+      {{#each-in errorMessage.errors as |key error|}}
+        <li>
+          <span class="font-bold">{{key}}:</span>
+          {{error}}
+        </li>
+      {{/each-in}}
+    </ul>
+  {{/if}}
+</div>
