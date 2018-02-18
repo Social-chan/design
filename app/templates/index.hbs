@@ -1,6 +1,26 @@
+{{component 'header-navbar' user=user class="fixed pin-t w-full z-50"}}
 {{#swiper-container options=swiperOptions pagination=true vertical=true class="max-w-full h-screen swiper-container-inverse"}}
-  {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-indigo-light p-8"}}
-    {{component 'signup-form' class="flex flex-wrap justify-center w-full max-w-md text-white"}}
+  {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-indigo-light text-white p-8"}}
+    {{#if (not-eq environment 'next')}}
+      <div class="max-w-md text-white text-center">
+        <i class="fas fa-gem fa-9x fill-current mb-8"></i>
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          Bienvenido a Social-chan Next
+        </h2>
+        <p class="font-sans font-light text-xl mb-4">
+          Social-chan Next es la beta cerrada por suscripción en la
+          que se traen todas las características experimentales que
+          posiblemente sean añadidas a Social-chan con la contribución
+          y el apoyo de la comunidad.
+        </p>
+        <p class="font-sans font-light text-xl mb-8">
+          Recuerda que debes tener cuenta de suscriptor para poder
+          acceder al programa Next.
+        </p>
+      </div>
+    {{else}}
+      {{component 'signup-form' class="flex flex-wrap justify-center w-full max-w-md text-white"}}
+    {{/if}}
     <ul class="absolute pin-b flex justify-around w-full list-reset px-8 mb-4">
       <li>
         <a href="https://dojo.moe" target="_blank" class="text-white">
@@ -40,19 +60,44 @@
     </ul>
   {{/swiper-slide}}
   {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-teal-dark p-8"}}
-    <div class="max-w-md text-white text-center">
-      <img class="w-1/2 mb-8" src="/img/illustrations/undraw_floating.svg" alt="comunidad">
-      <h2 class="font-sans font-semibold text-3xl mb-4">
-        ¿Por qué debería registrarme?
-      </h2>
-      <p class="font-sans font-light text-xl">
-        ¿Y por qué no? Tampoco te obligamos a hacerlo pero...
-        ¡seguro que te gusta! Tan simple como la posibilidad
-        de hablar en tiempo real, debatir u opinar sobre el
-        anime que tú ves, el manga que tú lees o la música
-        que tú escuchas.
-      </p>
-    </div>
+    {{#if (not-eq environment 'next')}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_brainstorming.svg" alt="">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          ¿Qué es Next?
+        </h2>
+        <p class="font-sans font-light text-xl mb-6">
+          Next es un programa incluido en la suscripción a Social-chan donde
+          los usuarios pueden aportar nuevas ideas y mejorar ciertas características
+          del sitio así como también probar estas antes de ser lanzadas.
+        </p>
+        <p class="font-sans font-light text-xl">
+          Emocionante, ¿verdad? Aún así eso no es todo, ¡en el pack de la
+          suscripción se incluyen aun más cosas!
+        </p>
+      </div>
+    {{else}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_floating.svg" alt="comunidad">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          ¿Por qué debería registrarme?
+        </h2>
+        <p class="font-sans font-light text-xl mb-6">
+          ¿Y por qué no? Tampoco te obligamos a hacerlo pero...
+          ¡seguro que te gusta! Tan simple como la posibilidad
+          de hablar en tiempo real, debatir u opinar sobre el
+          anime que tú ves, el manga que tú lees o la música
+          que tú escuchas.
+        </p>
+
+        {{#if (eq environment 'next')}}
+          <a href="https://social-chan.com" class="bg-transparent hover:bg-smoke-light text-2xl text-white rounded-full shadow py-3 px-6 mx-auto">
+            <i class="fas fa-user-plus fa-fw fill-current"></i>
+            Registro
+          </a>
+        {{/if}}
+      </div>
+    {{/if}}
   {{/swiper-slide}}
   {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-purple-dark p-8"}}
     <div class="max-w-md text-white text-center">
@@ -84,10 +129,10 @@
         usuario, como oyes, ¡para todos!.
       </p>
 
-      <button class="block bg-transparent hover:bg-smoke-light text-2xl text-white rounded-full shadow py-3 px-6 mx-auto">
+      {{#link-to 'page.subscribe' class="infinite-slide-shine bg-transparent hover:bg-smoke-light text-2xl text-white rounded-full shadow py-3 px-6 mx-auto"}}
          <i class="fas fa-gem fa-fw fill-current"></i>
          Suscriptor
-      </button>
+      {{/link-to}}
     </div>
   {{/swiper-slide}}
   {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-blue-dark p-8"}}

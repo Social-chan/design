@@ -1,10 +1,5 @@
 {{#if (array-contains landingPages currentRouteName)}}
-  {{#if (not (array-contains authPages currentRouteName))}}
-    {{component 'header-navbar' user=user class="fixed pin-t w-full z-50"}}
-    {{outlet}}
-  {{else}}
-    {{outlet}}
-  {{/if}}
+  {{outlet}}
 {{else}}
   <div class="flex h-screen inner-application font-sans antialiased overflow-hidden">
     {{component 'top-sidebar' class="fixed pin-t flex lg:hidden items-center justify-center w-full" currentRouteName=currentRouteName}}

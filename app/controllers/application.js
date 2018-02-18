@@ -10,9 +10,7 @@ export default Controller.extend({
     'page.about', 'page.subscribe', 'page.contact',
     'page.dmca', 'page.policies', 'not-found',
   ],
-  authPages: [
-    'login', 'recover', 'oauth',
-  ],
+  
   menuItems: computed('session.user.id', function () {
     let user = this.get('session.user.id');
 

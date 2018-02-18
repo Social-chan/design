@@ -5,6 +5,8 @@ import config from '../config/environment';
 export default Route.extend({
   session: service(),
 
+  environment: config.environment,
+
   redirect() {
     if (this.get('session.isAuthenticated'))
       this.transitionTo('feed');
