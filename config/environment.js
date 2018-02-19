@@ -5,7 +5,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'socialchan',
     environment,
-    rootURL: '/',
+    // rootURL: '/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
