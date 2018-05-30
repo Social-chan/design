@@ -28,8 +28,9 @@ export default Component.extend({
   }).drop(),
 
   postPin: task(function* () {
+    // TODO: One place ajax URLs
     yield this.get('ajax').post(
-      'post/'+this.get('post.id')+'/sticky'
+      'posts/'+this.get('post.id')+'/sticky'
     );
   }).drop(),
 

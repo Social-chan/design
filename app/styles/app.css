@@ -1,6 +1,6 @@
 @tailwind preflight;
 
-@tailwind utilities;
+@tailwind components;
 
 html { @apply .h-screen; }
 body { @apply .relative .min-h-screen; }
@@ -32,7 +32,48 @@ div.absolute::-webkit-scrollbar {
   border-color: transparent transparent #fff #fff !important;
 }
 
-/* Swiper CSS */
+/**
+ * Forms and inputs
+ */
+.ui-input {
+  @apply .appearance-none .w-full .border .rounded .shadow .text-grey-darker .py-2 .px-3;
+}
+
+/**
+ * Buttons
+ */
+.ui-btn {
+  @apply .border .border-b-2 .rounded .font-semibold .px-3 .py-2;
+  transition: border-color 0.8s;
+}
+
+.ui-btn--primary {
+  @apply .bg-indigo .text-white .border-indigo-dark;
+}
+
+.ui-btn--primary:hover {
+  @apply .border-indigo-darker;
+}
+
+.ui-btn--secondary {
+  @apply .bg-grey-lighter .text-grey-darkest .border-grey;
+}
+
+.ui-btn--secondary:hover {
+  @apply .border-grey-darker;
+}
+
+.ui-btn--red {
+  @apply .bg-red .text-white .border-red-dark;
+}
+
+.ui-btn--red:hover {
+  @apply .border-red-darker;
+}
+
+/**
+ * Swiper CSS
+ */
 .swiper-container {
   margin-left: auto;
   margin-right: auto;
@@ -623,13 +664,13 @@ button.swiper-pagination-bullet {
 
 @-webkit-keyframes swiper-preloader-spin {
   100% {
-      -webkit-transform: rotate(360deg)
+    -webkit-transform: rotate(360deg)
   }
 }
 
 @keyframes swiper-preloader-spin {
   100% {
-      transform: rotate(360deg)
+    transform: rotate(360deg)
   }
 }
 
@@ -658,3 +699,5 @@ button.swiper-pagination-bullet {
 	0% {transform:translateX(-100%);}
 	100% {transform:translateX(100%);}
 }
+
+@tailwind utilities;

@@ -68,6 +68,7 @@ Router.map(function() {
   this.route('not-found', { path: '/*path' });
   this.route('search');
   this.route('chat');
+  this.route('register');
 });
 
 export default Router;

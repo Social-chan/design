@@ -1,92 +1,92 @@
 <div class="container mx-auto px-4 mt-4">
-  {{component 'user/profile-header' data=model}}
+    {{component 'user/profile-header' data=model}}
 
-  <div class="flex">
-    <div class="w-1/4 pr-4 hidden lg:block">
-      <div class="bg-white rounded shadow p-4 mb-3">
-        {{#if (or model.profile.name model.profile.surname)}}
-        <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black mb-1">
-            Nombre
-          </p>
-          <p class="text-grey-darker">
-            {{model.profile.name}}
-            {{model.profile.surname}}
-          </p>
+    <div class="flex">
+        <div class="w-1/4 pr-4 hidden lg:block">
+            <div class="bg-white rounded shadow p-4 mb-3">
+                {{#if (or model.profile.name model.profile.surname)}}
+                    <div class="border-b border-grey-light pb-4 mb-4">
+                        <p class="text-black mb-1">
+                            Nombre
+                        </p>
+                        <p class="text-grey-darker">
+                            {{model.profile.name}}
+                            {{model.profile.surname}}
+                        </p>
+                    </div>
+                {{/if}}
+                {{#if model.profile.bio}}
+                    <div class="border-b border-grey-light pb-4 mb-4">
+                        <p class="text-black mb-1">
+                            Bio
+                        </p>
+                        <p class="text-grey-darker">
+                            {{model.profile.bio}}
+                        </p>
+                    </div>
+                {{/if}}
+                {{#if model.profile.country}}
+                    <div class="border-b border-grey-light pb-4 mb-4">
+                        <p class="text-black mb-1">
+                            País
+                        </p>
+                        <p class="text-grey-darker">
+                            {{model.profile.country}}
+                        </p>
+                    </div>
+                {{/if}}
+                {{#if model.created_at}}
+                    <div class="border-b border-grey-light pb-4 mb-4">
+                        <p class="text-black mb-1">
+                            Ingreso
+                        </p>
+                        <p class="text-grey-darker">
+                            {{moment-format model.created_at 'LL'}}
+                        </p>
+                    </div>
+                {{/if}}
+                {{#if (not model.isLoggedIn)}}
+                    {{component 'user/follow-button' size="lg" isFollowed=model.following user_id=model.id addClass="w-full"}}
+                {{/if}}
+            </div>
+            {{component 'ads-square'}}
+            <div class="bg-white rounded shadow mb-3">
+                <ul class="flex items-center list-reset border-b px-3">
+                    <li class="flex-1 text-indigo-darker text-sm">
+                        <i class="fas fa-star"></i>
+                    </li>
+                    <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
+                        Anime
+                    </li>
+                    <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
+                        Manga
+                    </li>
+                    <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
+                        Personajes
+                    </li>
+                </ul>
+                <ul class="list-reset p-3">
+                    <li class="my-1">
+                        <a href="#" class="no-underline text-indigo-dark text-sm">
+                        Steins;gate
+                        </a>
+                    </li>
+                    <li class="my-1">
+                        <a href="#" class="no-underline text-indigo-dark text-sm">
+                        Sword Art Online
+                        </a>
+                    </li>
+                    <li class="my-1">
+                        <a href="#" class="no-underline text-indigo-dark text-sm">
+                        Love Live! School Idol Project
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        {{/if}}
-        {{#if model.profile.bio}}
-        <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black mb-1">
-            Bio
-          </p>
-          <p class="text-grey-darker">
-            {{model.profile.bio}}
-          </p>
+        <div class="w-full lg:w-3/4">
+            {{outlet}}
         </div>
-        {{/if}}
-        {{#if model.profile.country}}
-        <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black mb-1">
-            País
-          </p>
-          <p class="text-grey-darker">
-            {{model.profile.country}}
-          </p>
-        </div>
-        {{/if}}
-        {{#if model.created_at}}
-        <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black mb-1">
-            Ingreso
-          </p>
-          <p class="text-grey-darker">
-            {{moment-format model.created_at 'LL'}}
-          </p>
-        </div>
-        {{/if}}
-        {{#if (not model.isLoggedIn)}}
-          {{component 'user/follow-button' size="lg" isFollowed=model.following user_id=model.id addClass="w-full"}}
-        {{/if}}
-      </div>
-      {{component 'ads-square'}}
-      <div class="bg-white rounded shadow mb-3">
-        <ul class="flex items-center list-reset border-b px-3">
-          <li class="flex-1 text-indigo-darker text-sm">
-            <i class="fas fa-star"></i>
-          </li>
-          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
-            Anime
-          </li>
-          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
-            Manga
-          </li>
-          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
-            Personajes
-          </li>
-        </ul>
-        <ul class="list-reset p-3">
-          <li class="my-1">
-            <a href="#" class="no-underline text-indigo-dark text-sm">
-              Steins;gate
-            </a>
-          </li>
-          <li class="my-1">
-            <a href="#" class="no-underline text-indigo-dark text-sm">
-              Sword Art Online
-            </a>
-          </li>
-          <li class="my-1">
-            <a href="#" class="no-underline text-indigo-dark text-sm">
-              Love Live! School Idol Project
-            </a>
-          </li>
-        </ul>
-      </div>
     </div>
-    <div class="w-full lg:w-3/4">
-      {{outlet}}
-    </div>
-  </div>
 </div>
 

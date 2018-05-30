@@ -57,7 +57,7 @@
           {{moment-from-now post.created_at}}
         </p>
       </div>
-      {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 lazyRender=true interactive=true}}
+      {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 interactive=true}}
         {{component 'user/user-hovercard' user=post.author}}
       {{/attach-tooltip}}
     {{/link-to}}

@@ -1,32 +1,33 @@
 <form {{action "createPost" on="submit"}} class="flex flex-col justify-between bg-white rounded shadow leading-normal p-4 mb-3">
-  {{textarea id="content" value=content rows="4" class="appearance-none bg-grey-lighter text-grey-darker rounded-lg p-3 mb-3" placeholder=placeholder}}
+    {{textarea id="content" value=content rows="4" class="ui-input mb-3" placeholder=placeholder}}
 
-  <div class="flex items-center justify-between">
-    <div class="w-5/6">
-      <button {{action 'wrap' '![texto altenativo](url)'}} class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
-        <i class="fas fa-camera"></i>
-      </button>
-      <button {{action 'wrap' '![youtube video](url)'}} class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
-        <i class="fab fa-youtube"></i>
-      </button>
-      <button {{action 'wrap' '[texto](url)'}} class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
-        <i class="fas fa-link"></i>
-      </button>
-      <button {{action 'spoiler'}} class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-3 py-2">
-        {{#if isSpoiler}}
-          <i class="far fa-eye-slash"></i>
-        {{else}}
-          <i class="fas fa-eye"></i>
-        {{/if}}
-      </button>
-      <button {{action 'info'}} class="bg-indigo-light text-white border-b-2 border-indigo rounded font-semibold px-4 py-2">
-        <i class="fas fa-info"></i>
-      </button>
+    <div class="flex items-center justify-between">
+        <div class="w-5/6">
+            <button {{action 'wrap' '![texto altenativo](url)'}} class="ui-btn ui-btn--secondary" title="Añadir imagen">
+                <i class="fas fa-image"></i>
+            </button>
+            <button {{action 'wrap' '![youtube video](url)'}} class="ui-btn ui-btn--secondary text-red" title="Añadir video">
+                <i class="fab fa-youtube"></i>
+            </button>
+            <button {{action 'wrap' '[texto](url)'}} class="ui-btn ui-btn--secondary text-blue" title="Añadir enlace">
+                <i class="fas fa-link"></i>
+            </button>
+            <button {{action 'spoiler'}} class="ui-btn ui-btn--secondary" title="Marcar publicación como spoiler">
+                {{#if isSpoiler}}
+                    <i class="far fa-eye-slash"></i>
+                {{else}}
+                    <i class="fas fa-eye"></i>
+                {{/if}}
+            </button>
+            <button {{action 'info'}} class="ui-btn ui-btn--secondary" title="Información">
+                <i class="fas fa-info mx-1"></i>
+            </button>
+        </div>
+        <div class="w-1/6">
+            <button type="submit" class="ui-btn ui-btn--primary lg:w-full">
+                <i class="fas fa-paper-plane lg:hidden"></i>
+                <span class="hidden lg:inline">Enviar</span>
+            </button>
+        </div>
     </div>
-    <div class="w-1/6">
-      <button type="submit" class="bg-indigo w-full text-white border-b-4 border-indigo-dark rounded font-semibold px-1 py-2">
-        Enviar
-      </button>
-    </div>
-  </div>
 </form>

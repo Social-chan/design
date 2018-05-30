@@ -1,14 +1,14 @@
 {{#if (array-contains landingPages currentRouteName)}}
-  {{outlet}}
+    {{outlet}}
 {{else}}
-  <div class="flex h-screen inner-application font-sans antialiased overflow-hidden">
-    {{component 'top-sidebar' class="fixed pin-t flex lg:hidden items-center justify-center w-full" currentRouteName=currentRouteName}}
-    {{component 'left-sidebar' class="hidden lg:flex h-full overflow-hidden" currentRouteName=currentRouteName}}
+    <div class="flex h-screen inner-application font-sans antialiased overflow-hidden">
+        {{component 'top-sidebar' class="fixed pin-t flex lg:hidden items-center justify-center w-full" currentRouteName=currentRouteName}}
+        {{component 'left-sidebar' class="hidden lg:flex h-full overflow-hidden" currentRouteName=currentRouteName}}
 
-    <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll pt-9 lg:pt-0 bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('{{session.user.profile.bg_image}}')">
-      {{outlet}}
+        <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll pt-9 lg:pt-0 bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('{{session.user.profile.bg_image}}')">
+            {{outlet}}
+        </div>
+
+        {{!-- {{component 'user-chat' class="fixed pin-b pin-r mr-8 mb-4 z-50 hidden lg:block"}} --}}
     </div>
-
-    {{!-- {{component 'user-chat' class="fixed pin-b pin-r mr-8 mb-4 z-50 hidden lg:block"}} --}}
-  </div>
 {{/if}}

@@ -11,6 +11,7 @@ export default DS.Model.extend({
   active: DS.attr('boolean'),
   following: DS.attr('boolean'),
   created_at: DS.attr('date'),
+  updated_at: DS.attr('date'),
 
   profile: DS.belongsTo('profile'),
   followers: DS.hasMany('user', { inverse: null }),

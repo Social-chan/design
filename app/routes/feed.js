@@ -5,11 +5,10 @@ import RSVP from 'rsvp';
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     return RSVP.hash({
-      posts: this.get('store').findAll('post'),
-      populars: this.get('store').query('user', {
-        sort: 'popularity',
-        limit: 4,
+      posts: this.get('store').query('post', {
+        append: 'kokoros_count'
       }),
+      populars: this.get('store').findAll('user'),
     });
   }
 });

@@ -1,72 +1,77 @@
 <div class="container mx-auto px-4 mt-4">
-  <div class="flex flex-col md:flex-row">
-    <div class="w-full md:w-1/4 mb-4 md:mb-0 md:pr-4">
-      <div class="bg-white shadow rounded p-4 mb-6">
-        <h3 class="text-indigo-darkest mb-3">
-          Filtrar por
-        </h3>
+    <div class="flex flex-col md:flex-row">
+        <div class="w-full md:w-1/4 mb-4 md:mb-0 md:pr-4">
+            <div class="bg-white shadow rounded mb-6">
+                <div class="p-4">
+                    <p class="text-lg text-indigo-darkest font-bold mb-2">
+                        <i class="fas fa-filter"></i>
+                        Filtrar por
+                    </p>
+                </div>
 
-        <p class="uppercase tracking-wide text-c2 mb-4">
-          Género
-        </p>
-        <div class="flex flex-wrap items-center text-sm mb-4">
-          {{#each model.genres as |genre|}}
-            <a href="#" class="m-1">
-              {{genre.name}}
-            </a>
-          {{/each}}
-        </div>
+                <div class="bg-grey-lighter rounded-b">
+                    <p class="uppercase font-semibold tracking-wide p-4">
+                        Género
+                    </p>
+                    <div class="flex flex-wrap items-center text-sm">
+                        {{#each model.genres as |genre|}}
+                            <a href="#" class="m-1">
+                                {{genre.name}}
+                            </a>
+                        {{/each}}
+                    </div>
 
-        <p class="uppercase tracking-wide text-c2 mb-4">
-          Temporada
-        </p>
-        <div class="mb-4">
-          <a href="#" class="block bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
-            <i class="fab fa-pagelines fa-fw"></i> Primavera
-          </a>
-          <a href="#" class="block bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
-            <i class="fas fa-sun fa-fw"></i> Verano
-          </a>
-          <a href="#" class="block bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
-            <i class="fas fa-leaf fa-fw"></i> Otoño
-          </a>
-          <a href="#" class="block bg-transparent hover:bg-indigo border border-indigo text-indigo hover:text-white py-1 px-2 mb-1">
-            <i class="fas fa-snowflake fa-fw"></i> Invierno
-          </a>
-        </div>
+                    <p class="uppercase font-semibold tracking-wide p-4">
+                        Temporada
+                    </p>
+                    <a href="#" class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+                        <i class="fab fa-pagelines mr-3"></i>
+                        Primavera
+                    </a>
+                    <a href="#" class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+                        <i class="fas fa-sun mr-3"></i>
+                        Verano
+                    </a>
+                    <a href="#" class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+                        <i class="fas fa-leaf mr-3"></i>
+                        Otoño
+                    </a>
+                    <a href="#" class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+                        <i class="fas fa-snowflake mr-3"></i>
+                        Invierno
+                    </a>
 
-        <p class="uppercase tracking-wide text-c2 mb-4">
-          Estado
-        </p>
-        <div class="mb-4">
-          <a href="#" class="block no-underline bg-transparent hover:bg-blue border border-blue text-blue hover:text-white py-1 px-2 mb-1">
-            Planificado
-          </a>
-          <a href="#" class="block no-underline bg-transparent hover:bg-green border border-green text-green hover:text-white py-1 px-2 mb-1">
-            En emisión
-          </a>
-          <a href="#" class="block no-underline bg-transparent hover:bg-red border border-red text-red hover:text-white py-1 px-2 mb-1">
-            Finalizado
-          </a>
+                    <p class="uppercase font-semibold tracking-wide p-4">
+                        Estado
+                    </p>
+                    <a href="#" class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+                        Planificado
+                    </a>
+                    <a href="#" class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+                        En emisión
+                    </a>
+                    <a href="#" class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+                        Finalizado
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="w-full md:w-3/4 bg-white rounded shadow p-4">
-      <div class="flex justify-between items-center">
-        <button class="bg-green-dark text-white rounded p-2">
-          <i class="fas fa-plus fa-fw"></i>
-          Contribuir
-        </button>
+        <div class="w-full md:w-3/4 bg-white rounded shadow p-4">
+        <div class="flex justify-between items-center">
+            <button class="bg-green-dark text-white rounded p-2">
+                <i class="fas fa-plus fa-fw"></i>
+                Contribuir
+            </button>
 
-        <div class="flex">
-          <button class="bg-indigo-darker text-white rounded-l shadow-inner p-2">
-            <i class="fas fa-th"></i>
-          </button>
-          <button class="bg-indigo-dark text-white rounded-r p-2">
-            <i class="fas fa-th-list"></i>
-          </button>
+            <div class="flex">
+                <button class="bg-indigo-darker text-white rounded-l shadow-inner p-2">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="bg-indigo-dark text-white rounded-r p-2">
+                    <i class="fas fa-th-list"></i>
+                </button>
+            </div>
         </div>
-      </div>
       <div class="flex flex-wrap mt-3">
         {{#each model.animes as |anime|}}
           <div class="w-1/3 lg:w-1/6 mb-2 px-1">

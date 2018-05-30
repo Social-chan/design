@@ -21,6 +21,15 @@ module.exports = function(environment) {
     APP: {
       meta: {
         description: "Red social anime y manga",
+      },
+      features: {
+        groups: true,
+        animes: true,
+        mangas: true,
+        lists: true,
+        monitor: true,
+        search: true,
+        next: false,
       }
     },
 
@@ -62,6 +71,7 @@ module.exports = function(environment) {
       tooltipClass: 'bg-white shadow p-0',
       animation: 'shift',
       arrow: true,
+      lazyRender: true,
     }
   };
 
@@ -72,16 +82,22 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.apiHost = 'http://192.168.100.2:8000';
-    // ENV.apiHost = 'http://localhost:8000';
+    // Enable/disable Social-chan features
+    ENV.APP.features.search = false;
 
-    ENV.proxyHost = 'http://192.168.100.2:3001';
+    // ENV.apiHost = 'http://192.168.100.2:8000';
+    ENV.apiHost = 'http://192.168.0.21:8000';
+
+    // ENV.proxyHost = 'http://192.168.100.2:3001';
+    ENV.proxyHost = 'http://192.168.0.21:3001';
     ENV.chatkit.tokenProvider = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/47788d05-ce54-4833-8249-dee98c28480f/token?instance_locator=v1:us1:47788d05-ce54-4833-8249-dee98c28480f';
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
+
+    ENV.APP.features.test = true;
 
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
@@ -93,10 +109,16 @@ module.exports = function(environment) {
   if (environment === 'production') {
     // here you can enable a production-specific feature
     ENV.apiHost = 'https://api.social-chan.com';
+
+    // Enable/disable Social-chan features
+    // ENV.APP.features.next = true;
   }
 
   if (environment === 'next') {
     ENV.apiHost = 'https://api.social-chan.com';
+
+    // Enable/disable Social-chan features
+    ENV.APP.features.next = true;
   }
 
   return ENV;

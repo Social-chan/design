@@ -1,32 +1,41 @@
-<div class="h-screen overflow-hidden bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('/img/landing/img02.jpg')">
-  <div class="w-full max-w-xs mx-auto mt-8">
-    {{#if errorMessage}}
-      {{component 'alert-errors' errorMessage=errorMessage}}
-    {{/if}}
-    <form {{action "authenticate" on="submit"}} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <div class="mb-4">
-        <label class="block text-grey-darker text-sm font-bold mb-2" for="identification">
-          Email o nombre de usuario
-        </label>
-        {{input id="identification" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" placeholder="Email o nombre de usuario" value=identification}}
-      </div>
-      <div class="mb-6">
-        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-          Contraseña
-        </label>
-        {{input id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3" placeholder="Contraseña" type="password" value=password}}
-      </div>
-      <div class="flex items-center justify-between">
-        <button type="submit" class="bg-indigo-dark hover:bg-indigo-darker text-white font-bold py-2 px-4 rounded">
-          Acceder
-        </button>
-        {{#link-to 'recover' class="inline-block align-baseline font-bold text-sm hover:text-indigo-darker"}}
-          Recordar contraseña
-        {{/link-to}}
-      </div>
-    </form>
-    <p class="text-center text-white text-shadow text-xs">
-      © 2018 Social-chan. All rights reserved.
-    </p>
-  </div>
+<div class="h-screen bg-indigo-light overflow-hidden">
+    <div class="w-full max-w-xs mx-auto mt-8">
+        {{#if errorMessage}}
+            {{component 'alert-errors' errorMessage=errorMessage}}
+        {{/if}}
+        <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+            <form {{action "authenticate" on="submit"}}>
+                <div class="mb-4">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="identification">
+                        Identificador
+                    </label>
+                    {{input id="identification" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" placeholder="Email o nombre de usuario" value=identification}}
+                </div>
+                <div class="mb-6">
+                    <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+                        Contraseña
+                    </label>
+                    {{input id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3" placeholder="Contraseña" type="password" value=password}}
+                </div>
+                <div class="flex flex-col text-center">
+                    <button type="submit" class="block w-full bg-indigo text-white text-center border-b-4 border-indigo-dark rounded font-semibold px-1 py-2 mb-3">
+                        Acceder
+                    </button>
+
+                    <div class="flex justify-around items-center w-full font-bold text-sm">
+                        {{#link-to 'register' class="hover:text-indigo-darker"}}
+                            Registro
+                        {{/link-to}}
+                        <span class="text-indigo-dark">&bull;</span>
+                        {{#link-to 'recover' class="hover:text-indigo-darker"}}
+                            Recordar contraseña
+                        {{/link-to}}
+                    </div>
+                </div>
+            </form>
+        </div>
+        <p class="text-center text-white text-sm">
+            © 2018 Social-chan. All rights reserved.
+        </p>
+    </div>
 </div>

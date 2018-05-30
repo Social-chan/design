@@ -1,27 +1,33 @@
-<div class="flex items-center w-full bg-indigo-darkest select-none scrolling-auto overflow-y-scroll z-50">
-  {{#link-to 'feed' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
-    <div class="text-white text-2xl font-semibold">
-      <i class="fas fa-home fill-current"></i>
-    </div>
-  {{/link-to}}
-  {{#link-to 'user' session.user.id class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
-    <div class="text-white text-2xl font-semibold">
-      <i class="fas fa-user fill-current"></i>
-    </div>
-  {{/link-to}}
-  {{#link-to 'group' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
-    <div class="text-white text-2xl font-semibold">
-      <i class="fas fa-users fill-current"></i>
-    </div>
-  {{/link-to}}
-  {{#link-to 'chat' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
-    <div class="text-white text-2xl font-semibold">
-      <i class="fas fa-comments fill-current"></i>
-    </div>
-  {{/link-to}}
-  {{#link-to 'search' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
-    <div class="text-white text-2xl font-semibold">
-      <i class="fas fa-search fill-current"></i>
-    </div>
-  {{/link-to}}
+<div class="flex justify-center items-center w-full bg-indigo-darkest select-none scrolling-auto overflow-y-scroll z-50">
+    {{#link-to 'feed' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
+        <div class="text-white text-2xl font-semibold">
+            <i class="fas fa-home fill-current"></i>
+        </div>
+    {{/link-to}}
+    {{#link-to 'user' session.user.id class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
+        <div class="text-white text-2xl font-semibold">
+            <i class="fas fa-user fill-current"></i>
+        </div>
+    {{/link-to}}
+    {{#if (is-feature 'groups')}}
+        {{#link-to 'group' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
+            <div class="text-white text-2xl font-semibold">
+                <i class="fas fa-users fill-current"></i>
+            </div>
+        {{/link-to}}
+    {{/if}}
+    {{#if (is-feature 'chats')}}
+        {{#link-to 'chat' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
+            <div class="text-white text-2xl font-semibold">
+                <i class="fas fa-comments fill-current"></i>
+            </div>
+        {{/link-to}}
+    {{/if}}
+    {{#if (is-feature 'search')}}
+        {{#link-to 'search' class="w-1/5 text-center border-b-2 border-transparent py-4" activeClass="border-white"}}
+            <div class="text-white text-2xl font-semibold">
+                <i class="fas fa-search fill-current"></i>
+            </div>
+        {{/link-to}}
+    {{/if}}
 </div>

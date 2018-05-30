@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
-import { w } from '@ember/string';
+// import { w } from '@ember/string';
 
 export default DS.Model.extend({
   session: service(),
@@ -25,7 +25,8 @@ export default DS.Model.extend({
   }),
 
   isKokored: computed('kokored', 'session.user.id', function () {
-    return w(this.get('kokored')).indexOf(this.get('session.user.id')) > -1
+    return this.get('kokored');
+    // return w(this.get('kokored')).indexOf(this.get('session.user.id')) > -1
   }),
   isSticky: computed('author.profile.post_id', 'session.profile.post_id', function () {
     if (this.get('session.profile.post_id') !== null) {
