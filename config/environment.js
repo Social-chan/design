@@ -86,10 +86,12 @@ module.exports = function(environment) {
     ENV.APP.features.search = false;
 
     // ENV.apiHost = 'http://192.168.100.2:8000';
-    ENV.apiHost = 'http://192.168.0.21:8000';
+    // ENV.apiHost = 'http://192.168.0.21:8000';
+    ENV.apiHost = 'http://185.191.20.61:8000';
 
     // ENV.proxyHost = 'http://192.168.100.2:3001';
-    ENV.proxyHost = 'http://192.168.0.21:3001';
+    // ENV.proxyHost = 'http://192.168.0.21:3001';
+    ENV.proxyHost = 'http://185.191.20.61:3001';
     ENV.chatkit.tokenProvider = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/47788d05-ce54-4833-8249-dee98c28480f/token?instance_locator=v1:us1:47788d05-ce54-4833-8249-dee98c28480f';
   }
 

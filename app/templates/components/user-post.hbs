@@ -49,7 +49,7 @@
   <div class="w-full flex items-center justify-between p-4">
     {{#link-to 'user' post.author.id class="inline-flex items-center"}}
       <img class="w-10 h-10 bg-grey rounded-full mr-3" src="{{post.author.profile.avatar}}">
-      <div class="text-sm">
+      <div class="hidden lg:block text-sm">
         <p class="leading-none">
           {{post.author.nickname}}
         </p>
@@ -61,8 +61,11 @@
         {{component 'user/user-hovercard' user=post.author}}
       {{/attach-tooltip}}
     {{/link-to}}
+    <a {{action "toggleActive"}} href="#" class="block lg:hidden flex-grow text-indigo text-center py-2 my-2">
+        {{if isActive "Ocultar comentarios" "Mostrar comentarios"}}
+    </a>
     <div class="flex items-center text-grey-dark text-xs ml-auto">
-      <a {{action "toggleActive"}} href="#" class="text-sm text-right">
+      <a {{action "toggleActive"}} href="#" class="hidden lg:inline text-sm text-right">
         <p class="leading-none">
           {{post.kokoros_count}} kokoros
         </p>
@@ -79,7 +82,7 @@
         {{component 'user-comment' post=post comment=comment}}
       {{/each}}
       <form {{action "createComment" on="submit"}} class="flex items-center mt-2">
-        <img class="w-8 h-8 bg-grey rounded-full mr-3" src="{{session.user.profile.avatar}}">
+        <img class="flex-no-shrink w-8 h-8 bg-grey rounded-full mr-3" src="{{session.user.profile.avatar}}">
         <div class="inline-block relative w-full rounded-full">
           {{input type="text" value=content class="w-full appearance-none bg-white text-grey-dark border border-grey rounded-full px-4 py-2 pr-9" placeholder="Escribe un comentario..." autocomplete="off"}}
           <div class="absolute pin-y pin-r flex items-center pr-4">

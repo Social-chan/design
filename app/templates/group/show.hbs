@@ -15,14 +15,17 @@
         <p class="text-lg text-indigo-darkest font-bold mb-3">
           <i class="fas fa-users fa-fw"></i> Miembros
         </p>
-        <ul class="flex list-reset my-3">
+        <ul class="flex flex-wrap justify-start list-reset my-3">
           {{#each model.members as |member|}}
             <li>
               {{#link-to 'user' member.id class="relative inline-block pr-2"}}
-                <img class="w-10 rounded-full" src="{{member.profile.avatar}}">
+                <img class="w-10 h-10 bg-grey rounded-full" src="{{member.profile.avatar}}">
                 <span class="absolute pin-t pin-r bg-purple border border-white rounded-full text-xs p-1">
                   <i class="fas fa-cog text-white fill-current"></i>
                 </span>
+                {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 interactive=true}}
+                    {{component 'user/user-hovercard' user=member}}
+                {{/attach-tooltip}}
               {{/link-to}}
             </li>
           {{/each}}

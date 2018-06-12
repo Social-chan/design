@@ -4,11 +4,17 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   surname: DS.attr('string'),
   bio: DS.attr('string'),
+  avatar: DS.attr('string', {
+    defaultValue() {
+      return '/img/user_default.jpg';
+    },
+  }),
   country: DS.attr('string'),
+  bg_image: DS.attr('string', {
+    // defaultValue: '/img/_default.jpg',
+  }),
   birthday: DS.attr('date'),
   gender: DS.attr('boolean'),
-
-  extra: DS.attr('string'),
 
   sticky: DS.belongsTo('post'),
 

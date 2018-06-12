@@ -24,7 +24,7 @@
           <ul class="list-reset">
             {{#each model.populars as |user|}}
               <li class="inline-flex items-center my-2">
-                <img class="w-10 h-10 bg-grey rounded-full mr-3" src="{{user.profile.avatar}}">
+                <img class="flex-no-shrink w-10 h-10 bg-grey rounded-full mr-3" src="{{user.profile.avatar}}">
                 <span>
                   {{#link-to 'user' user.id class="text-black font-bold"}}
                     {{user.profile.name}} {{user.profile.surname}}
