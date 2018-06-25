@@ -6,6 +6,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     return RSVP.hash({
       posts: this.get('store').query('post', {
+        include: 'author',
         append: 'kokoros_count'
       }),
       populars: this.get('store').findAll('user'),
