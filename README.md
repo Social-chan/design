@@ -1,16 +1,18 @@
-# socialchan-design
+# Social-chan design
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+[![Netlify Status](https://api.netlify.com/api/v1/badges/72ae3588-89d7-42f7-9654-4918a64e425b/deploy-status)](https://app.netlify.com/sites/socialchan/deploys)
+
+Official open-source repo for Social-chan design based on EmberJS.
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
+* [Node.js](https://nodejs.org/)
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
+* [Ember inspector (Chrome)](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 
 ## Installation
 
@@ -38,14 +40,13 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
+### Deployment
 
-Specify what it takes to deploy your app.
+Deploys are automatic, following the structure:
+- Next branch is for https://next.social-chan.com
+- Master branch is for https://social-chan.com
 
 ## Further Reading / Useful Links
 
 * [ember.js](https://emberjs.com/)
 * [ember-cli](https://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
