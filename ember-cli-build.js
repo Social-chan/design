@@ -29,17 +29,6 @@ module.exports = function(defaults) {
         ]
       }
     },
-    'ember-cli-image-transformer': {
-      images: [
-        {
-          inputFilename: 'public/img/socialchan-logo.svg',
-          outputFileName: 'appicon-',
-          convertTo: 'png',
-          background: {r: 255, g: 255, b: 255, alpha: 1},
-          sizes: [32, 192, 280, 512],
-        },
-      ]
-    },
     '@ember-decorators/babel-transforms': {
       disable: false
     }
