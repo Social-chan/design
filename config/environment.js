@@ -23,13 +23,13 @@ module.exports = function(environment) {
         description: "Red social anime y manga",
       },
       features: {
-        groups: true,
-        animes: true,
-        mangas: true,
-        lists: true,
-        monitor: true,
-        search: true,
-        next: false,
+        groups: process.env.FEATURE_GROUPS,
+        anime: process.env.FEATURE_ANIME,
+        manga: process.env.FEATURE_MANGA,
+        lists: process.env.FEATURE_LISTS,
+        monitor: process.env.FEATURE_MONITOR,
+        search: process.env.FEATURE_SEARCH,
+        next: process.env.FEATURE_NEXT,
       }
     },
 
@@ -44,7 +44,7 @@ module.exports = function(environment) {
         name: 'GoogleAnalytics',
         environments: ['production'],
         config: {
-          id: 'UA-46471023-1',
+          id: process.env.GOOGLE_ANALYTICS_ID,
           // Use `analytics_debug.js` in development
           debug: environment === 'development',
           // Use verbose tracing of GA events
@@ -63,6 +63,7 @@ module.exports = function(environment) {
     },
 
     chatkit: {
+      tokenProvider: process.env.CHATKIT_PROVIDER,
       instanceLocator: 'v1:us1:47788d05-ce54-4833-8249-dee98c28480f',
       secretKey: '4248a786-81c1-4647-9e82-b67656e3b7d6:VJrU7I5eW+FqdAsVZw8LmV8s9tnEIZOQue4Pnz0p5r8=',
     },
@@ -75,26 +76,7 @@ module.exports = function(environment) {
     }
   };
 
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    // Enable/disable Social-chan features
-    ENV.APP.features.search = false;
-
-    // ENV.apiHost = 'http://192.168.100.2:8000';
-    // ENV.apiHost = 'http://192.168.0.21:8000';
-    ENV.apiHost = 'http://185.191.20.61:8000';
-
-    // ENV.proxyHost = 'http://192.168.100.2:3001';
-    // ENV.proxyHost = 'http://192.168.0.21:3001';
-    ENV.proxyHost = 'http://185.191.20.61:3001';
-    ENV.chatkit.tokenProvider = 'https://us1.pusherplatform.io/services/chatkit_token_provider/v1/47788d05-ce54-4833-8249-dee98c28480f/token?instance_locator=v1:us1:47788d05-ce54-4833-8249-dee98c28480f';
-  }
-
+  // Hard-coded overrides, just for testing (from now)
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
@@ -106,21 +88,6 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production') {
-    // here you can enable a production-specific feature
-    ENV.apiHost = 'https://api.social-chan.com';
-
-    // Enable/disable Social-chan features
-    // ENV.APP.features.next = true;
-  }
-
-  if (environment === 'next') {
-    ENV.apiHost = 'https://api.social-chan.com';
-
-    // Enable/disable Social-chan features
-    ENV.APP.features.next = true;
   }
 
   return ENV;
