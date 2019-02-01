@@ -25,11 +25,13 @@
     "ember-cli-app-version": "^3.2.0",
     "ember-cli-babel": "^6.18.0",
     "ember-cli-dependency-checker": "^2.2.1",
+    "ember-cli-dotenv": "^2.2.1",
     "ember-cli-eslint": "^4.2.1",
     "ember-cli-htmlbars": "^2.0.5",
     "ember-cli-htmlbars-inline-precompile": "^1.0.5",
     "ember-cli-inject-live-reload": "^1.10.2",
     "ember-cli-meta-tags": "^4.1.0",
+    "ember-cli-mirage": "^0.4.14",
     "ember-cli-moment-shim": "^3.7.1",
     "ember-cli-postcss": "^3.7.1",
     "ember-cli-qunit": "^4.4.0",
@@ -55,7 +57,7 @@
     "loader.js": "^4.7.0",
     "push.js": "^1.0.9",
     "pusher-chatkit-client": "^0.6.2",
-    "tailwindcss": "^0.5.3"
+    "tailwindcss": "^0.7.0"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
