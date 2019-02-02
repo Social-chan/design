@@ -1,11 +1,10 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'socialchan',
     environment,
-    // rootURL: '/',
+    rootURL: '/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
@@ -19,6 +18,8 @@ module.exports = function(environment) {
     },
 
     APP: {
+      apiHost: process.env.API_HOST,
+      proxyHost: process.env.PROXY_HOST,
       meta: {
         description: "Red social anime y manga",
       },
@@ -37,6 +38,11 @@ module.exports = function(environment) {
       allowEmpty: true,
       includeTimezone: 'all',
       includeLocales: ['es']
+    },
+
+    'ember-cli-string-helpers': {
+      only: ['dasherize', 'underscore', 'html-safe'],
+      except: ['titleize', 'capitalize']
     },
 
     metricsAdapters: [
@@ -64,8 +70,8 @@ module.exports = function(environment) {
 
     chatkit: {
       tokenProvider: process.env.CHATKIT_PROVIDER,
-      instanceLocator: 'v1:us1:47788d05-ce54-4833-8249-dee98c28480f',
-      secretKey: '4248a786-81c1-4647-9e82-b67656e3b7d6:VJrU7I5eW+FqdAsVZw8LmV8s9tnEIZOQue4Pnz0p5r8=',
+      instanceLocator: process.env.CHATKIT_LOCATOR,
+      secretKey: process.env.CHATKIT_SECRET_KEY,
     },
 
     emberAttacher: {
