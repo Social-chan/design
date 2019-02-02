@@ -6,7 +6,7 @@ import config from '../config/environment';
 
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin, AjaxServiceSupport, {
   authorizer: 'authorizer:application',
-  host: config.apiHost,
+  host: config.APP.apiHost,
   headers: {
     'Content-Type': 'application/json',
     // 'API_VERSION': 1

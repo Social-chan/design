@@ -1,11 +1,10 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'socialchan',
     environment,
-    // rootURL: '/',
+    rootURL: '/',
     locationType: 'hash',
     EmberENV: {
       FEATURES: {
@@ -19,6 +18,8 @@ module.exports = function(environment) {
     },
 
     APP: {
+      apiHost: process.env.API_HOST,
+      proxyHost: process.env.PROXY_HOST,
       meta: {
         description: "Red social anime y manga",
       },
@@ -37,6 +38,11 @@ module.exports = function(environment) {
       allowEmpty: true,
       includeTimezone: 'all',
       includeLocales: ['es']
+    },
+
+    'ember-cli-string-helpers': {
+      only: ['dasherize', 'underscore', 'html-safe'],
+      except: ['titleize', 'capitalize']
     },
 
     metricsAdapters: [
