@@ -1,5 +1,4 @@
 import Response from 'ember-cli-mirage/response';
-import { isUndefined } from 'lodash';
 
 const TOKEN = 'abcdefghijklmnopqrstuvwxyz';
 

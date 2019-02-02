@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { task } from 'ember-concurrency';
-import { isAjaxError } from 'ember-ajax/errors';
+// import { isAjaxError } from 'ember-ajax/errors';
 
 export default Component.extend({
   ajax: service(),
