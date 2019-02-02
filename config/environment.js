@@ -70,8 +70,8 @@ module.exports = function(environment) {
 
     chatkit: {
       tokenProvider: process.env.CHATKIT_PROVIDER,
-      instanceLocator: 'v1:us1:47788d05-ce54-4833-8249-dee98c28480f',
-      secretKey: '4248a786-81c1-4647-9e82-b67656e3b7d6:VJrU7I5eW+FqdAsVZw8LmV8s9tnEIZOQue4Pnz0p5r8=',
+      instanceLocator: process.env.CHATKIT_LOCATOR,
+      secretKey: process.env.CHATKIT_SECRET_KEY,
     },
 
     emberAttacher: {
