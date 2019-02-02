@@ -1,26 +1,65 @@
+import Response from 'ember-cli-mirage/response';
+import { isUndefined } from 'lodash';
+
+const TOKEN = 'abcdefghijklmnopqrstuvwxyz';
+
+function getQueryVariable(query, item) {
+  var vars = query.split('&');
+
+  for (var i = 0; i < vars.length; i++) {
+      var pair = vars[i].split('=');
+      if (decodeURIComponent(pair[0]) == item) {
+          return decodeURIComponent(pair[1]);
+      }
+  }
+
+  return;
+}
+
+function responseError(error, msg, code = 422) {
+  return new Response(code, {'Content-Type': 'application/json'}, {
+    error: error,
+    message: msg
+  })
+}
+
 export default function() {
 
-  // These comments are here to help you get started. Feel free to delete them.
+  this.urlPrefix = 'http://locahost:4200';
+  this.namespace = '/api';
+  this.timing = 200;
 
-  /*
-    Config (with defaults).
+  this.post('/oauth/token', (schema, request) => {
+    const query = request.requestBody;
+    let username = getQueryVariable(query, 'username');
+    let password = getQueryVariable(query, 'password');
 
-    Note: these only affect routes defined *after* them!
-  */
+    if (! username || username === 'undefined') {
+      return responseError('invalid_credentials', 'username cannot be blank');
+    }
 
-  // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
-  // this.namespace = '';    // make this `/api`, for example, if your API is namespaced
-  // this.timing = 400;      // delay for each request, automatically set to 0 during testing
+    if (! password || password === 'undefined') {
+      return responseError('invalid_credentials', 'password cannot be blank');
+    }
 
-  /*
-    Shorthand cheatsheet:
+    return new Response(200, {'Content-Type': 'application/json'}, {
+      access_token: TOKEN,
+      token_type: 'Bearer',
+      expires_in: new Date().getTime(),
+      refresh_token: TOKEN,
+      scope: '*'
+    });
+  });
 
-    this.get('/posts');
-    this.post('/posts');
-    this.get('/posts/:id');
-    this.put('/posts/:id'); // or this.patch
-    this.del('/posts/:id');
+  this.get('/users', ({ users }, request) => {
+    const query = request.queryParams;
+    return users.all().slice(query['page[offset]'] || 0, query['page[limit]'] || 5);
+  });
 
-    http://www.ember-cli-mirage.com/docs/v0.4.x/shorthands/
-  */
+  this.resource('user', { except: ['index'], path: '/users' });
+  this.resource('post', { path: '/posts' });
+  this.resource('comment', { path: '/comments' });
+  this.resource('group', { path: '/groups' });
+  this.resource('group-type', { path: '/group-types' });
+
 }
