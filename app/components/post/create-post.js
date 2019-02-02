@@ -25,7 +25,7 @@ export default Component.extend({
 
   actions: {
     wrap(text) {
-      console.log(this.toString());
+      // console.log(this.toString());
       this.get('push').create('Test de notificación', {
         icon: '/img/user_default.jpg'
       });

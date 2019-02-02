@@ -36,8 +36,11 @@ export function initialize() {
     defaultHeight = options.youtubeHeight ? options.youtubeHeight : '400px';
 
     if (rest) {
-      width = (d = /width="(.+?)"/.exec(rest)) ? d[1] : defaultWidth;
-      height = (d = /height="(.+?)"/.exec(rest)) ? d[1] : defaultHeight;
+      d = /width="(.+?)"/.exec(rest);
+      width = (d) ? d[1] : defaultWidth;
+
+      d = /height="(.+?)"/.exec(rest);
+      height = (d) ? d[1] : defaultHeight;
     }
 
     return {

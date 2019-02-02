@@ -5,11 +5,15 @@ import { computed } from '@ember/object';
 export default Controller.extend({
   session: service(),
 
-  landingPages: [
-    'index', 'login', 'register', 'recover', 'oauth', 'page.cookies',
-    'page.about', 'page.subscribe', 'page.contact',
-    'page.dmca', 'page.policies', 'not-found',
-  ],
+  init() {
+    this._super(...arguments);
+
+    this.set('landingPages', [
+      'index', 'login', 'register', 'recover', 'oauth', 'page.cookies',
+      'page.about', 'page.subscribe', 'page.contact',
+      'page.dmca', 'page.policies', 'not-found',
+    ]);
+  },
 
   menuItems: computed('session.user.id', function () {
     let user = this.get('session.user.id');

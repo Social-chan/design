@@ -5,7 +5,7 @@
         {{component 'top-sidebar' class="fixed pin-t flex lg:hidden items-center justify-center w-full" currentRouteName=currentRouteName}}
         {{component 'left-sidebar' class="hidden lg:flex h-full overflow-hidden" currentRouteName=currentRouteName}}
 
-        <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll pt-9 lg:pt-0 bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('{{session.user.profile.bg_image}}')">
+        <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll pt-9 lg:pt-0 bg-cover bg-fixed bg-center bg-no-repeat" style="{{html-safe session.user.profile.bgImage}}">
             {{outlet}}
         </div>
 

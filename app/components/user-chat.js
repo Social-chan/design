@@ -11,7 +11,6 @@ export default Component.extend({
   // init() {
   //   this._super(...arguments);
   //   // console.log(this.get('session.user.nickname'));
-
   // },
 
   getAllRooms: task(function * () {
@@ -19,14 +18,14 @@ export default Component.extend({
       this.set('rooms', rooms);
       this.toggleProperty('isRoomsActive');
     }, (error) => {
-      console.error(`Error getting rooms: ${error}`);
+      // console.error(`Error getting rooms: ${error}`);
     });
   }).drop(),
 
   joinRoom: task(function * (room) {
     yield this.get('chat.currentUser').joinRoom(room, {
       newMessage: (message) => {
-        console.log(`Received new message: ${message.text}`);
+        // console.log(`Received new message: ${message.text}`);
       }
     });
   }).drop(),

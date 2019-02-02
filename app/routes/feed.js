@@ -9,7 +9,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
         include: 'author',
         append: 'kokoros_count'
       }),
-      populars: this.get('store').findAll('user'),
+      populars: this.get('store').query('user', {
+        page: { limit: 5 },
+        include: 'profile',
+      }),
     });
   }
 });

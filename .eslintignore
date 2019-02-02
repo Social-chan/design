@@ -13,6 +13,7 @@
 # misc
 /coverage/
 !.*
+tailwind.js
 
 # ember-try
 /.node_modules.ember-try/
