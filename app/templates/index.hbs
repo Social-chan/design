@@ -1,8 +1,8 @@
-{{component 'header-navbar' user=user class="fixed pin-t w-full z-50"}}
+{{component 'home/header' user=user class="hidden lg:fixed pin-t w-full p-3 z-50"}}
+
 {{#swiper-container options=swiperOptions pagination=true vertical=true class="max-w-full h-screen swiper-container-inverse"}}
   {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-indigo-light text-white p-8"}}
-    {{#if (not-eq environment 'next')}}
-      <div class="max-w-md text-white text-center">
+      {{!-- <div class="max-w-md text-white text-center">
         <i class="fas fa-gem fa-9x fill-current mb-8"></i>
         <h2 class="font-sans font-semibold text-3xl mb-4">
           Bienvenido a Social-chan Next
@@ -17,47 +17,8 @@
           Recuerda que debes tener cuenta de suscriptor para poder
           acceder al programa Next.
         </p>
-      </div>
-    {{else}}
-      {{component 'signup-form' class="flex flex-wrap justify-center w-full max-w-md text-white"}}
-    {{/if}}
-    <ul class="absolute pin-b flex justify-around w-full list-reset px-8 mb-4">
-      <li>
-        <a href="https://dojo.moe" target="_blank" class="text-white">
-          Dojo
-        </a>
-      </li>
-      <li>
-        {{#link-to 'page.subscribe' class="text-white"}}
-          Suscripción
-        {{/link-to}}
-      </li>
-      <li>
-        <a href="https://devs.social-chan.com" target="_blank" class="text-white">
-          Desarrolladores
-        </a>
-      </li>
-      <li>
-        {{#link-to 'page.policies' class="text-white"}}
-          Condiciones
-        {{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'page.cookies' class="text-white"}}
-          Cookies
-        {{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'page.contact' class="text-white"}}
-          Contacto
-        {{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'page.about' class="text-white"}}
-          Acerca
-        {{/link-to}}
-      </li>
-    </ul>
+      </div> --}}
+    {{component 'signup-form' class="flex flex-wrap justify-center w-full max-w-md text-white"}}
   {{/swiper-slide}}
   {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-teal-dark p-8"}}
     {{#if (not-eq environment 'next')}}
@@ -165,3 +126,5 @@
     </div>
   {{/swiper-slide}}
 {{/swiper-container}}
+
+{{component 'home/footer' class="fixed pin-b w-full px-8 mb-4 z-50"}}

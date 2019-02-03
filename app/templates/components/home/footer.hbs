@@ -1,0 +1,39 @@
+<ul class="flex justify-around list-reset py-4 overflow-y-auto scrolling-touch select-none">
+  <li class="mr-6">
+    <a href="https://dojo.moe" target="_blank" class="text-white">
+      Dojo
+    </a>
+  </li>
+  <li class="mr-6">
+    {{#link-to 'page.subscribe' class="text-white"}}
+      Suscripción
+    {{/link-to}}
+  </li>
+  <li class="mr-6">
+    <a href="https://github.com/Social-chan" target="_blank" class="text-white">
+      Desarrolladores
+    </a>
+  </li>
+  <li class="mr-6">
+    {{#link-to 'page.policies' class="text-white"}}
+      Condiciones
+    {{/link-to}}
+  </li>
+  <li class="mr-6">
+    {{#link-to 'page.cookies' class="text-white"}}
+      Cookies
+    {{/link-to}}
+  </li>
+  <li class="mr-6">
+    {{#link-to 'page.contact' class="text-white"}}
+      Contacto
+    {{/link-to}}
+  </li>
+  <li class="mr-6">
+    {{#link-to 'page.about' class="text-white"}}
+      Acerca
+    {{/link-to}}
+  </li>
+
+  {{yield}}
+</ul>
