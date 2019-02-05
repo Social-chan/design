@@ -1,13 +1,13 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-// import InViewportMixin from 'ember-in-viewport';
+import { action } from '@ember-decorators/object';
+import { inject as service } from '@ember-decorators/service';
 
-export default Component.extend({
-  session: service(),
+export default class HeaderComponent extends Component {
+  @service session;
+  @service media;
 
-  actions: {
-    logout() {
-      this.get('session').invalidate();
-    }
+  @action
+  logout() {
+    this.get('session').invalidate();
   }
-});
+}
