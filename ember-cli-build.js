@@ -37,6 +37,7 @@ module.exports = function(defaults) {
         enabled: true,
         plugins: [
           require('tailwindcss')('./tailwind.js'),
+          require('autoprefixer'),
           {
             module: purgecss,
             options: {
