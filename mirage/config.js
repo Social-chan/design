@@ -24,6 +24,8 @@ function responseError(error, msg, code = 422) {
 
 export default function() {
 
+  this.passthrough();
+
   this.urlPrefix = 'http://locahost:4200';
   this.namespace = '/api';
   this.timing = 200;

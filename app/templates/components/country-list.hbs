@@ -1,0 +1,6 @@
+{{yield}}
+{{#each countries as |country|}}
+  <option value="{{country.code}}" selected={{if (eq country.code selectedCode) true false}}>
+    {{country.name}}
+  </option>
+{{/each}}
