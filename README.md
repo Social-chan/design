@@ -1,8 +1,8 @@
 # Social-chan design
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/72ae3588-89d7-42f7-9654-4918a64e425b/deploy-status)](https://app.netlify.com/sites/socialchan/deploys)
+[![Build Status](https://travis-ci.org/Social-chan/design.svg?branch=master)](https://travis-ci.org/Social-chan/design) [![Netlify Status](https://api.netlify.com/api/v1/badges/72ae3588-89d7-42f7-9654-4918a64e425b/deploy-status)](https://app.netlify.com/sites/socialchan/deploys) [![David devDependencies](https://david-dm.org/Social-chan/design/dev-status.svg)](https://david-dm.org/Social-chan/design?type=dev)
 
-Official open-source repo for Social-chan design based on EmberJS.
+Official design for the Social-chan web application based on EmberJS.
 
 ## Prerequisites
 
