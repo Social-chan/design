@@ -1,14 +1,14 @@
 <!-- User / Nav sidebar -->
 <div id="nav-sidebar" class="absolute h-full bg-indigo-darkest select-none scrolling-auto overflow-x-scroll p-4 z-50">
-  {{#link-to 'user' session.user.id class="block opacity-50 mb-4" activeClass="opacity-75"}}
+  {{#link-to "user" auth.user.id class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="flex items-center justify-center h-12 w-12 bg-indigo-lightest rounded-full mb-1 overflow-hidden">
-      <img class="bg-grey" src="{{ session.user.profile.avatar }}" alt>
+      <img class="bg-grey" src={{auth.user.profile.avatar}} alt={{auth.user.nickname}}>
     </div>
     <div class="text-center text-white text-sm">
       Perfil
     </div>
   {{/link-to}}
-  {{#if (is-feature 'monitor')}}
+  {{#if (is-feature "monitor")}}
     <div {{action "toggleSubsidebar" "monitor"}} class="{{if (eq activeSection "monitor") "opacity-75" "opacity-50"}} cursor-pointer mb-4">
       <div class="flex items-center justify-center h-12 w-12 bg-indigo-lightest text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
         <span class="fa-layers">
@@ -22,7 +22,7 @@
       </div>
     </div>
   {{/if}}
-  {{#link-to 'feed' class="block opacity-50 mb-4" activeClass="opacity-75"}}
+  {{#link-to "feed" class="block opacity-50 mb-4" activeClass="opacity-75"}}
     <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
       <i class="far fa-comments fill-current"></i>
     </div>
@@ -30,8 +30,8 @@
       Muro
     </div>
   {{/link-to}}
-  {{#if (is-feature 'groups')}}
-    {{#link-to 'group' class="block opacity-50 mb-4" activeClass="opacity-75"}}
+  {{#if (is-feature "groups")}}
+    {{#link-to "group" class="block opacity-50 mb-4" activeClass="opacity-75"}}
       <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
         <i class="fas fa-users fill-current"></i>
       </div>
@@ -40,8 +40,8 @@
       </div>
     {{/link-to}}
   {{/if}}
-  {{#if (is-feature 'anime')}}
-    <div {{action "toggleSubsidebar" "anime"}} class="{{if (or (eq currentRouteName 'anime') (eq activeSection 'anime')) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
+  {{#if (is-feature "anime")}}
+    <div {{action "toggleSubsidebar" "anime"}} class="{{if (or (eq currentRouteName "anime") (eq activeSection "anime")) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
       <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
         <i class="fas fa-film fill-current"></i>
       </div>
@@ -50,8 +50,8 @@
       </div>
     </div>
   {{/if}}
-  {{#if (is-feature 'manga')}}
-    <div {{action "toggleSubsidebar" "manga"}} class="{{if (or (eq currentRouteName 'manga') (eq activeSection 'manga')) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
+  {{#if (is-feature "manga")}}
+    <div {{action "toggleSubsidebar" "manga"}} class="{{if (or (eq currentRouteName "manga") (eq activeSection "manga")) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
       <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
         <i class="fas fa-book fill-current"></i>
       </div>
@@ -60,8 +60,8 @@
       </div>
     </div>
   {{/if}}
-  {{#if (is-feature 'albums')}}
-    <div {{action "toggleSubsidebar" "music"}} class="{{if (or (eq currentRouteName 'music') (eq activeSection 'music')) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
+  {{#if (is-feature "albums")}}
+    <div {{action "toggleSubsidebar" "music"}} class="{{if (or (eq currentRouteName "music") (eq activeSection "music")) "opacity-75" "opacity-50"}} cursor-pointer mb-4">
       <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
         <i class="fas fa-music fill-current"></i>
       </div>
@@ -70,8 +70,8 @@
       </div>
     </div>
   {{/if}}
-  {{#if (is-feature 'lists')}}
-    {{#link-to 'list' class="block opacity-50 mb-4" activeClass="opacity-75"}}
+  {{#if (is-feature "lists")}}
+    {{#link-to "list" class="block opacity-50 mb-4" activeClass="opacity-75"}}
       <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
         <i class="far fa-bookmark fill-current"></i>
       </div>
@@ -80,8 +80,8 @@
       </div>
     {{/link-to}}
   {{/if}}
-  {{#if (is-feature 'search')}}
-    {{#link-to 'search' class="block opacity-50 mb-4" activeClass="opacity-75"}}
+  {{#if (is-feature "search")}}
+    {{#link-to "search" class="block opacity-50 mb-4" activeClass="opacity-75"}}
       <div class="bg-indigo-lightest h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
         <i class="fas fa-search fill-current"></i>
       </div>
@@ -93,7 +93,7 @@
 </div>
 
 <!-- User / subsidebar -->
-{{component 'left-sub-sidebar' class=(concat 'absolute h-full sub-sidebar z-40 ' (if isSubsidebarActive 'opened' '')) activeSection=activeSection}}
+{{component "left-sub-sidebar" class=(concat "absolute h-full sub-sidebar z-40 " (if isSubsidebarActive "opened" "")) activeSection=activeSection}}
 
 {{#if isSubsidebarActive}}
   <div {{action "toggleSubsidebar" activeSection}} class="fixed pin bg-black opacity-50 z-30"></div>

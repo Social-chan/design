@@ -1,28 +1,33 @@
 import DS from 'ember-data';
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import { attr, belongsTo, hasMany } from '@ember-decorators/data'
+import { inject as service } from '@ember-decorators/service'
+import { computed } from '@ember-decorators/object';
 import { equal } from '@ember/object/computed';
+import { set, get } from '@ember/object';
 
-export default DS.Model.extend({
-  session: service(),
+const { Model } = DS
 
-  nickname: DS.attr('string'),
-  email: DS.attr('string'),
-  active: DS.attr('boolean'),
-  following: DS.attr('boolean'),
-  created_at: DS.attr('date'),
-  updated_at: DS.attr('date'),
+export default class User extends Model {
+  @service auth
 
-  profile: DS.belongsTo('profile'),
-  followers: DS.hasMany('user', { inverse: null }),
-  follows: DS.hasMany('user', { inverse: null }),
-  posts: DS.hasMany('post'),
-  groups: DS.hasMany('group'),
+  @attr('string') nickname
+  @attr('string') email
+  @attr('boolean') active
+  @attr('boolean') following
+  @attr('date') created_at
+  @attr('date') updated_at
 
-  isLoggedIn: computed('id', 'session.user.id', function () {
-    return this.get('id') === this.get('session.user.id');
-  }),
-  isActive: equal('active', true),
+  @belongsTo('profile') profile
+  @hasMany('user', { inverse: null }) followers
+  @hasMany('user', { inverse: null }) follows
+  @hasMany('post') posts
+  @hasMany('group') groups
+
+  @computed('id', 'auth.user.id')
+  get isLoggedIn() {
+    return get(this, 'id') === get(this, 'auth.user.id');
+  }
+
+  isActive = equal('active', true)
   // isSuscriber: equal('role.suscriber')
-
-});
+}
