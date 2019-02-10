@@ -1,7 +1,10 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
+import { attr } from '@ember-decorators/data'
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  color: DS.attr('string'),
-  music: DS.attr('boolean'),
-});
+const { Model } = DS
+
+export default class Genre extends Model {
+  @attr('string') name
+  @attr('string') color
+  @attr('boolean') music
+}

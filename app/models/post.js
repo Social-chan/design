@@ -1,10 +1,12 @@
 import DS from 'ember-data'
 import { attr, belongsTo, hasMany } from '@ember-decorators/data'
 import { inject as service } from '@ember-decorators/service'
+import { computed } from '@ember-decorators/object';
+import ModelTimestamps from '../mixins/model-timestamps';
 
 const { Model } = DS
 
-export default class Post extends Model {
+export default class Post extends Model.extend(ModelTimestamps) {
   @service auth
 
   @attr('string') content
@@ -13,12 +15,14 @@ export default class Post extends Model {
   @attr('number', { defaultValue: 0 }) kokoros_count
 
   @attr('string') kokored
-  @attr('date', { defaultValue: new Date }) created_at
-  @attr('date') updated_at
 
   @belongsTo('user') author
   @hasMany('comment', { inverse: 'post' }) comments
 
-  isKokored = this.get('kokored')
+  @computed('kokored')
+  get isKokored() {
+    return this.get('kokored')
+  }
+
   isSticky = false
 }

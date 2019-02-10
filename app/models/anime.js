@@ -1,20 +1,22 @@
-import DS from 'ember-data';
-// import { computed } from '@ember/object';
+import DS from 'ember-data'
+import { attr, belongsTo } from '@ember-decorators/data'
+import ModelTimestamps from '../mixins/model-timestamps';
 
-export default DS.Model.extend({
-    title: DS.attr('string'),
-    adult: DS.attr('boolean'),
-    public: DS.attr('boolean'),
-    image: DS.attr('string', {
-      defaultValue: function () {
-        return 'img/cover_default.jpg';
-      }
-    }),
-    about: DS.attr('string'),
-    content: DS.attr('json'),
-    published: DS.attr('date'),
-    finished: DS.attr('date'),
-    created_at: DS.attr('date'),
+const { Model } = DS
 
-    author: DS.belongsTo('user'),
-});
+export default class Anime extends Model.extend(ModelTimestamps) {
+  @attr('string') title
+  @attr('boolean') adult
+  @attr('boolean') public
+  @attr('string', {
+    defaultValue: function () {
+      return 'img/cover_default.jpg';
+    }
+  }) image
+  @attr('string') about
+  @attr('json') content
+  @attr('date') published
+  @attr('date') finished
+
+  @belongsTo('user') author
+}

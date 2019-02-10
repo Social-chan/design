@@ -1,6 +1,9 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
+import { belongsTo } from '@ember-decorators/data'
 
-export default DS.Model.extend({
-  post: DS.belongsTo('post'),
-  group: DS.belongsTo('group'),
-});
+const { Model } = DS
+
+export default class GroupPost extends Model {
+  @belongsTo('post') post
+  @belongsTo('group') group
+}

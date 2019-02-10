@@ -1,14 +1,12 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
+import { attr, belongsTo } from '@ember-decorators/data'
+import ModelTimestamps from '../mixins/model-timestamps'
 
-export default DS.Model.extend({
-  content: DS.attr('string'),
-  created_at: DS.attr('date', {
-    defaultValue() { return new Date(); }
-  }),
-  updated_at: DS.attr('date'),
+const { Model } = DS
 
-  author: DS.belongsTo('user'),
-  post: DS.belongsTo('post', {
-    inverse: 'comments'
-  }),
-});
+export default class Comment extends Model.extend(ModelTimestamps) {
+  @attr('string') content
+
+  @belongsTo('user') author
+  @belongsTo('post', {inverse: 'comments'}) post
+}
