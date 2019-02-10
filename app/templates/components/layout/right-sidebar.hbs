@@ -1,8 +1,7 @@
-<!-- Sidebar / realtime -->
 <div class="bg-indigo-darkest flex-none p-4 h-full select-none scrolling-auto overflow-auto z-50 hidden md:block">
-  {{#link-to 'user' session.user.id class="block opacity-75 no-underline mb-4"}}
+  {{#link-to 'user' auth.user.id class="block opacity-75 no-underline mb-4"}}
     <div class="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-full mb-1 overflow-hidden">
-      <img src="{{ session.user.profile.avatar }}" alt="">
+      <img src="{{ auth.user.profile.avatar }}" alt="">
     </div>
     <div class="text-center text-white text-sm">
       Perfil

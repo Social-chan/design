@@ -5,10 +5,10 @@ import RSVP from 'rsvp';
 import { get } from '@ember/object';
 
 export default Route.extend(AuthenticatedRouteMixin, {
-  session: service(),
+  auth: service(),
 
   model() {
-    let user_id = get(this, 'session.user.id');
+    let user_id = get(this, 'auth.user.id');
 
     return RSVP.hash({
       groups: this.get('store').findAll('group', {include: 'author,author.profile,groupType'}),

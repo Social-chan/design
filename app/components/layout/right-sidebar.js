@@ -1,6 +1,6 @@
-import Component from '@ember/component';
-import {inject as service} from '@ember/service';
+import Component from '@ember/component'
+import { inject as service } from '@ember-decorators/service'
 
-export default Component.extend({
-  session: service()
-});
+export default class LayoutRightSidebar extends Component {
+  @service auth
+}

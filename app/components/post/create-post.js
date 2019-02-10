@@ -4,7 +4,7 @@ import { task } from 'ember-concurrency-decorators'
 import EmberRouter from '@ember/routing/router'
 import { action } from '@ember-decorators/object'
 
-export default class CreatePostComponent extends Component {
+export default class CreatePost extends Component {
   @service auth
   @service store
   @service push
@@ -17,7 +17,7 @@ export default class CreatePostComponent extends Component {
     const { content } = this.getProperties('content');
 
     let post = this.get('store').createRecord('post', {
-      author: this.get('session.user'),
+      author: this.get('auth.user'),
       content: content,
     })
 

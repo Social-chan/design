@@ -4,13 +4,13 @@ import { task } from 'ember-concurrency';
 
 export default Component.extend({
   chat: service(),
-  session: service(),
+  auth: service(),
   isRoomsActive: false,
 
   // TODO: Auto-init with init()
   // init() {
   //   this._super(...arguments);
-  //   // console.log(this.get('session.user.nickname'));
+  //   // console.log(this.get('auth.user.nickname'));
   // },
 
   getAllRooms: task(function * () {
