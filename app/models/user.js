@@ -1,21 +1,20 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
 import { attr, belongsTo, hasMany } from '@ember-decorators/data'
 import { inject as service } from '@ember-decorators/service'
-import { computed } from '@ember-decorators/object';
-import { equal } from '@ember/object/computed';
-import { set, get } from '@ember/object';
+import { computed } from '@ember-decorators/object'
+import { equal } from '@ember/object/computed'
+import { get } from '@ember/object'
+import ModelTimestamps from '../mixins/model-timestamps';
 
 const { Model } = DS
 
-export default class User extends Model {
+export default class User extends Model.extend(ModelTimestamps) {
   @service auth
 
   @attr('string') nickname
   @attr('string') email
   @attr('boolean') active
   @attr('boolean') following
-  @attr('date') created_at
-  @attr('date') updated_at
 
   @belongsTo('profile') profile
   @hasMany('user', { inverse: null }) followers

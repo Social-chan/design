@@ -1,5 +1,7 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
+// import { attr } from '@ember-decorators/data'
 
-export default DS.Model.extend({
+const { Model } = DS
 
-});
+export default class Industry extends Model {
+}

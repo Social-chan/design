@@ -1,20 +1,18 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
+import { attr, belongsTo } from '@ember-decorators/data'
+import ModelTimestamps from '../mixins/model-timestamps';
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  slug: DS.attr('string'),
-  image: DS.attr('string'),
-  cover: DS.attr('string'),
-  about: DS.attr('string'),
-  created_at: DS.attr('date', {
-    defaultValue() { return new Date(); }
-  }),
-  updated_at: DS.attr('date'),
-  is_member: DS.attr('boolean'),
-  members_count: DS.attr('number', {
-    defaultValue() { return 0; }
-  }),
+const { Model } = DS
 
-  groupType: DS.belongsTo('group-type'),
-  author: DS.belongsTo('user'),
-});
+export default class Group extends Model.extend(ModelTimestamps) {
+  @attr('string') name
+  @attr('string') slug
+  @attr('string') image
+  @attr('string') cover
+  @attr('string') about
+  @attr('boolean') is_member
+  @attr('number', {defaultValue: () => {return 0}}) members_count
+
+  @belongsTo('group-type') groupType
+  @belongsTo('user') author
+}

@@ -1,13 +1,16 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
+import { attr, hasMany } from '@ember-decorators/data'
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  icon: DS.attr('string'),
-  color: DS.attr('string', {
+const { Model } = DS
+
+export default class GroupType extends Model {
+  @attr('string') name
+  @attr('string') icon
+  @attr('string', {
     defaultValue() {
       return 'indigo';
     },
-  }),
+  }) color
 
-  group: DS.hasMany('group'),
-});
+  @hasMany('group') groups
+}

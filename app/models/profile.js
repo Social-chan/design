@@ -1,22 +1,25 @@
-import DS from 'ember-data';
+import DS from 'ember-data'
+import { attr, belongsTo } from '@ember-decorators/data'
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  surname: DS.attr('string'),
-  bio: DS.attr('string'),
-  avatar: DS.attr('string', {
+const { Model } = DS
+
+export default class Profile extends Model {
+  @attr('string') name
+  @attr('string') surname
+  @attr('string') bio
+  @attr('string', {
     defaultValue() {
       return '/img/user_default.jpg';
     },
-  }),
-  country: DS.attr('string'),
-  bg_image: DS.attr('string', {
+  }) avatar
+  @attr('string') country
+  @attr('string', {
     defaultValue() {
       return '/img/chat_bg.png';
     },
-  }),
-  birthday: DS.attr('date'),
-  gender: DS.attr('boolean'),
+  }) bg_image
+  @attr('date') birthday
+  @attr('boolean') gender
 
-  sticky: DS.belongsTo('post'),
-});
+  @belongsTo('post') sticky
+}
