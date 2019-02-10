@@ -1,18 +1,19 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { task } from 'ember-concurrency';
+import { inject as service } from '@ember-decorators/service';
+import { action } from '@ember-decorators/object';
+import { task } from 'ember-concurrency-decorators';
 
-export default Component.extend({
-  ajax: service(),
+export default class JoinButtonComponent extends Component {
+  @service ajax
 
-  postJoin: task(function * (id) {
+  @task({drop: true})
+  *postJoin(id) {
     yield this.get('ajax').post(`group/${id}/join`);
-  }).drop(),
-
-  actions: {
-    join(id) {
-      this.get('postJoin').perform(id);
-      this.toggleProperty('isMember');
-    }
   }
-});
+
+  @action
+  join(id) {
+    this.get('postJoin').perform(id);
+    this.toggleProperty('isMember');
+  }
+}

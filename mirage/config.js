@@ -24,6 +24,8 @@ function responseError(error, msg, code = 422) {
 
 export default function() {
 
+  this.passthrough();
+
   this.urlPrefix = 'http://locahost:4200';
   this.namespace = '/api';
   this.timing = 200;
@@ -53,6 +55,10 @@ export default function() {
   this.get('/users', ({ users }, request) => {
     const query = request.queryParams;
     return users.all().slice(query['page[offset]'] || 0, query['page[limit]'] || 5);
+  });
+
+  this.get('/user/me', ({ users }, request) => {
+    return users.find(1);
   });
 
   this.resource('user', { except: ['index'], path: '/users' });

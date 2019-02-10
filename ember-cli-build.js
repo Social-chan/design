@@ -2,6 +2,17 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const purgecss = require('@fullhuman/postcss-purgecss');
+
+// Custom PurgeCSS extractor for Tailwind that allows special characters in
+// class names.
+//
+// https://github.com/FullHuman/purgecss#extractor
+class TailwindExtractor {
+  static extract(content) {
+    return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+  }
+}
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
@@ -26,6 +37,19 @@ module.exports = function(defaults) {
         enabled: true,
         plugins: [
           require('tailwindcss')('./tailwind.js'),
+          require('autoprefixer'),
+          {
+            module: purgecss,
+            options: {
+              content: ['./app/**/*.hbs', './app/**/.js'],
+              extractors: [
+                {
+                  extractor: TailwindExtractor,
+                  extensions: ["js", "hbs"]
+                }
+              ],
+            }
+          }
         ]
       }
     },

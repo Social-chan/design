@@ -1,7 +1,3 @@
-<button {{action 'toggleKokoro' post.id}} class="bg-indigo-dark hover:bg-indigo-darker rounded-full p-3 ml-3">
-  {{#if isKokored}}
-    <i class="fas fa-heart fa-lg fill-current text-red"></i>
-  {{else}}
-    <i class="far fa-heart fa-lg fill-current text-white"></i>
-  {{/if}}
+<button {{action "toggleKokoro" post.id}} class="bg-indigo-dark hover:bg-indigo-darker rounded-full p-3 ml-3">
+  <i class="fill-current {{if isKokored "fas text-red" "far text-white"}} fa-heart fa-lg"></i>
 </button>

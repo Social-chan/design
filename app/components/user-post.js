@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { task } from 'ember-concurrency';
 
 export default Component.extend({
-  session: service(),
+  auth: service(),
   store: service(),
   ajax: service(),
   isActive: false,
@@ -14,7 +14,7 @@ export default Component.extend({
     let post = this.get('store').peekRecord('post', this.get('post.id'));
     let comment = this.get('store').createRecord('comment', {
       post_id: post.id,
-      author: this.get('session.user'),
+      author: this.get('auth.user'),
       content: content,
     });
 

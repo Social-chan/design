@@ -1,167 +1,113 @@
-{{component 'header-navbar' user=user class="fixed pin-t w-full z-50"}}
-{{#swiper-container options=swiperOptions pagination=true vertical=true class="max-w-full h-screen swiper-container-inverse"}}
-  {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-indigo-light text-white p-8"}}
-    {{#if (not-eq environment 'next')}}
-      <div class="max-w-md text-white text-center">
-        <i class="fas fa-gem fa-9x fill-current mb-8"></i>
-        <h2 class="font-sans font-semibold text-3xl mb-4">
-          Bienvenido a Social-chan Next
-        </h2>
-        <p class="font-sans font-light text-xl mb-4">
-          Social-chan Next es la beta cerrada por suscripción en la
-          que se traen todas las características experimentales que
-          posiblemente sean añadidas a Social-chan con la contribución
-          y el apoyo de la comunidad.
-        </p>
-        <p class="font-sans font-light text-xl mb-8">
-          Recuerda que debes tener cuenta de suscriptor para poder
-          acceder al programa Next.
-        </p>
-      </div>
-    {{else}}
-      {{component 'signup-form' class="flex flex-wrap justify-center w-full max-w-md text-white"}}
-    {{/if}}
-    <ul class="absolute pin-b flex justify-around w-full list-reset px-8 mb-4">
-      <li>
-        <a href="https://dojo.moe" target="_blank" class="text-white">
-          Dojo
-        </a>
-      </li>
-      <li>
-        {{#link-to 'page.subscribe' class="text-white"}}
-          Suscripción
-        {{/link-to}}
-      </li>
-      <li>
-        <a href="https://devs.social-chan.com" target="_blank" class="text-white">
-          Desarrolladores
-        </a>
-      </li>
-      <li>
-        {{#link-to 'page.policies' class="text-white"}}
-          Condiciones
-        {{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'page.cookies' class="text-white"}}
-          Cookies
-        {{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'page.contact' class="text-white"}}
-          Contacto
-        {{/link-to}}
-      </li>
-      <li>
-        {{#link-to 'page.about' class="text-white"}}
-          Acerca
-        {{/link-to}}
-      </li>
-    </ul>
-  {{/swiper-slide}}
-  {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-teal-dark p-8"}}
-    {{#if (not-eq environment 'next')}}
-      <div class="max-w-md text-white text-center">
-        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_brainstorming.svg" alt="">
-        <h2 class="font-sans font-semibold text-3xl mb-4">
-          ¿Qué es Next?
-        </h2>
-        <p class="font-sans font-light text-xl mb-6">
-          Next es un programa incluido en la suscripción a Social-chan donde
-          los usuarios pueden aportar nuevas ideas y mejorar ciertas características
-          del sitio así como también probar estas antes de ser lanzadas.
-        </p>
-        <p class="font-sans font-light text-xl">
-          Emocionante, ¿verdad? Aún así eso no es todo, ¡en el pack de la
-          suscripción se incluyen aun más cosas!
-        </p>
-      </div>
-    {{else}}
+{{#if (media "isTablet")}}
+  {{component "home/header" user=user class="fixed pin-t w-full p-3 z-50"}}
+
+  {{#swiper-container options=swiperOptions pagination=true vertical=true class="max-w-full h-screen swiper-container-inverse"}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-indigo-light text-white p-8"}}
+      {{component "signup-form" class="flex flex-wrap justify-center w-full max-w-md text-white"}}
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-teal-dark p-8"}}
       <div class="max-w-md text-white text-center">
         <img class="w-1/2 mb-8" src="/img/illustrations/undraw_floating.svg" alt="comunidad">
         <h2 class="font-sans font-semibold text-3xl mb-4">
-          ¿Por qué debería registrarme?
+          Un sitio donde poder hablar
         </h2>
         <p class="font-sans font-light text-xl mb-6">
-          ¿Y por qué no? Tampoco te obligamos a hacerlo pero...
-          ¡seguro que te gusta! Tan simple como la posibilidad
-          de hablar en tiempo real, debatir u opinar sobre el
-          anime que tú ves, el manga que tú lees o la música
-          que tú escuchas.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, suscipit culpa, similique aspernatur
+          impedit et tenetur, aut vero doloremque accusamus ipsa ex enim ab expedita veniam dolore quibusdam odit
+          quo!
+        </p>
+      </div>
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-purple-dark p-8"}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_movie_night.svg" alt="anime manga y musica">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          ¿Red social? ¿Y qué más?
+        </h2>
+        <p class="font-sans font-light text-xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi placeat earum fugiat vitae sequi magnam
+          amet, asperiores obcaecati voluptates alias nisi sit pariatur optio veritatis deleniti excepturi temporibus
+          delectus laboriosam!
+        </p>
+      </div>
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-green-dark p-8"}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_growing.svg" alt="creciendo con la comunidad">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          Intentando crecer, ¡siempre!
+        </h2>
+        <p class="font-sans font-light text-xl mb-6">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo laudantium sint fuga provident. Ullam, sequi
+          provident accusamus aperiam ipsa id! Omnis dignissimos voluptas deserunt nihil laboriosam delectus cumque
+          sint eos!
         </p>
 
-        {{#if (eq environment 'next')}}
-          <a href="https://social-chan.com" class="bg-transparent hover:bg-smoke-light text-2xl text-white rounded-full shadow py-3 px-6 mx-auto">
-            <i class="fas fa-user-plus fa-fw fill-current"></i>
-            Registro
-          </a>
-        {{/if}}
+        {{#link-to "page.subscribe" class="bg-transparent hover:bg-smoke-light text-2xl text-white rounded-full shadow py-3 px-6 mx-auto"}}
+          <i class="fas fa-gem fa-fw fill-current"></i>
+          Suscriptor
+        {{/link-to}}
       </div>
-    {{/if}}
-  {{/swiper-slide}}
-  {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-purple-dark p-8"}}
-    <div class="max-w-md text-white text-center">
-      <img class="w-1/2 mb-8" src="/img/illustrations/undraw_movie_night.svg" alt="anime manga y musica">
-      <h2 class="font-sans font-semibold text-3xl mb-4">
-        ¿Red social? ¿Y qué más?
-      </h2>
-      <p class="font-sans font-light text-xl">
-        También disponemos una base de datos con toda la
-        información acerca de cualquier anime, manga y
-        canción de tu opening o ending favorito. ¿No encuentras
-        tu serie, manga o canción favorita? No te preocupes, puedes
-        añadir hasta donde sepas de esta, el resto se ocupará de
-        ir completándola.
-      </p>
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-blue-dark p-8"}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_welcome.svg" alt="bienvenida a socialchan">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          ¡Me has convencido!
+        </h2>
+        <p class="font-sans font-light text-xl mb-6">
+          Eso no es todo, y solamente has abierto la ventana a
+          una comunidad en continuo crecimiento. Por lo que, ya que has
+          llegado hasta aquí te daremos un par de sorpresas más:
+        </p>
+        <div class="flex justify-center">
+          <div class="flex items-center bg-blue-darker cursor-not-allowed py-2 px-4 mr-4">
+            <i class="fab fa-google-play fa-2x fill-current mr-3"></i>
+            <div class="text-left text-sm tracking-wide">
+              Próximamente en
+              <span class="block text-lg">Google Play</span>
+            </div>
+          </div>
+          <div class="flex items-center bg-blue-darker cursor-not-allowed py-2 px-4 ml-4">
+            <i class="fab fa-app-store fa-2x fill-current mr-3"></i>
+            <div class="text-left text-sm tracking-wide">
+              Próximamente en
+              <span class="block text-lg">App Store</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/swiper-slide}}
+  {{/swiper-container}}
+{{else}}
+  <div class="flex flex-col justify-center items-center max-w-full bg-indigo-light text-white h-screen">
+    <p class="text-lg mb-3">
+      Descarga nuestras apps en...
+    </p>
+    <div class="flex flex-col justify-center flex-wrap mx-auto">
+      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
+        <i class="fab fa-google-play fa-2x fill-current mr-3"></i>
+        <div class="text-left text-sm tracking-wide">
+          Próximamente en
+          <span class="block text-lg">Google Play</span>
+        </div>
+      </a>
+      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
+        <i class="fab fa-app-store fa-2x fill-current mr-3"></i>
+        <div class="text-left text-sm tracking-wide">
+          Próximamente en
+          <span class="block text-lg">App Store</span>
+        </div>
+      </a>
     </div>
-  {{/swiper-slide}}
-  {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-green-dark p-8"}}
-    <div class="max-w-md text-white text-center">
-      <img class="w-1/2 mb-8" src="/img/illustrations/undraw_growing.svg" alt="creciendo con la comunidad">
-      <h2 class="font-sans font-semibold text-3xl mb-4">
-        Intentando crecer, ¡siempre!
-      </h2>
-      <p class="font-sans font-light text-xl mb-6">
-        Teniendo en cuenta que Social-chan es una mezcla
-        de varias redes sociales, si, como Twitter, Facebook o
-        Instagram. Pero nunca intentamos quedarnos atrás, por
-        ello siempre dejamos una colaboración abierta a todo
-        usuario, como oyes, ¡para todos!.
-      </p>
 
-      {{#link-to 'page.subscribe' class="bg-transparent hover:bg-smoke-light text-2xl text-white rounded-full shadow py-3 px-6 mx-auto"}}
-         <i class="fas fa-gem fa-fw fill-current"></i>
-         Suscriptor
-      {{/link-to}}
-    </div>
-  {{/swiper-slide}}
-  {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-blue-dark p-8"}}
-    <div class="max-w-md text-white text-center">
-      <img class="w-1/2 mb-8" src="/img/illustrations/undraw_welcome.svg" alt="bienvenida a socialchan">
-      <h2 class="font-sans font-semibold text-3xl mb-4">
-        ¡Me has convencido!
-      </h2>
-      <p class="font-sans font-light text-xl mb-6">
-        Eso no es todo, y solamente has abierto la ventana a
-        una comunidad en continuo crecimiento. Por lo que, ya que has
-        llegado hasta aquí te daremos un par de sorpresas más:
-      </p>
-      <div class="flex justify-center">
-        <div class="flex items-center bg-blue-darker cursor-not-allowed py-2 px-4 mr-4">
-          <i class="fab fa-google-play fa-2x fill-current mr-3"></i>
-          <div class="text-left text-sm tracking-wide">
-            Próximamente en
-            <span class="block text-lg">Google Play</span>
-          </div>
-        </div>
-        <div class="flex items-center bg-blue-darker cursor-not-allowed py-2 px-4 ml-4">
-          <i class="fab fa-app-store fa-2x fill-current mr-3"></i>
-          <div class="text-left text-sm tracking-wide">
-            Próximamente en
-            <span class="block text-lg">App Store</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  {{/swiper-slide}}
-{{/swiper-container}}
+    <p class="text-lg mt-6">
+      O tambien puedes
+      {{#link-to "login" class="bg-smoke-light text-white p-1"}}acceder{{/link-to}}
+      o
+      {{#link-to "register" class="bg-smoke-light text-white p-1"}}registrarte{{/link-to}}
+    </p>
+  </div>
+{{/if}}
+
+{{component "home/footer" class="fixed pin-b w-full px-8 mb-4 z-50"}}

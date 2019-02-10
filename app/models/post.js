@@ -1,37 +1,24 @@
-import DS from 'ember-data';
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
-// import { w } from '@ember/string';
+import DS from 'ember-data'
+import { attr, belongsTo, hasMany } from '@ember-decorators/data'
+import { inject as service } from '@ember-decorators/service'
 
-export default DS.Model.extend({
-  session: service(),
+const { Model } = DS
 
-  content: DS.attr('string'),
-  comments_count: DS.attr('number', {
-    defaultValue() { return 0; }
-  }),
-  kokoros_count: DS.attr('number', {
-    defaultValue() { return 0; }
-  }),
-  kokored: DS.attr('string'),
-  created_at: DS.attr('date', {
-    defaultValue() { return new Date(); }
-  }),
-  updated_at: DS.attr('date'),
+export default class Post extends Model {
+  @service auth
 
-  author: DS.belongsTo('user'),
-  comments: DS.hasMany('comment', {
-    inverse: 'post'
-  }),
+  @attr('string') content
 
-  isKokored: computed('kokored', 'session.user.id', function () {
-    return this.get('kokored');
-    // return w(this.get('kokored')).indexOf(this.get('session.user.id')) > -1
-  }),
-  isSticky: computed('author.profile.post_id', 'session.profile.post_id', function () {
-    return false;
-    // if (this.get('session.profile.post_id') !== null) {
-    //   return this.get('author.profile.post_id') === this.get('session.profile.post_id');
-    // }
-  })
-});
+  @attr('number', { defaultValue: 0 }) comments_count
+  @attr('number', { defaultValue: 0 }) kokoros_count
+
+  @attr('string') kokored
+  @attr('date', { defaultValue: new Date }) created_at
+  @attr('date') updated_at
+
+  @belongsTo('user') author
+  @hasMany('comment', { inverse: 'post' }) comments
+
+  isKokored = this.get('kokored')
+  isSticky = false
+}

@@ -5,6 +5,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     let user = this.modelFor('user');
     return this.get('store').query('group', {
+      include: 'author,author.profile,group-type',
       member: user.get('id'),
     });
   },

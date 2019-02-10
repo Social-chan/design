@@ -1,0 +1,25 @@
+<nav class="container flex items-center mx-auto">
+  <div class="w-1/3"></div>
+  <div class="w-1/3 text-center">
+    {{#link-to 'index'}}
+      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="fill-current text-white" viewBox="0 0 19914 19914" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><path d="M9957 0c5499 0 9957 4458 9957 9957s-4458 9957-9957 9957S0 15456 0 9957 4458 0 9957 0zM7792 12047c503-1811-2393-204-2443 1231-131 3763 7391 3379 8634 1455 3041-5356-6820-5590-6047-8368 404-1930 4507-1401 3958-294-1253 2529 1765 1942 2065-56-88-2836-6231-2987-7633-529-1842 4228 3884 4622 5526 6599 2547 3066-5279 4348-4060-38z" /></svg>
+    {{/link-to}}
+  </div>
+  <div class="w-1/3 flex items-center justify-end">
+    {{#if session.isAuthenticated}}
+      {{#link-to 'user' session.user.id class="no-underline bg-indigo-darker text-white rounded-full flex items-center py-2 px-2 mx-2"}}
+        <img class="bg-grey w-6 h-6 rounded-full mr-2" src="{{ session.user.profile.avatar }}" alt="">
+        <span class="mr-1 text-sm">
+          {{if session.user.nickname session.user.nickname "Loading..." }}
+        </span>
+      {{/link-to}}
+      <button {{action 'logout'}} class="bg-indigo-darker text-white rounded-full flex items-center py-3 px-3">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    {{else}}
+      {{#link-to 'login' class="bg-smoke-light hover:opacity-75 rounded text-white font-bold py-2 px-4"}}
+        Acceder
+      {{/link-to}}
+    {{/if}}
+  </div>
+</nav>

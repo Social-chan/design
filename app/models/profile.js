@@ -1,5 +1,4 @@
 import DS from 'ember-data';
-import { computed } from '@ember/object';
 
 export default DS.Model.extend({
   name: DS.attr('string'),
@@ -20,9 +19,4 @@ export default DS.Model.extend({
   gender: DS.attr('boolean'),
 
   sticky: DS.belongsTo('post'),
-
-  bgImage: computed('bg_image', function () {
-    return `background-image:url('${this.bg_image}')`;
-  }),
-
 });

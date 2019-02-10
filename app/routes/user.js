@@ -9,7 +9,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
   session: service(),
 
   model(params) {
-    return this.get('store').findRecord('user', params.user_id)
+    return this.get('store').findRecord('user', params.user_id, {
+      include: 'profile'
+    })
   },
 
   actions: {

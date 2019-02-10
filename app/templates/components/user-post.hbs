@@ -17,19 +17,19 @@
             <i class="fas fa-edit fa-fw"></i>
             Editar
           </div>
-          {{#if (not-eq session.user.id post.author.id)}}
+          {{#if (not-eq auth.user.id post.author.id)}}
             <div class="hover:bg-indigo hover:text-white cursor-pointer p-2">
               <i class="fas fa-flag fa-fw"></i>
               Reportar
             </div>
           {{else}}
             {{#if post.isSticky}}
-              <div {{action 'addPin'}} class="hover:bg-indigo hover:text-white cursor-pointer p-2">
+              <div {{action "addPin"}} class="hover:bg-indigo hover:text-white cursor-pointer p-2">
                 <i class="fas fa-thumbtack fa-fw"></i>
                 Desfijar
               </div>
             {{else}}
-              <div {{action 'addPin'}} class="hover:bg-indigo hover:text-white cursor-pointer p-2">
+              <div {{action "addPin"}} class="hover:bg-indigo hover:text-white cursor-pointer p-2">
                 <i class="fas fa-thumbtack fa-fw"></i>
                 Fijar
               </div>
@@ -43,11 +43,11 @@
       </a>
     </div>
     <p class="text-grey-darkest text-base mt-2">
-      {{markdown-to-html post.content extensions='mention hashtag youtube'}}
+      {{markdown-to-html post.content extensions="mention hashtag youtube"}}
     </p>
   </div>
   <div class="w-full flex items-center justify-between p-4">
-    {{#link-to 'user' post.author.id class="inline-flex items-center"}}
+    {{#link-to "user" post.author.id class="inline-flex items-center"}}
       <img class="w-10 h-10 bg-grey rounded-full mr-3" src="{{post.author.profile.avatar}}">
       <div class="hidden lg:block text-sm">
         <p class="leading-none">
@@ -58,7 +58,7 @@
         </p>
       </div>
       {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 interactive=true}}
-        {{component 'user/user-hovercard' user=post.author}}
+        {{component "user/user-hovercard" user=post.author}}
       {{/attach-tooltip}}
     {{/link-to}}
     <a {{action "toggleActive"}} href="#" class="block lg:hidden flex-grow text-indigo text-center py-2 my-2">
@@ -73,18 +73,18 @@
           {{post.comments_count}} comentarios
         </p>
       </a>
-      {{component 'kokoro-button' post=post isKokored=post.kokored}}
+      {{component "kokoro-button" post=post isKokored=post.kokored}}
     </div>
   </div>
   {{#if isActive}}
-    <div class="flex flex-col bg-grey-light border-t border-grey rounded-b text-grey-darkest text-sm p-4">
+    <div class="flex flex-col bg-grey-lighter border-t border-grey-light rounded-b text-grey-darkest text-sm p-4">
       {{#each post.comments as |comment|}}
-        {{component 'user-comment' post=post comment=comment}}
+        {{component "user-comment" post=post comment=comment}}
       {{/each}}
       <form {{action "createComment" on="submit"}} class="flex items-center mt-2">
-        <img class="flex-no-shrink w-8 h-8 bg-grey rounded-full mr-3" src="{{session.user.profile.avatar}}">
+        <img class="flex-no-shrink w-8 h-8 bg-grey rounded-full mr-3" src={{auth.user.profile.avatar}}>
         <div class="inline-block relative w-full rounded-full">
-          {{input type="text" value=content class="w-full appearance-none bg-white text-grey-dark border border-grey rounded-full px-4 py-2 pr-9" placeholder="Escribe un comentario..." autocomplete="off"}}
+          {{input type="text" value=content class="w-full appearance-none bg-white text-grey-dark border border-grey-light rounded-full px-4 py-2 pr-9" placeholder="Escribe un comentario..." autocomplete="off"}}
           <div class="absolute pin-y pin-r flex items-center pr-4">
             <a href="#" class="text-grey-dark mr-2">
               <i class="far fa-smile fill-current"></i>

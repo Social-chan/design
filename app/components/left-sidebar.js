@@ -1,21 +1,25 @@
-import Component from '@ember/component';
-import { inject as service } from '@ember/service';
+import Component from '@ember/component'
+import { inject as service } from '@ember-decorators/service'
+import { action } from '@ember-decorators/object'
+import { set, get } from '@ember/object'
+import { classNames } from '@ember-decorators/component';
 
-export default Component.extend({
-  session: service(),
-  isSubsidebarActive: false,
-  activeSection: '',
+@classNames('h-full overflow-hidden')
+export default class LeftSidebarComponent extends Component {
+  @service auth
 
-  actions: {
-    toggleSubsidebar(section) {
-      if (this.get('activeSection') === section)
-        this.set('activeSection', '');
+  isSubsidebarActive = false
+  activeSection = ''
 
-      if (this.get('activeSection') === '')
-        this.toggleProperty('isSubsidebarActive');
+  @action
+  toggleSubsidebar(section) {
+    if (get(this, 'activeSection') === section)
+      set(this, 'activeSection', '')
 
-      if (this.get('isSubsidebarActive') && this.get('activeSection') !== section)
-        this.set('activeSection', section);
-    }
+    if (get(this, 'activeSection') === '')
+      this.toggleProperty('isSubsidebarActive')
+
+    if (get(this, 'isSubsidebarActive') && get(this, 'activeSection') !== section)
+      set(this, 'activeSection', section)
   }
-});
+}

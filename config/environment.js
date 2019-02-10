@@ -82,7 +82,13 @@ module.exports = function(environment) {
     }
   };
 
-  // Hard-coded overrides, just for testing (from now)
+  // Hard-coded overrides
+  if (environment === 'production') {
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
