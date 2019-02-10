@@ -1,6 +1,7 @@
-import Response from 'ember-cli-mirage/response';
+import Response from 'ember-cli-mirage/response'
+import config from '../config/environment'
 
-const TOKEN = 'abcdefghijklmnopqrstuvwxyz';
+const TOKEN = 'abcdefghijklmnopqrstuvwxyz'
 
 function getQueryVariable(query, item) {
   var vars = query.split('&');
@@ -26,9 +27,8 @@ export default function() {
 
   this.passthrough();
 
-  this.urlPrefix = 'http://locahost:4200';
-  this.namespace = '/api';
-  this.timing = 200;
+  this.urlPrefix = config.APP.apiHost
+  this.timing = 300
 
   this.post('/oauth/token', (schema, request) => {
     const query = request.requestBody;
