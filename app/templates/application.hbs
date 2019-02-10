@@ -3,9 +3,9 @@
 {{else}}
   <div class="flex h-screen inner-application font-sans antialiased overflow-hidden">
     {{#if (media "isTablet")}}
-      {{top-sidebar class="fixed pin-t" currentRouteName=currentRouteName}}
+      {{layout/top-sidebar class="fixed pin-t" currentRouteName=currentRouteName}}
     {{else}}
-      {{left-sidebar currentRouteName=currentRouteName}}
+      {{layout/left-sidebar currentRouteName=currentRouteName}}
     {{/if}}
 
     <div
