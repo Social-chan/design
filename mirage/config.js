@@ -57,6 +57,10 @@ export default function() {
     return users.all().slice(query['page[offset]'] || 0, query['page[limit]'] || 5);
   });
 
+  this.get('/user/me', ({ users }, request) => {
+    return users.find(1);
+  });
+
   this.resource('user', { except: ['index'], path: '/users' });
   this.resource('post', { path: '/posts' });
   this.resource('comment', { path: '/comments' });

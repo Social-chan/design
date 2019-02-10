@@ -1,21 +1,26 @@
-import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { task } from 'ember-concurrency';
+import Component from '@ember/component'
+import { inject as service } from '@ember-decorators/service'
+import { action } from '@ember-decorators/object'
+import { task } from 'ember-concurrency-decorators'
 
-export default Component.extend({
-  ajax: service(),
+export default class KokoroButtonComponent extends Component {
+  @service ajax
 
-  kokoroPost: task(function * (id) {
+  @task({
+    enqueue: true
+  })
+  kokoroPost = function*(id) {
     // TODO: One place ajax URLs
     yield this.get('ajax').post(`posts/${id}/kokoro`).then(response => {
-      return this.set('post.kokoros_count', response);
-    });
-  }).drop(),
+      return this.set('post.kokoros_count', response)
+    })
+  }
 
-  actions: {
-    toggleKokoro(id) {
-      this.get('kokoroPost').perform(id);
-      this.toggleProperty('isKokored');
+  @action
+  toggleKokoro(id) {
+    if (!this.kokoroPost.isRunning) {
+      this.kokoroPost.perform(id)
+      this.toggleProperty('isKokored')
     }
   }
-});
+}

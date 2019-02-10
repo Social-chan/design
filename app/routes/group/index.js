@@ -11,7 +11,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
     let user_id = get(this, 'session.user.id');
 
     return RSVP.hash({
-      groups: this.get('store').findAll('group'),
+      groups: this.get('store').findAll('group', {include: 'author,author.profile,groupType'}),
       groupTypes: this.get('store').findAll('group-type'),
       myGroups: this.get('store').query('group', {
         author: user_id

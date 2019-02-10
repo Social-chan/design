@@ -5,7 +5,6 @@ import $ from 'jquery';
 
 @tagName('select')
 export default class CountryListComponent extends Component {
-  // @attribute('selected-code') selectedCode;
   selectedCode = 'ES';
 
   didInsertElement() {
@@ -15,7 +14,5 @@ export default class CountryListComponent extends Component {
       // Ember.run.bind(this, this.set('countries', res));
       this.set('countries', res);
     });
-
-
   }
 }

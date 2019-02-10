@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 // import { inject as service } from '@ember/service';
 // import { task } from 'ember-concurrency';
 
-export default Controller.extend({
+export default class IndexController extends Controller {
   // session: service(),
 
   init() {
@@ -12,4 +12,4 @@ export default Controller.extend({
       mousewheelControl: true,
     });
   }
-});
+}
