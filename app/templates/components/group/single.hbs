@@ -3,7 +3,7 @@
 
   {{#if (not joinDisabled)}}
     <div class="inline-block lg:hidden mt-2">
-      {{group/join-button groupId=group.id isMember=group.is_member}}
+      {{component "group/join-button" groupId=group.id isMember=group.is_member}}
     </div>
   {{/if}}
 </div>
@@ -25,7 +25,7 @@
       {{group.author.nickname}}
 
       {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 lazyRender=true interactive=true}}
-        {{user/user-hovercard user=group.author}}
+        {{component "user/hovercard" user=group.author}}
       {{/attach-tooltip}}
     {{/link-to}}
     {{#link-to "group.show.members" group.id class=(concat "bg-grey-lighter rounded-full text-" group.groupType.color "-darker text-sm font-bold py-1 px-2 mr-2")}}
@@ -37,6 +37,6 @@
 
 {{#if (not joinDisabled)}}
   <div class="hidden lg:inline-block self-start">
-    {{group/join-button groupId=group.id isMember=group.is_member}}
+    {{component "group/join-button" groupId=group.id isMember=group.is_member}}
   </div>
 {{/if}}
