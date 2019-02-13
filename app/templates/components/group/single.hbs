@@ -21,7 +21,7 @@
       {{group.groupType.name}}
     {{/link-to}}
     {{#link-to "user" group.author.id class=(concat "inline-block bg-grey-lighter rounded-full text-" group.groupType.color "-darker text-sm font-bold pr-2 mr-2")}}
-      <img class="inline-block w-6 align-middle rounded-full" src={{group.author.profile.avatar}}>
+      <img class="inline-block w-6 align-middle rounded-full" src={{group.author.profile.avatar}} alt="">
       {{group.author.nickname}}
 
       {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 lazyRender=true interactive=true}}

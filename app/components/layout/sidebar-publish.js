@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 
-export default class LayoutSidebarPublishComponent extends Component {
+export default class LayoutSidebarPublish extends Component {
   // createPost: task(function* () {
   //   const formData = this.getProperties([
   //     'content',

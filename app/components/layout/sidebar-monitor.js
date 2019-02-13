@@ -1,4 +1,4 @@
 import Component from '@ember/component';
 
-export default class LayoutSidebarMonitorComponent extends Component {
+export default class LayoutSidebarMonitor extends Component {
 }

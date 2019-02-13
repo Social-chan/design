@@ -76,7 +76,7 @@
         {{#each model.animes as |anime|}}
           <div class="w-1/3 lg:w-1/6 mb-2 px-1">
             {{#link-to 'anime.show' anime.id class="block bg-red rounded overflow-hidden"}}
-              <img class="w-full" src="{{anime.image}}">
+              <img class="w-full" src="{{anime.image}}" alt="">
             {{/link-to}}
           </div>
         {{/each}}

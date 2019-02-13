@@ -1,16 +1,18 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { task } from 'ember-concurrency';
+import { inject as service } from '@ember-decorators/service';
+import { task } from 'ember-concurrency-decorators';
+import { action } from '@ember-decorators/object';
 // import { isAjaxError } from 'ember-ajax/errors';
 
-export default Component.extend({
-  ajax: service(),
+export default class ElementSignupForm extends Component {
+  @service ajax
   // TODO: Better way to
-  router: service(),
+  @service router
 
-  errorMessage: null,
+  errorMessage = null
 
-  createUser: task(function * () {
+  @task({drop: true})
+  *createUser() {
     const formData = this.getProperties([
       'name', 'surname', 'email', 'nickname',
       'password',
@@ -31,11 +33,10 @@ export default Component.extend({
     }).catch((error) => {
       this.set('errorMessage', error.payload);
     });
-  }).drop(),
-
-  actions: {
-    register() {
-      this.get('createUser').perform();
-    }
   }
-});
+
+  @action
+  register() {
+    this.get('createUser').perform();
+  }
+}

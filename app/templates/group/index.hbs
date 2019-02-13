@@ -9,7 +9,7 @@
           {{#each model.myGroups as |group|}}
             <div class="flex-no-shrink -mx-2">
               {{#link-to "group.show" group.id}}
-                <img class="w-10 h-10 rounded-full" src={{group.image}} alt={{group.name}}>
+                <img class="w-10 h-10 rounded-full" src={{group.image}} alt="">
               {{/link-to}}
             </div>
           {{/each}}

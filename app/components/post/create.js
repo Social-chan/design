@@ -4,7 +4,7 @@ import { task } from 'ember-concurrency-decorators'
 import EmberRouter from '@ember/routing/router'
 import { action } from '@ember-decorators/object'
 
-export default class CreatePost extends Component {
+export default class PostCreate extends Component {
   @service auth
   @service store
   @service push
@@ -34,10 +34,12 @@ export default class CreatePost extends Component {
     this.set('content', this.get('content') + ' ' + text);
   }
 
+  @action
   spoiler() {
     this.toggleProperty('isSpoiler');
   }
 
+  @action
   info() {
     let newwindow = window.open(
       `${EmberRouter.rootURL}about`,
@@ -48,6 +50,7 @@ export default class CreatePost extends Component {
     return false;
   }
 
+  @action
   createPost() {
     this.get('doPublish').perform();
   }

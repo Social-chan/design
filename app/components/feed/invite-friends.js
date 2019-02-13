@@ -1,4 +1,4 @@
 import Component from '@ember/component';
 
-export default class FeedInviteFriendsComponent extends Component {
+export default class FeedInviteFriends extends Component {
 }

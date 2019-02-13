@@ -1,11 +1,11 @@
 <div class="flex items-center mb-3">
   {{#link-to "user" comment.author.id class="flex-no-shrink"}}
-    <img class="w-8 h-8 bg-grey rounded-full" src={{comment.author.profile.avatar}}>
+    <img class="w-8 h-8 bg-grey rounded-full" src={{comment.author.profile.avatar}} alt="">
     {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 interactive=true}}
       {{component "user/hovercard" user=comment.author}}
     {{/attach-tooltip}}
   {{/link-to}}
-  <div class="w-full bg-white rounded-lg lg:rounded-full ml-3 px-6 py-1">
+  <div class="w-full bg-white rounded-lg ml-3 px-6 py-1">
     <span class="flex font-medium">
       {{#link-to "user" comment.author.id}}
         {{comment.author.nickname}}
@@ -14,15 +14,32 @@
         {{/attach-tooltip}}
       {{/link-to}}
       <span class="mr-auto">
-        {{#if isKokored}}
+        {{#if post.isKokored}}
           <i class="fas fa-heart fill-current text-red ml-1" title="Dió kokoro al post"></i>
         {{/if}}
       </span>
       <span class="text-grey-dark font-normal">
         {{moment-from-now comment.created_at}}
-        <a class="text-grey-dark font-normal ml-2" href="#">
-          <i class="fas fa-ellipsis-h fill-current"></i>
-        </a>
+
+        {{#if (not-eq auth.user.id comment.author.id)}}
+          <button class="text-red-dark font-normal ml-2">
+            <i class="fas fa-flag fill-current"></i>
+          </button>
+        {{else}}
+          <button class="text-grey-dark font-normal ml-2">
+            <i class="fas fa-ellipsis-h fill-current"></i>
+            {{#attach-tooltip class="flex flex-col max-w-xs rounded text-sm text-left text-black" showDelay=300 lazyRender=true interactive=true}}
+              <div class="rounded-t hover:bg-indigo hover:text-white cursor-pointer p-2">
+                <i class="fas fa-edit fa-fw"></i>
+                Editar
+              </div>
+              <div class="rounded-b hover:bg-red-light hover:text-white cursor-pointer p-2">
+                <i class="far fa-trash-alt fa-fw"></i>
+                Eliminar
+              </div>
+            {{/attach-tooltip}}
+          </button>
+        {{/if}}
       </span>
     </span>
     <p class="whitespace-normal break-words">

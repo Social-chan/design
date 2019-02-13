@@ -1,18 +1,19 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import { task } from 'ember-concurrency';
+import { task } from 'ember-concurrency-decorators';
+import { action } from '@ember-decorators/object';
 
-export default Component.extend({
-  ajax: service(),
+export default class UserFollowButton extends Component {
+  @service ajax
 
-  followUser: task(function* (id) {
+  @task({drop: true})
+  *followUser(id) {
     yield this.get('ajax').post(`user/${id}/follow`);
-  }).drop(),
-
-  actions: {
-    toggleFollow(id) {
-      this.get('followUser').perform(id);
-      this.toggleProperty('isFollowed');
-    }
   }
-});
+
+  @action
+  toggleFollow(id) {
+    this.get('followUser').perform(id);
+    this.toggleProperty('isFollowed');
+  }
+}

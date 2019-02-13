@@ -11,24 +11,19 @@ export default class PostSingle extends Component {
   isActive = false
 
   @task({drop: true})
-  *postComment() {
-    const { content } = this.getProperties('content');
-
-    let post = this.get('store').peekRecord('post', this.get('post.id'));
-    let comment = this.get('store').createRecord('comment', {
-      post_id: post.id,
-      author: this.get('auth.user'),
-      content: content,
-    });
-
-    this.set('content', '');
-    post.get('comments').pushObject(comment);
-    yield comment.save();
-  }
-
-  @task({drop: true})
   *showComments() {
-    // TODO: Load comments at once, and no more times
+    if (!this.get('post.hasComments') && !this.get('isActive')) {
+      const comments = this.get('store').query('comment', {
+        filter: {
+          post_id: this.get('post.id')
+        }
+      })
+
+      yield this.set('post.comments_count', comments.length)
+      yield this.set('post.comments', comments)
+    }
+
+    yield this.toggleProperty('isActive')
   }
 
   @task({drop: true})
@@ -39,21 +34,26 @@ export default class PostSingle extends Component {
     );
   }
 
+  @task({drop: true})
+  *deletePost() {
+    const post = this.get('post')
+    yield post.deleteRecord()
+
+    if (post.get('isDeleted')) yield post.save()
+  }
+
   @action
   toggleActive() {
-    this.get('store').query('comment', {
-      post_id: this.get('post.id'),
-    }).then(result => {
-      this.set('post.comments', result);
-      this.toggleProperty('isActive');
-    });
+    this.get('showComments').perform()
   }
 
-  createComment() {
-    this.get('postComment').perform();
-  }
-
+  @action
   addPin() {
     this.get('postPin').perform();
+  }
+
+  @action
+  delete() {
+    this.get('deletePost').perform();
   }
 }

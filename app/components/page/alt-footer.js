@@ -1,4 +1,4 @@
 import Component from '@ember/component'
 
-export default class PageFooter extends Component {
+export default class PageAltFooter extends Component {
 }

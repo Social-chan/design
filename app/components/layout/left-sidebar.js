@@ -5,7 +5,7 @@ import { set, get } from '@ember/object'
 import { classNames } from '@ember-decorators/component';
 
 @classNames('h-full overflow-hidden')
-export default class LeftSidebarComponent extends Component {
+export default class LayoutLeftSidebar extends Component {
   @service auth
 
   isSubsidebarActive = false

@@ -4,7 +4,7 @@ import $ from 'jquery';
 // import Ember from 'ember';
 
 @tagName('select')
-export default class CountryListComponent extends Component {
+export default class ElementCountryList extends Component {
   selectedCode = 'ES';
 
   didInsertElement() {

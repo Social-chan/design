@@ -1,6 +1,6 @@
 <form {{action "register" on="submit"}} class="flex flex-col w-full">
   {{#if errorMessage}}
-    {{component "alert-errors" errorMessage=errorMessage}}
+    {{component "layout/layout/alert-errors" errorMessage=errorMessage}}
   {{/if}}
   <div class="flex flex-col md:flex-row">
     <div class="w-full md:w-1/2 md:pr-4 mb-6">

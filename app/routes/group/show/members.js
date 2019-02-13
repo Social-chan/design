@@ -6,6 +6,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     let show = this.modelFor('group.show');
 
-    return get(show, 'members');
+    return get(show, 'group.members');
   }
 });
