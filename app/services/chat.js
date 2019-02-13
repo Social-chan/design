@@ -6,7 +6,7 @@ import request from 'ember-ajax/request';
 // import { computed } from '@ember/object';
 
 export default Service.extend({
-  session: service(),
+  auth: service(),
 
   init() {
     this._super(...arguments);
@@ -24,7 +24,7 @@ export default Service.extend({
     chatManager = new Chatkit.ChatManager({
       instanceLocator: config.chatkit.instanceLocator,
       tokenProvider: this.get('tokenProvider'),
-      userId: this.get('session.user.id'),
+      userId: this.get('auth.user.id'),
     });
 
     yield chatManager.connect({
@@ -58,8 +58,8 @@ export default Service.extend({
       method: 'POST',
       host: config.proxyHost,
       data: {
-        id: this.get('session.user.id'),
-        name: this.get('session.user.nickname'),
+        id: this.get('auth.user.id'),
+        name: this.get('auth.user.nickname'),
       }
     }).then(result => {
       this.get('connect').perform(result.id);

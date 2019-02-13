@@ -12,9 +12,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
 
   model(params) {
     return RSVP.hash({
-      group: get(this, 'store').findRecord('group', params.group_id),
-      members: get(this, 'store').query('user', {
-        group_id: params.group_id,
+      group: get(this, 'store').query('group', {
+        id: params.group_id,
+        include: 'author,author.profile'
       }),
     });
   },

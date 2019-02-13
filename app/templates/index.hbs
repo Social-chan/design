@@ -1,9 +1,9 @@
 {{#if (media "isTablet")}}
-  {{component "home/header" user=user class="fixed pin-t w-full p-3 z-50"}}
+  {{component "page/header" user=user class="fixed pin-t w-full p-3 z-50"}}
 
   {{#swiper-container options=swiperOptions pagination=true vertical=true class="max-w-full h-screen swiper-container-inverse"}}
     {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-indigo-light text-white p-8"}}
-      {{component "signup-form" class="flex flex-wrap justify-center w-full max-w-md text-white"}}
+      {{component "element/signup-form" class="flex flex-wrap justify-center w-full max-w-md text-white"}}
     {{/swiper-slide}}
     {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-teal-dark p-8"}}
       <div class="max-w-md text-white text-center">
@@ -110,4 +110,4 @@
   </div>
 {{/if}}
 
-{{component "home/footer" class="fixed pin-b w-full px-8 mb-4 z-50"}}
+{{component "page/footer" class="fixed pin-b w-full px-8 mb-4 z-50"}}

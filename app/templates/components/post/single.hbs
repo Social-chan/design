@@ -1,0 +1,89 @@
+<div class="bg-white rounded shadow flex flex-col justify-between leading-normal mb-3">
+  <div class="p-4">
+    <div class="text-sm text-grey-dark flex items-center">
+      <div class="mr-auto">
+        {{#if post.isSticky}}
+          <i class="fas fa-thumbtack mr-2"></i>
+          Ha fijado una <a href="#" class="no-underline font-medium text-grey-dark ml-1">publicación</a>
+        {{else}}
+          <i class="fas fa-comment mr-2"></i>
+          Ha creado una <a href="#" class="no-underline font-medium text-grey-dark ml-1">publicación</a>
+        {{/if}}
+      </div>
+      {{#if (not-eq auth.user.id post.author.id)}}
+        <button class="text-red-dark">
+          <i class="fas fa-flag"></i>
+        </button>
+      {{else}}
+        <button class="text-grey-dark">
+          <i class="fas fa-ellipsis-h fill-current"></i>
+          {{#attach-tooltip class="flex flex-col max-w-xs rounded text-sm text-left text-black" showDelay=300 lazyRender=true interactive=true}}
+            <div class="rounded-t hover:bg-indigo hover:text-white cursor-pointer p-2">
+              <i class="fas fa-edit fa-fw"></i>
+              Editar
+            </div>
+
+            {{#if post.isSticky}}
+              <div {{action "addPin"}} class="rounded hover:bg-indigo-light hover:text-white cursor-pointer p-2">
+                <i class="fas fa-thumbtack fa-fw"></i>
+                Desfijar
+              </div>
+            {{else}}
+              <div {{action "addPin"}} class="rounded hover:bg-indigo-light hover:text-white cursor-pointer p-2">
+                <i class="fas fa-thumbtack fa-fw"></i>
+                Fijar
+              </div>
+            {{/if}}
+
+            <div {{action "delete"}} class="rounded hover:bg-red-light hover:text-white cursor-pointer p-2">
+              <i class="far fa-trash-alt fa-fw"></i>
+              Eliminar
+            </div>
+          {{/attach-tooltip}}
+        </button>
+      {{/if}}
+    </div>
+    <p class="text-grey-darkest text-base mt-2">
+      {{markdown-to-html post.content extensions="mention hashtag youtube"}}
+    </p>
+  </div>
+  <div class="w-full flex items-center justify-between p-4">
+    {{#link-to "user" post.author.id class="inline-flex items-center"}}
+      <img class="w-10 h-10 bg-grey rounded-full mr-3" src={{post.author.profile.avatar}} alt="">
+      <div class="hidden lg:block text-sm">
+        <p class="leading-none">
+          {{post.author.nickname}}
+        </p>
+        <p class="text-grey-dark">
+          {{moment-from-now post.created_at}}
+        </p>
+      </div>
+      {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 interactive=true}}
+        {{component "user/hovercard" user=post.author}}
+      {{/attach-tooltip}}
+    {{/link-to}}
+    <a {{action "toggleActive"}} href="#" class="block lg:hidden flex-grow text-indigo text-center py-2 my-2">
+      {{if isActive "Ocultar comentarios" "Mostrar comentarios"}}
+    </a>
+    <div class="flex items-center text-grey-dark text-xs ml-auto">
+      <a {{action "toggleActive"}} href="#" class="hidden lg:inline text-sm text-right">
+        <p class="leading-none">
+          {{post.kokoros_count}} kokoros
+        </p>
+        <p class="text-grey-dark">
+          {{post.comments_count}} comentarios
+        </p>
+      </a>
+      {{component "post/kokoro-button" post=post isKokored=post.kokored}}
+    </div>
+  </div>
+  {{#if isActive}}
+    <div class="flex flex-col bg-grey-lighter rounded-b text-grey-darkest text-sm p-4">
+      {{#each post.comments as |comment|}}
+        {{component "comment/single" post=post comment=comment}}
+      {{/each}}
+
+      {{component "comment/create" post=post}}
+    </div>
+  {{/if}}
+</div>

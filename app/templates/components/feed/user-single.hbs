@@ -1,0 +1,16 @@
+{{#link-to "user" user.id class="flex-no-shrink text-black font-bold"}}
+  <img class="w-10 h-10 bg-grey rounded-full mr-3" src={{user.profile.avatar}} alt="">
+{{/link-to}}
+
+<span>
+  {{#link-to "user" user.id class="text-black font-bold"}}
+    {{concat user.profile.name " " user.profile.surname}}
+    <div class="text-grey-dark text-sm font-normal">
+      @{{user.nickname}}
+    </div>
+
+    {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 lazyRender=true interactive=true}}
+      {{component "user/hovercard" user=user}}
+    {{/attach-tooltip}}
+  {{/link-to}}
+</span>

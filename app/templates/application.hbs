@@ -3,9 +3,9 @@
 {{else}}
   <div class="flex h-screen inner-application font-sans antialiased overflow-hidden">
     {{#if (media "isTablet")}}
-      {{top-sidebar class="fixed pin-t" currentRouteName=currentRouteName}}
+      {{component "layout/top-sidebar" class="fixed pin-t" currentRouteName=currentRouteName}}
     {{else}}
-      {{left-sidebar currentRouteName=currentRouteName}}
+      {{component "layout/left-sidebar" currentRouteName=currentRouteName}}
     {{/if}}
 
     <div
@@ -14,6 +14,8 @@
       {{outlet}}
     </div>
 
-    {{!-- {{component 'user-chat' class="fixed pin-b pin-r mr-8 mb-4 z-50 hidden lg:block"}} --}}
+    {{#if (is-feature "chats")}}
+      {{component "layout/user-chat" class="fixed pin-b pin-r mr-8 mb-4 z-50 hidden lg:block"}}
+    {{/if}}
   </div>
 {{/if}}

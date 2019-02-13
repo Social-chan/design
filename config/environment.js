@@ -31,6 +31,7 @@ module.exports = function(environment) {
         lists: process.env.FEATURE_LISTS || false,
         monitor: process.env.FEATURE_MONITOR || false,
         search: process.env.FEATURE_SEARCH || false,
+        chats: process.env.FEATURE_CHATS || false,
       }
     },
 
