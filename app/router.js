@@ -29,7 +29,6 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('login');
   this.route('recover');
-  this.route('oauth');
   this.route('page', function () {
     this.route('cookies');
     this.route('about');
@@ -66,7 +65,6 @@ Router.map(function() {
     this.route('removal');
   });
   this.route('feed');
-  this.route('concepts');
   this.route('not-found', { path: '/*path' });
   this.route('search');
   this.route('chat');
