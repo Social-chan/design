@@ -1,8 +1,8 @@
 /* eslint-env node */
 'use strict';
 
-const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const purgecss = require('@fullhuman/postcss-purgecss');
+const EmberApp = require('ember-cli/lib/broccoli/ember-app')
+const purgecss = require('@fullhuman/postcss-purgecss')
 
 // Custom PurgeCSS extractor for Tailwind that allows special characters in
 // class names.
@@ -10,12 +10,13 @@ const purgecss = require('@fullhuman/postcss-purgecss');
 // https://github.com/FullHuman/purgecss#extractor
 class TailwindExtractor {
   static extract(content) {
-    return content.match(/[A-Za-z0-9-_:\/]+/g) || [];
+    return content.match(/[A-Za-z0-9-_:\/]+/g) || []
   }
 }
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
+    storeConfigInMeta: false,
     outputPaths: {
       app: {
         html: 'index.html',
@@ -29,8 +30,18 @@ module.exports = function(defaults) {
         js: '/assets/vendor.js'
       }
     },
+    minifyJS: {
+      enabled: process.env.FORCE_MINIFY == 'true'
+    },
+    minifyCSS: {
+      enabled: process.env.FORCE_MINIFY == 'true'
+    },
+    sourcemaps: {
+      enabled: process.env.FORCE_MINIFY == 'false',
+      extensions: ['js']
+    },
     fingerprint: {
-      enabled: false
+      enabled: true
     },
     postcssOptions: {
       compile: {
