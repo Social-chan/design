@@ -1,15 +1,16 @@
 import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import { inject as service } from '@ember/service';
-// import { get } from '@ember/object';
+import { inject as service } from '@ember-decorators/service';
+import { get } from '@ember/object';
 
-export default Route.extend(AuthenticatedRouteMixin, {
-  session: service(),
-  chat: service(),
+export default class Chat extends Route.extend(AuthenticatedRouteMixin) {
+  @service session
+  @service auth
+  @service chat
 
   didReceiveAttrs() {
-    if (!this.get('chat.currentUser')) {
-      this.get('chat.connect').perform();
+    if (!get(this, 'chat.currentUser')) {
+      get(this, 'chat.connect').perform();
     }
 
     return this.chat.get('currentUser').getAllRooms((rooms) => {
@@ -18,4 +19,4 @@ export default Route.extend(AuthenticatedRouteMixin, {
       // console.error(`Error getting rooms: ${error}`);
     });
   }
-});
+}

@@ -1,11 +1,11 @@
 import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
 import RSVP from 'rsvp';
 import { get } from '@ember/object';
 
-export default Route.extend(AuthenticatedRouteMixin, {
-  auth: service(),
+export default class GroupIndex extends Route.extend(AuthenticatedRouteMixin) {
+  @service auth
 
   model() {
     let user_id = get(this, 'auth.user.id');
@@ -20,4 +20,4 @@ export default Route.extend(AuthenticatedRouteMixin, {
       }),
     });
   }
-});
+}
