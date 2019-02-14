@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 import RSVP from 'rsvp'
 import { get } from '@ember/object'
 
-export default class PostsRoute extends Route.extend(AuthenticatedRouteMixin) {
+export default class UserPosts extends Route.extend(AuthenticatedRouteMixin) {
   model() {
     let user = this.modelFor('user');
 

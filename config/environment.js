@@ -24,14 +24,14 @@ module.exports = function(environment) {
         description: "Red social anime y manga",
       },
       features: {
-        anime: process.env.FEATURE_ANIME || false,
-        manga: process.env.FEATURE_MANGA || false,
-        albums: process.env.FEATURE_ALBUMS || false,
-        groups: process.env.FEATURE_GROUPS || false,
-        lists: process.env.FEATURE_LISTS || false,
-        monitor: process.env.FEATURE_MONITOR || false,
-        search: process.env.FEATURE_SEARCH || false,
-        chats: process.env.FEATURE_CHATS || false,
+        anime: process.env.FEATURE_ANIME || 'false',
+        manga: process.env.FEATURE_MANGA || 'false',
+        albums: process.env.FEATURE_ALBUMS || 'false',
+        groups: process.env.FEATURE_GROUPS || 'false',
+        lists: process.env.FEATURE_LISTS || 'false',
+        monitor: process.env.FEATURE_MONITOR || 'false',
+        search: process.env.FEATURE_SEARCH || 'false',
+        chats: process.env.FEATURE_CHATS || 'false',
       }
     },
 

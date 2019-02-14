@@ -1,18 +1,17 @@
 import Route from '@ember/routing/route';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
+import { get } from '@ember/object';
 import config from '../config/environment';
 
-export default Route.extend({
-  session: service(),
-
-  environment: config.environment,
+export default class Index extends Route {
+  @service session
 
   redirect() {
-    if (this.get('session.isAuthenticated'))
+    if (get(this, 'session.isAuthenticated'))
       this.transitionTo('feed');
-  },
+  }
 
-  headTags: function () {
+  headTags = function () {
     const obj = config.APP.meta;
     let arr = [];
 
@@ -32,5 +31,5 @@ export default Route.extend({
     }
 
     return arr;
-  },
-});
+  }
+}

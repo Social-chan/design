@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
 import { task } from 'ember-concurrency-decorators';
 import { action } from '@ember-decorators/object';
 
