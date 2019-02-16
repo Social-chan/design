@@ -36,7 +36,7 @@
           </div>
         {{/if}}
         {{#if model.created_at}}
-          <div class="border-b border-grey-light pb-4 mb-4">
+          <div>
             <p class="text-black mb-1">
               Ingreso
             </p>
@@ -44,9 +44,6 @@
               {{moment-format model.created_at "LL"}}
             </p>
           </div>
-        {{/if}}
-        {{#if (not model.isLoggedIn)}}
-          {{user/follow-button size="lg" isFollowed=model.following user_id=model.id addClass="w-full"}}
         {{/if}}
       </div>
       {{component "layout/ads-square"}}

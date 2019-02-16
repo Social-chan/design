@@ -26,8 +26,8 @@ module.exports = function(environment) {
       features: {
         anime: process.env.FEATURE_ANIME || 'false',
         manga: process.env.FEATURE_MANGA || 'false',
-        albums: process.env.FEATURE_ALBUMS || 'false',
-        groups: process.env.FEATURE_GROUPS || 'false',
+        music: process.env.FEATURE_MUSIC || 'false',
+        clubs: process.env.FEATURE_CLUBS || 'false',
         lists: process.env.FEATURE_LISTS || 'false',
         monitor: process.env.FEATURE_MONITOR || 'false',
         search: process.env.FEATURE_SEARCH || 'false',

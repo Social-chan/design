@@ -26,7 +26,7 @@ const Router = EmberRouter.extend({
   }
 });
 
-Router.map(function() {
+Router.map(function () {
   this.route('login');
   this.route('recover');
   this.route('page', function () {
@@ -37,11 +37,11 @@ Router.map(function() {
     this.route('subscribe');
     this.route('contact');
   });
-  this.route('anime', function() {
+  this.route('anime', function () {
     this.route('show', { path: '/:anime_id' });
   });
   this.route('manga');
-  this.route('group', function() {
+  this.route('group', function () {
     this.route('found');
     this.route('show', { path: '/:group_id' }, function () {
       this.route('posts', { path: '/' });
@@ -52,11 +52,10 @@ Router.map(function() {
   this.route('user', { path: '/user/:user_id' }, function () {
     this.route('posts', { path: '/' });
     this.route('groups');
-    this.route('followers');
-    this.route('follows');
     this.route('anime');
     this.route('manga');
     this.route('music');
+    this.route('friends');
   });
   this.route('list');
   this.route('music');

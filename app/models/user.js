@@ -19,7 +19,7 @@ export default class User extends Model.extend(ModelTimestamps) {
   @belongsTo('profile') profile
   @hasMany('user', { inverse: null }) followers
   @hasMany('user', { inverse: null }) follows
-  @hasMany('post') posts
+  @hasMany('post', { inverse: 'user' }) posts
   @hasMany('group') groups
 
   @computed('id', 'auth.user.id')

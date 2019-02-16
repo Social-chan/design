@@ -1,12 +1,12 @@
 import Service from '@ember/service';
-import { inject as service } from '@ember/service';
+import { inject as service } from '@ember-decorators/service';
 import config from '../config/environment';
-import { task } from 'ember-concurrency';
+import { task } from 'ember-concurrency-decorators';
 import request from 'ember-ajax/request';
 // import { computed } from '@ember/object';
 
-export default Service.extend({
-  auth: service(),
+export default class ChatService extends Service {
+  @service auth
 
   init() {
     this._super(...arguments);
@@ -15,9 +15,10 @@ export default Service.extend({
     this.set('tokenProvider', new Chatkit.TokenProvider({
       url: config.chatkit.tokenProvider,
     }));
-  },
+  }
 
-  connectUser: task(function * () {
+  @task({restartable: true})
+  *connectUser() {
     let chatManager;
 
     // eslint-disable-next-line no-undef
@@ -51,9 +52,10 @@ export default Service.extend({
         }
       }
     });
-  }).restartable(),
+  }
 
-  createUser: task(function * () {
+  @task({drop: true})
+  *createUser() {
     yield request('/user', {
       method: 'POST',
       host: config.proxyHost,
@@ -64,5 +66,5 @@ export default Service.extend({
     }).then(result => {
       this.get('connect').perform(result.id);
     });
-  }).drop(),
-});
+  }
+}

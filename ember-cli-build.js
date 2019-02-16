@@ -30,16 +30,16 @@ module.exports = function(defaults) {
         js: '/assets/vendor.js'
       }
     },
-    minifyJS: {
-      enabled: process.env.FORCE_MINIFY == 'true'
-    },
-    minifyCSS: {
-      enabled: process.env.FORCE_MINIFY == 'true'
-    },
-    sourcemaps: {
-      enabled: process.env.FORCE_MINIFY == 'false',
-      extensions: ['js']
-    },
+    // minifyJS: {
+    //   enabled: (process.env.FORCE_MINIFY == 'true')
+    // },
+    // minifyCSS: {
+    //   enabled: (process.env.FORCE_MINIFY == 'true')
+    // },
+    // sourcemaps: {
+    //   enabled: !isEnv('next') && !isEnv('production'),
+    //   extensions: ['js']
+    // },
     fingerprint: {
       enabled: true
     },
@@ -49,6 +49,7 @@ module.exports = function(defaults) {
         plugins: [
           require('tailwindcss')('./tailwind.js'),
           require('autoprefixer'),
+          require('postcss-nested'),
           {
             module: purgecss,
             options: {
