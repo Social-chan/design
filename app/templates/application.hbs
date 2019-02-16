@@ -6,16 +6,16 @@
       {{component "layout/top-sidebar" class="fixed pin-t" currentRouteName=currentRouteName}}
     {{else}}
       {{component "layout/left-sidebar" currentRouteName=currentRouteName}}
+
+      {{#if (is-feature "chats")}}
+        {{component "layout/user-chat" class="fixed pin-b pin-r mr-8 mb-4 z-20 hidden lg:block"}}
+      {{/if}}
     {{/if}}
 
     <div
-      class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll pt-9 lg:pt-0 bg-cover bg-fixed bg-center bg-no-repeat"
+      class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll pt-9 xl:pt-0 xl:pl-20 bg-cover bg-fixed bg-center bg-no-repeat"
       style={{html-safe auth.user.profile.bgImage}}>
       {{outlet}}
     </div>
-
-    {{#if (is-feature "chats")}}
-      {{component "layout/user-chat" class="fixed pin-b pin-r mr-8 mb-4 z-20 hidden lg:block"}}
-    {{/if}}
   </div>
 {{/if}}
