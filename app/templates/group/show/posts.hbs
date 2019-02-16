@@ -1,0 +1,4 @@
+{{component "post/create" placeholder=(concat "Publicar en " model.group.name "...")}}
+{{#each model.posts as |post|}}
+  {{component "post/single" post=post}}
+{{/each}}

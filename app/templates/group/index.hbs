@@ -1,0 +1,49 @@
+<div class="container mx-auto px-4 mt-4">
+  <div class="flex flex-col lg:flex-row">
+    <div class="w-full lg:w-1/4 lg:pr-4">
+      <div class="bg-white shadow rounded p-4 mb-3">
+        <p class="text-lg text-indigo-darkest font-bold mb-2">
+          <i class="fas fa-users"></i> Tus grupos
+        </p>
+        <div class="flex flex-wrap py-3 px-2">
+          {{#each model.myGroups as |group|}}
+            <div class="flex-no-shrink -mx-2">
+              {{#link-to "group.show" group.id}}
+                <img class="w-10 h-10 rounded-full" src={{group.image}} alt="">
+              {{/link-to}}
+            </div>
+          {{/each}}
+        </div>
+
+        {{#link-to "group.found" class="ui-btn ui-btn--block ui-btn--primary"}}
+          <i class="fab fa-font-awesome-flag fa-fw"></i>
+          Fundar grupo
+        {{/link-to}}
+      </div>
+      <div class="bg-white shadow rounded mb-3">
+        <div class="p-4">
+          <p class="text-lg text-indigo-darkest font-bold mb-2">
+            <i class="fas fa-filter"></i> Filtrar por
+          </p>
+          <p class="uppercase tracking-wide">
+            Categorías
+          </p>
+        </div>
+        <div class="bg-grey-lighter rounded-b">
+          {{#each model.groupTypes as |type|}}
+            <a href="#"
+              class="flex border-l-4 border-transparent hover:border-indigo px-4 py-2 text-lg text-grey-darkest">
+              <i class="{{type.icon}} mr-3"></i>
+              {{type.name}}
+            </a>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <div class="w-full lg:w-3/4 bg-white rounded shadow p-4">
+      {{#each model.groups as |group|}}
+        {{component "group/single" group=group}}
+      {{/each}}
+    </div>
+  </div>
+</div>

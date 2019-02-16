@@ -1,19 +1,21 @@
-{{#if (array-contains pagesInArray currentRouteName)}}
-  {{#if (not-eq currentRouteName "login")}}
-    {{component 'header-navbar' user=user}}
-    {{outlet}}
-    {{component 'page-footer' class="pt-8"}}
-  {{else}}
-    {{outlet}}
-  {{/if}}
+{{#if (array-contains landingPages currentRouteName)}}
+  {{outlet}}
 {{else}}
-  <div class="font-sans antialiased h-screen flex overflow-hidden">
-    {{component 'user-sidebar' class="flex h-full" currentRouteName=currentRouteName}}
+  <div class="flex h-screen inner-application font-sans antialiased overflow-hidden">
+    {{#if (media "isTablet")}}
+      {{component "layout/top-sidebar" class="fixed pin-t" currentRouteName=currentRouteName}}
+    {{else}}
+      {{component "layout/left-sidebar" currentRouteName=currentRouteName}}
 
-    <div class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:url('img/landing/img02.jpg')">
+      {{#if (is-feature "chats")}}
+        {{component "layout/user-chat" class="fixed pin-b pin-r mr-8 mb-4 z-20 hidden lg:block"}}
+      {{/if}}
+    {{/if}}
+
+    <div
+      class="flex-1 flex flex-col bg-blue-lightest overflow-y-scroll pt-9 xl:pt-0 xl:pl-20 bg-cover bg-fixed bg-center bg-no-repeat"
+      style={{html-safe auth.user.profile.bgImage}}>
       {{outlet}}
     </div>
-
-    {{component 'side-bar' class="h-full"}}
   </div>
 {{/if}}

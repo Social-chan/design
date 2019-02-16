@@ -1,0 +1,15 @@
+{{#if custom}}
+  {{yield}}
+{{else}}
+  {{#if isMember}}
+    <button {{action "join" groupId}} class="bg-transparent hover:bg-red border border-red rounded text-red text-sm hover:text-white font-bold py-1 px-2 {{addClass}}">
+      <i class="fas fa-sign-out-alt"></i>
+      Salir
+    </button>
+  {{else}}
+    <button {{action "join" groupId}} class="bg-transparent hover:bg-green border border-green rounded text-green text-sm hover:text-white font-bold py-1 px-2 {{addClass}}">
+      <i class="fas fa-sign-in-alt"></i>
+      Unirse
+    </button>
+  {{/if}}
+{{/if}}

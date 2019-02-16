@@ -1,0 +1,45 @@
+<div class="container mx-auto my-4">
+  {{component "group/header" group=model.group}}
+
+  <div class="flex flex-col lg:flex-row">
+    <div class="w-1/4 pr-4 hidden lg:block">
+      <div class="bg-white shadow rounded p-4 mb-3">
+        <p class="text-lg text-indigo-darkest font-bold mb-3">
+          <i class="fas fa-info fa-fw"></i> Acerca
+        </p>
+        <p class="text-sm text-grey-dark leading-normal">
+          {{model.group.about}}
+        </p>
+      </div>
+      <div class="bg-white shadow rounded p-4 mb-3">
+        <p class="text-lg text-indigo-darkest font-bold mb-3">
+          <i class="fas fa-users fa-fw"></i> Miembros
+        </p>
+        <ul class="flex flex-wrap justify-start list-reset my-3">
+          {{#each model.members as |member|}}
+            <li>
+              {{#link-to "user" member.id class="relative inline-block pr-2"}}
+                <img class="w-10 h-10 bg-grey rounded-full" src="{{member.profile.avatar}}" alt="">
+                <span class="absolute pin-t pin-r bg-purple border border-white rounded-full text-xs p-1">
+                  <i class="fas fa-cog text-white fill-current"></i>
+                </span>
+                {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 interactive=true}}
+                    {{component "user/hovercard" user=member}}
+                {{/attach-tooltip}}
+              {{/link-to}}
+            </li>
+          {{/each}}
+        </ul>
+
+        {{#if (not-eq model.author.id auth.user.id)}}
+          {{component "group/join-button" addClass="w-full" isMember=model.is_member group_id=model.id class="my-2"}}
+        {{else}}
+          {{input type="text" class="appearance-none w-full bg-grey-lighter text-indigo-darkest border border-grey-dark rounded py-2 px-3" placeholder="Buscar usuario para invitar..."}}
+        {{/if}}
+      </div>
+    </div>
+    <div class="w-full lg:w-3/4">
+      {{outlet}}
+    </div>
+  </div>
+</div>

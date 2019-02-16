@@ -12,6 +12,7 @@ we've done our very best to explain each section.
 
 View the full documentation at https://tailwindcss.com.
 
+
 |-------------------------------------------------------------------------------
 | The default config
 |-------------------------------------------------------------------------------
@@ -24,6 +25,7 @@ View the full documentation at https://tailwindcss.com.
 */
 
 // let defaultConfig = require('tailwindcss/defaultConfig')()
+
 
 /*
 |-------------------------------------------------------------------------------
@@ -43,7 +45,7 @@ View the full documentation at https://tailwindcss.com.
 
 let colors = {
   'transparent': 'transparent',
-  'smoke-light': 'rgba(0, 0, 0, 0.6)',
+  'smoke-light': 'rgba(0, 0, 0, .4)',
 
   'black': '#22292f',
   'grey-darkest': '#3d4852',
@@ -145,6 +147,7 @@ module.exports = {
 
   colors: colors,
 
+
   /*
   |-----------------------------------------------------------------------------
   | Screens                      https://tailwindcss.com/docs/responsive-design
@@ -171,6 +174,7 @@ module.exports = {
     'xl': '1200px',
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Fonts                                    https://tailwindcss.com/docs/fonts
@@ -191,8 +195,9 @@ module.exports = {
 
   fonts: {
     'sans': [
-      '-apple-system',
+      'system-ui',
       'BlinkMacSystemFont',
+      '-apple-system',
       'Segoe UI',
       'Roboto',
       'Oxygen',
@@ -225,6 +230,7 @@ module.exports = {
     ]
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Text sizes                         https://tailwindcss.com/docs/text-sizing
@@ -256,6 +262,7 @@ module.exports = {
     '5xl': '3rem',      // 48px
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Font weights                       https://tailwindcss.com/docs/font-weight
@@ -282,6 +289,7 @@ module.exports = {
     'black': 900,
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Leading (line height)              https://tailwindcss.com/docs/line-height
@@ -301,6 +309,7 @@ module.exports = {
     'loose': 2,
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Tracking (letter spacing)       https://tailwindcss.com/docs/letter-spacing
@@ -319,6 +328,7 @@ module.exports = {
     'wide': '0.05em',
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Text colors                         https://tailwindcss.com/docs/text-color
@@ -334,6 +344,7 @@ module.exports = {
 
   textColors: colors,
 
+
   /*
   |-----------------------------------------------------------------------------
   | Background colors             https://tailwindcss.com/docs/background-color
@@ -348,6 +359,27 @@ module.exports = {
   */
 
   backgroundColors: colors,
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Background sizes               https://tailwindcss.com/docs/background-size
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you define your background sizes. We provide some common
+  | values that are useful in most projects, but feel free to add other sizes
+  | that are specific to your project here as well.
+  |
+  | Class name: .bg-{size}
+  |
+  */
+
+  backgroundSize: {
+    'auto': 'auto',
+    'cover': 'cover',
+    'contain': 'contain',
+  },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -370,6 +402,7 @@ module.exports = {
     '8': '8px',
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Border colors                     https://tailwindcss.com/docs/border-color
@@ -387,7 +420,8 @@ module.exports = {
   |
   */
 
-  borderColors: Object.assign({ default: colors['grey-light'] }, colors),
+  borderColors: global.Object.assign({ default: colors['grey-light'] }, colors),
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -412,6 +446,7 @@ module.exports = {
     'lg': '.5rem',
     'full': '9999px',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -464,6 +499,7 @@ module.exports = {
     'screen': '100vw'
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Height                                  https://tailwindcss.com/docs/height
@@ -491,6 +527,7 @@ module.exports = {
     '10': '2.5rem',
     '12': '3rem',
     '16': '4rem',
+    '18': '5rem',
     '24': '6rem',
     '32': '8rem',
     '48': '12rem',
@@ -498,6 +535,7 @@ module.exports = {
     'full': '100%',
     'screen': '100vh'
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -518,6 +556,7 @@ module.exports = {
     'full': '100%',
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Minimum height                      https://tailwindcss.com/docs/min-height
@@ -537,6 +576,7 @@ module.exports = {
     'full': '100%',
     'screen': '100vh'
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -566,6 +606,7 @@ module.exports = {
     'full': '100%',
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Maximum height                      https://tailwindcss.com/docs/max-height
@@ -584,6 +625,7 @@ module.exports = {
     'full': '100%',
     'screen': '100vh',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -609,7 +651,14 @@ module.exports = {
     '4': '1rem',
     '6': '1.5rem',
     '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -634,9 +683,17 @@ module.exports = {
     '2': '0.5rem',
     '3': '0.75rem',
     '4': '1rem',
+    '5': '1.25rem',
     '6': '1.5rem',
     '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -660,9 +717,17 @@ module.exports = {
     '2': '0.5rem',
     '3': '0.75rem',
     '4': '1rem',
+    '5': '1.25rem',
     '6': '1.5rem',
     '8': '2rem',
+    '10': '2.5rem',
+    '12': '3rem',
+    '16': '4rem',
+    '20': '5rem',
+    '24': '6rem',
+    '32': '8rem',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -685,8 +750,10 @@ module.exports = {
     'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
     'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
     'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',
+    'outline': '0 0 0 3px rgba(52,144,220,0.5)',
     'none': 'none',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -711,6 +778,7 @@ module.exports = {
     '50': 50,
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | Opacity                                https://tailwindcss.com/docs/opacity
@@ -732,6 +800,7 @@ module.exports = {
     '100': '1',
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | SVG fill                                   https://tailwindcss.com/docs/svg
@@ -750,6 +819,7 @@ module.exports = {
     'current': 'currentColor',
   },
 
+
   /*
   |-----------------------------------------------------------------------------
   | SVG stroke                                 https://tailwindcss.com/docs/svg
@@ -767,6 +837,7 @@ module.exports = {
   svgStroke: {
     'current': 'currentColor',
   },
+
 
   /*
   |-----------------------------------------------------------------------------
@@ -789,26 +860,29 @@ module.exports = {
     backgroundPosition: [],
     backgroundRepeat: [],
     backgroundSize: [],
+    borderCollapse: [],
     borderColors: ['hover'],
-    borderRadius: [],
+    borderRadius: ['responsive'],
     borderStyle: [],
     borderWidths: ['hover'],
     cursor: [],
     display: ['responsive'],
     flexbox: ['responsive'],
-    float: ['responsive'],
+    float: [],
     fonts: [],
-    fontWeights: [''],
+    fontWeights: [],
     height: ['responsive'],
     leading: ['responsive'],
-    lists: [''],
+    lists: [],
     margin: ['responsive'],
     maxHeight: ['responsive'],
     maxWidth: ['responsive'],
     minHeight: ['responsive'],
     minWidth: ['responsive'],
     negativeMargin: ['responsive'],
-    opacity: [],
+    objectFit: false,
+    objectPosition: false,
+    opacity: ['hover'],
     overflow: ['responsive'],
     padding: ['responsive'],
     pointerEvents: ['responsive'],
@@ -816,7 +890,8 @@ module.exports = {
     resize: [],
     shadows: ['hover'],
     svgFill: [],
-    svgStroke: false,
+    svgStroke: [],
+    tableLayout: ['responsive'],
     textAlign: [],
     textColors: ['hover', 'group-hover'],
     textSizes: ['responsive'],
@@ -825,10 +900,33 @@ module.exports = {
     userSelect: [],
     verticalAlign: ['responsive'],
     visibility: false,
-    whitespace: [],
+    whitespace: ['responsive'],
     width: ['responsive'],
     zIndex: [],
   },
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Plugins                                https://tailwindcss.com/docs/plugins
+  |-----------------------------------------------------------------------------
+  |
+  | Here is where you can register any plugins you'd like to use in your
+  | project. Tailwind's built-in `container` plugin is enabled by default to
+  | give you a Bootstrap-style responsive container component out of the box.
+  |
+  | Be sure to view the complete plugin documentation to learn more about how
+  | the plugin system works.
+  |
+  */
+
+  plugins: [
+    require('tailwindcss/plugins/container')({
+      // center: true,
+      // padding: '1rem',
+    }),
+  ],
+
 
   /*
   |-----------------------------------------------------------------------------

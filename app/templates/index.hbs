@@ -1,106 +1,113 @@
-<div class="bg-indigo-light py-8">
-  <div class="container mx-auto">
-    <div class="flex flex-wrap text-white py-0 md:py-8">
-      <div class="w-full md:w-2/3 lg:w-1/2 mx-auto">
-        <div class="w-full md:max-w-md">
-          <div class="md:flex mb-6">
-            <div class="md:w-1/2 mb-6 md:mb-0 mx-3">
-              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-first-name">
-                Nombre
-              </label>
-              <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4 mb-3" id="grid-first-name" type="text" placeholder="Miku">
-            </div>
-            <div class="md:w-1/2 mb-6 md:mb-0 mx-3">
-              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-last-name">
-                Apellidos
-              </label>
-              <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4 mb-3" id="grid-last-name" type="text" placeholder="Hatsune">
+{{#if (media "isDesktop")}}
+  {{component "page/header" user=user class="fixed pin-t w-full p-3 z-50"}}
+
+  {{#swiper-container options=swiperOptions pagination=true vertical=true class="max-w-full h-screen swiper-container-inverse"}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-indigo-light text-white p-8"}}
+      {{component "element/signup-form" class="flex flex-wrap justify-center w-full max-w-md text-white"}}
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-teal-dark p-8"}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_floating.svg" alt="comunidad">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          Un sitio donde poder hablar
+        </h2>
+        <p class="font-sans font-light text-xl mb-6">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, suscipit culpa, similique aspernatur
+          impedit et tenetur, aut vero doloremque accusamus ipsa ex enim ab expedita veniam dolore quibusdam odit
+          quo!
+        </p>
+      </div>
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-purple-dark p-8"}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_movie_night.svg" alt="anime manga y musica">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          ¿Red social? ¿Y qué más?
+        </h2>
+        <p class="font-sans font-light text-xl">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi placeat earum fugiat vitae sequi magnam
+          amet, asperiores obcaecati voluptates alias nisi sit pariatur optio veritatis deleniti excepturi temporibus
+          delectus laboriosam!
+        </p>
+      </div>
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-green-dark p-8"}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_growing.svg" alt="creciendo con la comunidad">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          Intentando crecer, ¡siempre!
+        </h2>
+        <p class="font-sans font-light text-xl mb-6">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo laudantium sint fuga provident. Ullam, sequi
+          provident accusamus aperiam ipsa id! Omnis dignissimos voluptas deserunt nihil laboriosam delectus cumque
+          sint eos!
+        </p>
+
+        {{#link-to "page.subscribe" class="bg-transparent hover:bg-smoke-light text-2xl text-white rounded-full shadow py-3 px-6 mx-auto"}}
+          <i class="fas fa-gem fa-fw fill-current"></i>
+          Suscriptor
+        {{/link-to}}
+      </div>
+    {{/swiper-slide}}
+    {{#swiper-slide class="flex flex-col justify-center items-center h-full bg-blue-dark p-8"}}
+      <div class="max-w-md text-white text-center">
+        <img class="w-1/2 mb-8" src="/img/illustrations/undraw_welcome.svg" alt="bienvenida a socialchan">
+        <h2 class="font-sans font-semibold text-3xl mb-4">
+          ¡Me has convencido!
+        </h2>
+        <p class="font-sans font-light text-xl mb-6">
+          Eso no es todo, y solamente has abierto la ventana a
+          una comunidad en continuo crecimiento. Por lo que, ya que has
+          llegado hasta aquí te daremos un par de sorpresas más:
+        </p>
+        <div class="flex justify-center">
+          <div class="flex items-center bg-blue-darker cursor-not-allowed py-2 px-4 mr-4">
+            <i class="fab fa-google-play fa-2x fill-current mr-3"></i>
+            <div class="text-left text-sm tracking-wide">
+              Próximamente en
+              <span class="block text-lg">Google Play</span>
             </div>
           </div>
-          <div class="md:flex mb-6">
-            <div class="md:w-full mx-3">
-              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-user-email">
-                Email
-              </label>
-              <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4" id="grid-user-email" type="email" placeholder="miku@vocaloid.moe">
+          <div class="flex items-center bg-blue-darker cursor-not-allowed py-2 px-4 ml-4">
+            <i class="fab fa-app-store fa-2x fill-current mr-3"></i>
+            <div class="text-left text-sm tracking-wide">
+              Próximamente en
+              <span class="block text-lg">App Store</span>
             </div>
-          </div>
-          <div class="md:flex mb-6">
-            <div class="md:w-full mx-3">
-              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-user-name">
-                Nombre de usuario
-              </label>
-              <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4" id="grid-user-name" type="text" placeholder="@miku">
-            </div>
-          </div>
-          <div class="md:flex mb-6">
-            <div class="md:w-full mx-3">
-              <label class="block uppercase tracking-wide text-white text-xs font-bold mb-2" for="grid-password">
-                Contraseña
-              </label>
-              <input class="appearance-none block w-full bg-grey-lighter text-indigo-darkest border border-indigo rounded py-3 px-4 mb-3" id="grid-password" type="password" placeholder="Mi waifu secreta... woops!">
-            </div>
-          </div>
-          <div class="mx-3">
-            <button class="bg-indigo-dark w-full text-white border-b-4 border-indigo-darker rounded font-semibold px-2 py-3">
-              Crear cuenta
-            </button>
-            <p class="text-white text-xs mt-3">
-              Al crear cuenta en este sitio estas aceptando los <a href="#" class="text-indigo-darker">Términos y condiciones</a> del mismo.
-            </p>
           </div>
         </div>
       </div>
+    {{/swiper-slide}}
+  {{/swiper-container}}
+{{else}}
+  <div class="flex flex-col justify-center items-center max-w-full bg-indigo-light text-white h-screen">
+    <p class="text-lg mb-3">
+      Descarga nuestras apps en...
+    </p>
+    <div class="flex flex-col justify-center flex-wrap mx-auto">
+      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
+        <i class="fab fa-google-play fa-2x fill-current mr-3"></i>
+        <div class="text-left text-sm tracking-wide">
+          Próximamente en
+          <span class="block text-lg">Google Play</span>
+        </div>
+      </a>
+      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
+        <i class="fab fa-app-store fa-2x fill-current mr-3"></i>
+        <div class="text-left text-sm tracking-wide">
+          Próximamente en
+          <span class="block text-lg">App Store</span>
+        </div>
+      </a>
     </div>
+
+    <p class="text-lg mt-6">
+      O tambien puedes
+      {{#link-to "login" class="bg-smoke-light text-white p-1"}}acceder{{/link-to}}
+      o
+      {{#link-to "register" class="bg-smoke-light text-white p-1"}}registrarte{{/link-to}}
+    </p>
   </div>
-</div>
+{{/if}}
 
-<div class="container py-8 mx-auto mb-8">
-  <h2 class="text-center text-indigo-darkest mb-6">
-    ¿Qué es Social-chan?
-  </h2>
-
-  <div class="flex flex-col md:flex-row items-center">
-    <div class="w-full md:w-1/3 md:opacity-75 px-4 mb-4">
-      <div class="md:w-2/3 rounded overflow-hidden shadow-lg ml-auto">
-        <img class="w-full" src="img/landing/img01.jpg" alt="socialchan">
-        <div class="px-4 py-2">
-          <div class="font-bold text-sm mb-2">
-            Listas
-          </div>
-          <p class="text-grey-darker text-xs">
-            Organiza tus listas con la base de datos anime, manga y música.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full md:w-1/3 px-4 mb-4">
-      <div class="rounded overflow-hidden shadow-lg">
-        <img class="w-full" src="img/landing/img02.jpg" alt="anime">
-        <div class="px-6 py-4">
-          <div class="font-bold text-xl mb-2">
-            Red social
-          </div>
-          <p class="text-grey-darker text-base">
-            Comparte y opina con tus amigos y grupos acerca de cualquier anime o manga.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="w-full md:w-1/3 md:opacity-75 px-4 mb-4">
-      <div class="md:w-2/3 rounded overflow-hidden shadow-lg">
-        <img class="w-full" src="img/landing/img03.jpg" alt="manga">
-        <div class="px-4 py-2">
-          <div class="font-bold text-sm mb-2">
-            Mensajería
-          </div>
-          <p class="text-grey-darker text-xs">
-            Difruta de un sistema P2P cifrado de mensajería instantánea con tus amigos.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+{{component "page/footer" class="fixed pin-b w-full px-8 mb-4 z-50"}}

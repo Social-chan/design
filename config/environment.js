@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function(environment) {
@@ -6,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'socialchan',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
@@ -19,41 +18,95 @@ module.exports = function(environment) {
     },
 
     APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
+      apiHost: process.env.API_HOST,
+      proxyHost: process.env.PROXY_HOST,
+      meta: {
+        description: "Red social anime y manga",
+      },
+      features: {
+        anime: process.env.FEATURE_ANIME || 'false',
+        manga: process.env.FEATURE_MANGA || 'false',
+        music: process.env.FEATURE_MUSIC || 'false',
+        clubs: process.env.FEATURE_CLUBS || 'false',
+        lists: process.env.FEATURE_LISTS || 'false',
+        monitor: process.env.FEATURE_MONITOR || 'false',
+        search: process.env.FEATURE_SEARCH || 'false',
+        chats: process.env.FEATURE_CHATS || 'false',
+      }
     },
 
     moment: {
       allowEmpty: true,
       includeTimezone: 'all',
       includeLocales: ['es']
+    },
+
+    'ember-cli-string-helpers': {
+      only: ['dasherize', 'underscore', 'html-safe'],
+      except: ['titleize', 'capitalize']
+    },
+
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['production'],
+        config: {
+          id: process.env.GOOGLE_ANALYTICS_ID,
+          // Use `analytics_debug.js` in development
+          debug: environment === 'development',
+          // Use verbose tracing of GA events
+          trace: environment === 'development',
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development',
+          // Specify Google Analytics plugins
+          require: []
+        }
+      },
+    ],
+
+    push: {
+      icon: '/img/socialchan.jpg',
+      // tag: 'socialchan',
+    },
+
+    chatkit: {
+      tokenProvider: process.env.CHATKIT_PROVIDER,
+      instanceLocator: process.env.CHATKIT_LOCATOR,
+      secretKey: process.env.CHATKIT_SECRET_KEY,
+    },
+
+    emberAttacher: {
+      tooltipClass: 'bg-white shadow p-0',
+      animation: 'shift',
+      arrow: true,
+      lazyRender: true,
     }
   };
 
-  if (environment === 'development') {
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+  // Hard-coded overrides
+  if (environment === 'production') {
+    ENV['ember-cli-mirage'] = {
+      enabled: false
+    };
+  }
 
-    ENV.apiHost = 'http://192.168.100.2:8000';
+  if (environment === 'next') {
+    ENV['ember-cli-mirage'] = {
+      enabled: true
+    };
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
 
+    ENV.APP.features.test = true;
+
     // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-  }
-
-  if (environment === 'production') {
-    // here you can enable a production-specific feature
-    ENV.apiHost = 'https://api.social-chan.com';
   }
 
   return ENV;

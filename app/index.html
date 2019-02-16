@@ -3,26 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <title>Social-chan</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-
-    <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Social-chan</title>
 
     {{content-for "head"}}
-
     <link rel="stylesheet" href="{{rootURL}}assets/socialchan.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
-
+    <!-- <link rel="stylesheet" href="{{rootURL}}assets/vendor.css"> -->
     {{content-for "head-footer"}}
+    <script defer src="https://use.fontawesome.com/releases/v5.7.1/js/all.js"></script>
   </head>
   <body>
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/socialchan.js"></script>
-
     {{content-for "body-footer"}}
   </body>
 </html>

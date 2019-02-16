@@ -1,0 +1,67 @@
+<div class="bg-white rounded shadow mb-4">
+  <div class="flex flex-no-wrap justify-end bg-white rounded-t h-3 pr-4">
+    {{#if (not user.isLoggedIn)}}
+      {{#if user.following}}
+        <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2">
+          <i class="fas fa-comment-alt"></i>
+        </button>
+        <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2">
+          <i class="fas fa-user-times"></i>
+        </button>
+      {{else}}
+        <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2">
+          <i class="fas fa-user-plus"></i>
+        </button>
+      {{/if}}
+      <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2">
+        <i class="fas fa-ban"></i>
+      </button>
+    {{else}}
+      {{#link-to "settings" class="no-underline self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2"}}
+        <i class="fas fa-cog"></i>
+      {{/link-to}}
+      <button {{action "logout"}} class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    {{/if}}
+  </div>
+  <div class="flex py-8 bg-grey-light bg-cover bg-no-repeat" style={{bg-image user.profile.bg_image}}>
+    <div class="w-full lg:w-1/4 text-center">
+      <img class="w-32 h-32 bg-grey border-2 border-white rounded-full shadow" src={{user.profile.avatar}} alt="">
+    </div>
+  </div>
+  <div class="flex items-center bg-white rounded-b">
+    <div class="w-1/4 text-indigo-darker text-lg hidden lg:flex items-center justify-center">
+      @{{user.nickname}}
+    </div>
+    <ul class="w-full lg:w-3/4 flex select-none scrolling-touch overflow-auto list-reset px-2">
+      {{#link-to "user.posts" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+        Muro
+      {{/link-to}}
+      {{#link-to "user.friends" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+        Amigos
+      {{/link-to}}
+      {{#if (is-feature "clubs")}}
+        {{#link-to "user.groups" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Clubs
+        {{/link-to}}
+      {{/if}}
+      {{#if (is-feature "anime")}}
+        {{#link-to "user.anime" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Anime
+        {{/link-to}}
+      {{/if}}
+      {{#if (is-feature "manga")}}
+        {{#link-to "user.manga" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Manga
+        {{/link-to}}
+      {{/if}}
+      {{#if (is-feature "music")}}
+        {{#link-to "user.music" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Música
+        {{/link-to}}
+      {{/if}}
+      {{yield}}
+    </ul>
+  </div>
+</div>

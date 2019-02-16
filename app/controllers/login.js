@@ -1,12 +1,15 @@
 import Controller from '@ember/controller';
-import {inject as service} from '@ember/service';
-import {task} from 'ember-concurrency';
+import { inject as service } from '@ember-decorators/service';
+import { action } from '@ember-decorators/object';
+import { task } from 'ember-concurrency-decorators';
 
-export default Controller.extend({
-  session: service(),
-  isPage: true,
+export default class LoginController extends Controller {
+  @service session;
 
-  authenticate: task(function* () {
+  @task({
+    drop: true
+  })
+  *authenticate() {
     const { identification, password } = this.getProperties('identification', 'password');
 
     yield this.get('session').authenticate(
@@ -16,18 +19,18 @@ export default Controller.extend({
       {
         'Content-Type': 'application/json',
       }
-    ).catch((reason) => {
-      this.set('errorMessage', reason.error);
+    ).catch((error) => {
+      this.set('errorMessage', error);
     }).then(() => {
-      this.transitionTo('feed');
+      // TODO: GA metrics event
+      // get(this, 'metrics').trackEvent(metrics);
+      this.transitionToRoute('feed');
     });
 
-
-  }).drop(),
-
-  actions: {
-    authenticate() {
-      this.get('authenticate').perform();
-    }
   }
-});
+
+  @action
+  login() {
+    this.get('authenticate').perform();
+  }
+}

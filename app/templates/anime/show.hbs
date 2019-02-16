@@ -1,0 +1,76 @@
+<div class="container mx-auto my-4">
+  <div class="flex flex-col lg:flex-row">
+    <div class="w-1/4 pr-4 hidden lg:block">
+      <div class="bg-white shadow rounded p-4 mb-3">
+        <div class="border-b border-grey-light pb-4 mb-4">
+          <p class="text-black mb-1">
+            Título
+          </p>
+          <p class="text-grey-darker">
+            {{model.title}}
+          </p>
+          <p class="text-grey-darker">
+            {{model.content.japanese}}
+          </p>
+        </div>
+        <div class="border-b border-grey-light pb-4 mb-4">
+          <p class="text-black mb-1">
+            Industria
+          </p>
+          <p class="text-grey-darker"></p>
+        </div>
+        <div class="border-b border-grey-light pb-4 mb-4">
+          <p class="text-black mb-1">
+            Publicado el
+          </p>
+          <p class="text-grey-darker">
+            {{moment-format model.published 'LL'}}
+          </p>
+        </div>
+        <div class="pb-4 mb-4">
+          <p class="text-black mb-1">
+            Finalizado el
+          </p>
+          <p class="text-grey-darker">
+            {{moment-format model.finished 'LL'}}
+          </p>
+        </div>
+      </div>
+      <div class="bg-white shadow rounded p-4 mb-3">
+        <h3 class="text-indigo-darkest mb-3">
+          Acciones
+        </h3>
+
+        <button class="w-full bg-green-dark text-white rounded mb-2 p-2">
+          <i class="fas fa-edit fa-fw"></i>
+          Editar
+        </button>
+        <button class="w-full bg-indigo-dark text-white rounded mb-2 p-2">
+          <i class="fas fa-share fa-fw"></i>
+          Publicar
+        </button>
+
+        <div class="border-t border-grey-light mt-3 pt-3">
+          <label class="block uppercase tracking-wide text-grey-darker text-xs font-bold mb-2" for="addList">Añadir a lista:</label>
+          {{#component 'element/custom-select' selectId="addList"}}
+            <option value="planned">Planificado</option>
+            <option value="watching">Viendo</option>
+            <option value="finished">Terminado</option>
+          {{/component}}
+        </div>
+      </div>
+    </div>
+    <div class="w-full lg:w-3/4">
+      <div class="bg-white rounded shadow p-4">
+        <p class="border-b border-grey-light mb-3 pb-3">
+          {{markdown-to-html model.about}}
+        </p>
+        <p class="mt-2 font-bold text-sm">
+          <i class="fas fa-tags fa-fw"></i> Géneros:
+        </p>
+      </div>
+
+      {{outlet}}
+    </div>
+  </div>
+</div>

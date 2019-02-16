@@ -1,28 +1,46 @@
-<div class="h-screen overflow-hidden bg-cover bg-fixed bg-center bg-no-repeat" style="background-image:linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url('img/landing/img02.jpg')">
+<div class="h-screen bg-indigo-light overflow-hidden">
   <div class="w-full max-w-xs mx-auto mt-8">
-    <form {{action "authenticate" on="submit"}} class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <div class="mb-4">
-        <label class="block text-grey-darker text-sm font-bold mb-2" for="identification">
-          Email o nombre de usuario
-        </label>
-        {{input id="identification" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" placeholder="Email o nombre de usuario" value=identification}}
-      </div>
-      <div class="mb-6">
-        <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
-          Contraseña
-        </label>
-        {{input id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3" placeholder="Contraseña" type="password" value=password}}
-      </div>
-      <div class="flex items-center justify-between">
-        <button type="submit" class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded">
-          Acceder
-        </button>
-        <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
-          Recordar contraseña
-        </a>
-      </div>
-    </form>
-    <p class="text-center text-white text-shadow text-xs">
+    <div class="text-center mb-4">
+      {{#link-to "index"}}
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="fill-current text-white" viewBox="0 0 19914 19914" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><path d="M9957 0c5499 0 9957 4458 9957 9957s-4458 9957-9957 9957S0 15456 0 9957 4458 0 9957 0zM7792 12047c503-1811-2393-204-2443 1231-131 3763 7391 3379 8634 1455 3041-5356-6820-5590-6047-8368 404-1930 4507-1401 3958-294-1253 2529 1765 1942 2065-56-88-2836-6231-2987-7633-529-1842 4228 3884 4622 5526 6599 2547 3066-5279 4348-4060-38z" /></svg>
+      {{/link-to}}
+    </div>
+
+    {{#if errorMessage}}
+      {{component "layout/alert-errors" errorMessage=errorMessage}}
+    {{/if}}
+    <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
+      <form {{action "login" on="submit"}}>
+        <div class="mb-4">
+          <label class="block text-grey-darker text-sm font-bold mb-2" for="identification">
+            Identificador
+          </label>
+          {{input id="identification" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" placeholder="Email o nombre de usuario" value=identification}}
+        </div>
+        <div class="mb-6">
+          <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+            Contraseña
+          </label>
+          {{input id="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3" placeholder="Contraseña" type="password" value=password}}
+        </div>
+        <div class="flex flex-col text-center">
+          <button type="submit" class="block w-full bg-indigo text-white text-center border-b-4 border-indigo-dark rounded font-semibold px-1 py-2 mb-3">
+            Acceder
+          </button>
+
+          <div class="flex justify-around items-center w-full font-bold text-sm">
+            {{#link-to "register" class="hover:text-indigo-darker"}}
+              Registro
+            {{/link-to}}
+            <span class="text-indigo-dark">&bull;</span>
+            {{#link-to "recover" class="hover:text-indigo-darker"}}
+              Recordar contraseña
+            {{/link-to}}
+          </div>
+        </div>
+      </form>
+    </div>
+    <p class="text-center text-white text-sm">
       © 2018 Social-chan. All rights reserved.
     </p>
   </div>

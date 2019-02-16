@@ -1,0 +1,86 @@
+<div class="md:h-screen bg-indigo-light md:overflow-hidden py-4">
+  <div class="w-full max-w-lg mx-auto mt-6">
+    <div class="text-center mb-4">
+      {{#link-to 'index'}}
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" class="fill-current text-white" viewBox="0 0 19914 19914" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"><path d="M9957 0c5499 0 9957 4458 9957 9957s-4458 9957-9957 9957S0 15456 0 9957 4458 0 9957 0zM7792 12047c503-1811-2393-204-2443 1231-131 3763 7391 3379 8634 1455 3041-5356-6820-5590-6047-8368 404-1930 4507-1401 3958-294-1253 2529 1765 1942 2065-56-88-2836-6231-2987-7633-529-1842 4228 3884 4622 5526 6599 2547 3066-5279 4348-4060-38z" /></svg>
+      {{/link-to}}
+    </div>
+
+    {{#if errorMessage}}
+      {{component 'layout/alert-errors' errorMessage=errorMessage}}
+    {{/if}}
+    <div class="bg-white shadow-md md:rounded-lg px-8 pt-6 pb-8 mb-4">
+      <form {{action "authenticate" on="submit"}} class="flex flex-wrap -mx-3">
+        <div class="w-full md:w-1/2 px-3 mb-6">
+          <div class="mb-4">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+              Email
+            </label>
+            {{input id="email" value=email class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" placeholder="Email"}}
+          </div>
+          <div class="mb-4">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="nickname">
+              Nombre de usuario
+            </label>
+            {{input id="nickname" value=nickname class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" placeholder="Nombre de usuario"}}
+          </div>
+          <div class="mb-4">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
+              Contraseña
+            </label>
+            {{input type="password" id="password" value=password class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3" placeholder="Contraseña"}}
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6">
+          <div class="flex flex-wrap justify-between items-center">
+            <div class="w-full md:w-1/2 mb-4">
+              <label class="block w-full text-grey-darker text-sm font-bold mb-2" for="name">
+                Nombre
+              </label>
+              {{input id="name" value=name class="w-full shadow appearance-none border rounded py-2 px-3 text-grey-darker" placeholder="Nombre"}}
+            </div>
+            <div class="w-full md:w-1/2 mb-4">
+              <label class="block w-full text-grey-darker text-sm font-bold mb-2" for="surname">
+                Apellidos
+              </label>
+              {{input id="surname" value=surname class="w-full shadow appearance-none border rounded py-2 px-3 text-grey-darker" placeholder="Apellidos"}}
+            </div>
+          </div>
+          <div class="w-full mb-4">
+            <label class="block text-grey-darker text-sm font-bold mb-2" for="country">
+              País
+            </label>
+            <div class="relative w-full">
+              {{#element/country-list selectedCode="ES" class="block appearance-none w-full bg-white border border-grey-light hover:border-grey px-4 py-2 pr-8 rounded shadow"}}
+                <option>Selecciona una opción</option>
+              {{/element/country-list}}
+              <div class="pointer-events-none absolute pin-y pin-r flex items-center px-2 text-grey-darker">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col w-full md:w-1/2 text-center mx-auto px-3">
+          <button type="submit" class="block w-full bg-indigo text-white text-center border-b-4 border-indigo-dark rounded font-semibold px-1 py-2 mb-3">
+            Crear cuenta
+          </button>
+
+          <div class="flex flex-col md:flex-row justify-around items-center w-full font-bold text-sm">
+            {{#link-to 'login' class="hover:text-indigo-darker my-2"}}
+              Acceso
+            {{/link-to}}
+            <span class="hidden md:block text-indigo-dark">&bull;</span>
+            {{#link-to 'page.policies' class="hover:text-indigo-darker my-2"}}
+              Términos y condiciones
+            {{/link-to}}
+          </div>
+        </div>
+      </form>
+    </div>
+    <p class="text-center text-white text-sm">
+      © 2018 Social-chan. All rights reserved.
+    </p>
+  </div>
+</div>

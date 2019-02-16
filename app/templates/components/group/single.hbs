@@ -1,0 +1,42 @@
+<div class="flex flex-col justify-center text-center">
+  <div class="w-16 h-16 bg-grey-light bg-cover bg-no-repeat rounded-full mr-4" style={{bg-image group.image}}></div>
+
+  {{#if (not joinDisabled)}}
+    <div class="inline-block lg:hidden mt-2">
+      {{component "group/join-button" groupId=group.id isMember=group.is_member}}
+    </div>
+  {{/if}}
+</div>
+
+<div class="flex-grow pl-4 lg:pl-0">
+  {{#link-to "group.show" group.id class="text-lg"}}
+    {{group.name}}
+  {{/link-to}}
+  <p class="text-grey-dark text-sm sm:truncate md:whitespace-normal mt-1 mb-4">
+    {{group.about}}
+  </p>
+  <div class="flex items-center">
+    {{#link-to "group" class=(concat "bg-grey-lighter rounded-full text-" group.groupType.color "-darker text-sm font-bold py-1 px-2 mr-2")}}
+      <i class={{group.groupType.icon}}></i>
+      {{group.groupType.name}}
+    {{/link-to}}
+    {{#link-to "user" group.author.id class=(concat "inline-block bg-grey-lighter rounded-full text-" group.groupType.color "-darker text-sm font-bold pr-2 mr-2")}}
+      <img class="inline-block w-6 align-middle rounded-full" src={{group.author.profile.avatar}} alt="">
+      {{group.author.nickname}}
+
+      {{#attach-tooltip class="w-64 rounded-lg" showDelay=300 lazyRender=true interactive=true}}
+        {{component "user/hovercard" user=group.author}}
+      {{/attach-tooltip}}
+    {{/link-to}}
+    {{#link-to "group.show.members" group.id class=(concat "bg-grey-lighter rounded-full text-" group.groupType.color "-darker text-sm font-bold py-1 px-2 mr-2")}}
+      <i class="fas fa-users"></i>
+      {{group.members_count}}
+    {{/link-to}}
+  </div>
+</div>
+
+{{#if (not joinDisabled)}}
+  <div class="hidden lg:inline-block self-start">
+    {{component "group/join-button" groupId=group.id isMember=group.is_member}}
+  </div>
+{{/if}}

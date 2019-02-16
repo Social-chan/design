@@ -1,92 +1,67 @@
 <div class="container mx-auto px-4 mt-4">
-  {{component 'user-header' currentUser=currentUser session=session}}
+  {{component "user/header" user=model}}
 
   <div class="flex">
     <div class="w-1/4 pr-4 hidden lg:block">
       <div class="bg-white rounded shadow p-4 mb-3">
-        <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">
-            Nombre
-          </p>
-          <p class="text-grey-darker group-hover:text-white">
-            {{currentUser.data.profile.name}} {{currentUser.data.profile.surname}}
-          </p>
-        </div>
-        <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">
-            Bio
-          </p>
-          <p class="text-grey-darker group-hover:text-white">
-            {{currentUser.data.profile.bio}}
-          </p>
-        </div>
-        <div class="border-b border-grey-light pb-4 mb-4">
-          <p class="text-black group-hover:text-white mb-1">
-            País
-          </p>
-          <p class="text-grey-darker group-hover:text-white">
-            España
-          </p>
-        </div>
-        <div class="">
-          <p class="text-black group-hover:text-white mb-1">
-            Ingreso
-          </p>
-          <p class="text-grey-darker group-hover:text-white">
-            {{moment-format model.created_at 'LL'}}
-          </p>
-        </div>
+        {{#if (or model.profile.name model.profile.surname)}}
+          <div class="border-b border-grey-light pb-4 mb-4">
+            <p class="text-black mb-1">
+              Nombre
+            </p>
+            <p class="text-grey-darker">
+              {{model.profile.name}}
+              {{model.profile.surname}}
+            </p>
+          </div>
+        {{/if}}
+        {{#if model.profile.bio}}
+          <div class="border-b border-grey-light pb-4 mb-4">
+            <p class="text-black mb-1">
+              Bio
+            </p>
+            <p class="text-grey-darker">
+              {{model.profile.bio}}
+            </p>
+          </div>
+        {{/if}}
+        {{#if model.profile.country}}
+          <div class="border-b border-grey-light pb-4 mb-4">
+            <p class="text-black mb-1">
+              País
+            </p>
+            <p class="text-grey-darker">
+              {{model.profile.country}}
+            </p>
+          </div>
+        {{/if}}
+        {{#if model.created_at}}
+          <div>
+            <p class="text-black mb-1">
+              Ingreso
+            </p>
+            <p class="text-grey-darker">
+              {{moment-format model.created_at "LL"}}
+            </p>
+          </div>
+        {{/if}}
       </div>
-      {{component 'ads-square'}}
-      <div class="bg-indigo-dark text-white rounded shadow mb-3">
-        <div class="flex justify-between p-4">
-          <span class="text-lg">
-            Progreso
-          </span>
-          <i class="fas fa-info"></i>
-        </div>
-        <div class="bg-white h-1 w-full">
-          <div class="bg-indigo-darker h-1 w-32"></div>
-        </div>
-        <ul class="flex list-reset text-indigo-darker p-4">
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-          <li class="cursor-pointer mr-2">
-            <i class="fas fa-trophy fa-lg"></i>
-          </li>
-        </ul>
-      </div>
+      {{component "layout/ads-square"}}
       <div class="bg-white rounded shadow mb-3">
         <ul class="flex items-center list-reset border-b px-3">
           <li class="flex-1 text-indigo-darker text-sm">
             <i class="fas fa-star"></i>
           </li>
-          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark mx-2">
+          <li
+            class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
             Anime
           </li>
-          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark mx-2">
+          <li
+            class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
             Manga
           </li>
-          <li class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark mx-2">
+          <li
+            class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
             Personajes
           </li>
         </ul>
@@ -110,115 +85,7 @@
       </div>
     </div>
     <div class="w-full lg:w-3/4">
-      <div class="w-full lg:flex mb-4">
-        <div class="border border-grey-light bg-white rounded shadow flex flex-col justify-between leading-normal">
-          <div class="flex flex-wrap p-4">
-            <div class="relative w-1/2 lg:w-1/5 bg-no-repeat bg-cover bg-center" style="background-image:url(img/mockup/anime_cover01.jpg)">
-              <div class="absolute pin-x pin-b w-full bg-smoke-light text-yellow text-center">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-            <div class="w-1/2 lg:w-4/5 px-4">
-              <span class="text-sm text-grey-dark">
-                <i class="fas fa-heart mr-2"></i>
-                Ha escrito su opinión sobre
-                <a href="#" class="no-underline font-medium text-grey-dark">
-                  Steins;Gate
-                </a>
-              </span>
-              <p class="text-grey-darker text-base mt-2">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis
-                eaque, exercitationem praesentium nihil.
-              </p>
-
-              <div class="w-full flex items-center justify-between mt-4">
-                <div class="flex items-center mr-auto">
-                  <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-                  <div class="text-sm">
-                    <a href="#" class="text-indigo-darkest no-underline">
-                      jdoe
-                    </a>
-                    <p class="text-grey-dark text-xs">
-                      hace 10 horas
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-center text-grey-dark text-xs">
-                  <div class="text-sm text-right">
-                    <a href="#" class="text-indigo-darkest no-underline">
-                      1 kokoro
-                    </a>
-                    <p class="text-grey-dark text-xs">
-                      3 comentarios
-                    </p>
-                  </div>
-                  <button class="bg-indigo-dark hover:bg-indigo-darker text-white rounded-full p-3 ml-3">
-                    <i class="fas fa-heart fa-lg"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <input type="text" class="appearance-none text-grey-dark text-lg border-t border-grey-light rounded-b mt-4 px-4 py-3" placeholder="Escribe un comentario...">
-        </div>
-      </div>
-      <div class="w-full lg:flex mb-4">
-        <div class="bg-white border border-grey-light rounded shadow p-4 flex flex-col justify-between leading-normal">
-          <div class="mb-8">
-            <p class="text-sm text-grey-dark flex items-center">
-              <i class="fas fa-file-alt mr-2"></i>
-              Ha publicado en
-              <a href="#" class="no-underline font-medium text-grey-dark ml-1">
-                Albinas Neko-dev
-              </a>
-            </p>
-            <div class="text-black font-bold text-xl my-2">
-              Lorem ipsum dolor sit amet
-            </div>
-            <p class="text-grey-darker text-base">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium impedit, soluta fuga quisquam iusto numquam
-              dolore deserunt saepe! Vel aut ut quisquam delectus fugiat, necessitatibus corporis atque cupiditate et veritatis?
-              Iure, sapiente dolorem quidem odit rem voluptas perspiciatis...
-            </p>
-          </div>
-          <div class="inline-flex items-center">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <div class="text-sm">
-              <p class="text-black leading-none">jdoe</p>
-              <p class="text-grey-dark">hace 10 horas</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full lg:flex mb-4">
-        <div class="bg-white border border-grey-light rounded shadow p-4 flex flex-col justify-between leading-normal">
-          <div class="mb-8">
-            <p class="text-sm text-grey-dark flex items-center">
-              <i class="fas fa-comment-alt mr-2"></i>
-              Ha creado una <a href="#" class="no-underline font-medium text-grey-dark ml-1">publicación</a>
-            </p>
-            <p class="text-grey-darker text-base mt-2">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium impedit, soluta fuga quisquam iusto numquam
-              dolore deserunt saepe! Vel aut ut quisquam delectus fugiat, necessitatibus corporis atque cupiditate et veritatis?
-              Iure, sapiente dolorem quidem odit rem voluptas perspiciatis...
-            </p>
-          </div>
-          <div class="inline-flex items-center">
-            <img class="w-10 h-10 rounded-full mr-3" src="img/user_default.jpg" alt="">
-            <div class="text-sm">
-              <p class="text-black leading-none">jdoe</p>
-              <p class="text-grey-dark">hace 10 horas</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {{outlet}}
     </div>
   </div>
 </div>
-
-{{outlet}}
