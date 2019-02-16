@@ -5,6 +5,13 @@
         <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2">
           <i class="fas fa-comment-alt"></i>
         </button>
+        <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2">
+          <i class="fas fa-user-times"></i>
+        </button>
+      {{else}}
+        <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2">
+          <i class="fas fa-user-plus"></i>
+        </button>
       {{/if}}
       <button class="self-center shadow bg-white rounded-full text-indigo-darker text-sm p-2 ml-2">
         <i class="fas fa-ban"></i>
@@ -31,24 +38,29 @@
       {{#link-to "user.posts" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
         Muro
       {{/link-to}}
-      {{#link-to "user.groups" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
-        Grupos
+      {{#link-to "user.friends" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+        Amigos
       {{/link-to}}
-      {{#link-to "user.followers" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
-        Seguidores
-      {{/link-to}}
-      {{#link-to "user.follows" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
-        Siguiendo
-      {{/link-to}}
-      {{#link-to "user.anime" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
-        Anime
-      {{/link-to}}
-      {{#link-to "user.manga" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
-        Manga
-      {{/link-to}}
-      {{#link-to "user.music" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
-        Música
-      {{/link-to}}
+      {{#if (is-feature "clubs")}}
+        {{#link-to "user.groups" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Clubs
+        {{/link-to}}
+      {{/if}}
+      {{#if (is-feature "anime")}}
+        {{#link-to "user.anime" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Anime
+        {{/link-to}}
+      {{/if}}
+      {{#if (is-feature "manga")}}
+        {{#link-to "user.manga" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Manga
+        {{/link-to}}
+      {{/if}}
+      {{#if (is-feature "music")}}
+        {{#link-to "user.music" class="border-b-2 border-transparent hover:border-indigo-darker text-indigo-darker py-3 px-2" activeClass="border-indigo-darker"}}
+          Música
+        {{/link-to}}
+      {{/if}}
       {{yield}}
     </ul>
   </div>
