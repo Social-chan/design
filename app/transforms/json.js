@@ -1,11 +1,13 @@
 import DS from 'ember-data';
 
-export default DS.Transform.extend({
+const { Transform } = DS
+
+export default class JsonTransform extends Transform {
   deserialize(serialized) {
     return JSON.parse(serialized);
-  },
+  }
 
   serialize(deserialized) {
     return JSON.stringify(deserialized);
   }
-});
+}
