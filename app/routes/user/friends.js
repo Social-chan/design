@@ -1,10 +1,11 @@
 import Route from '@ember/routing/route';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default class UserFollows extends Route.extend(AuthenticatedRouteMixin) {
+export default class UserFriendsRoute extends Route {
   model() {
     let user = this.modelFor('user');
+
     return this.get('store').query('user', {
+      include: 'profile',
       follows: user.get('id'),
     });
   }
