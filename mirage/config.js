@@ -75,4 +75,6 @@ export default function () {
   this.resource('group-type', { path: '/group-types' });
   // this.resource('group-member', { path: '/group' })
 
+  this.passthrough('https://firestore.googleapis.com/**');
+
 }

@@ -84,8 +84,10 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  app.import('node_modules/push.js/bin/push.js');
-  app.import('vendor/shims/push.js');
+  // app.import('node_modules/firebase/firebase.js');
+  // app.import('vendor/shims/firebase.js');
+  // app.import('node_modules/push.js/bin/push.js');
+  // app.import('vendor/shims/push.js');
 
   return app.toTree();
 };
