@@ -30,15 +30,16 @@ module.exports = function(defaults) {
         js: '/assets/vendor.js'
       }
     },
-    // minifyJS: {
-    //   enabled: (process.env.FORCE_MINIFY == 'true')
-    // },
-    // minifyCSS: {
-    //   enabled: (process.env.FORCE_MINIFY == 'true')
-    // },
-    // sourcemaps: {
-    //   enabled: !isEnv('next') && !isEnv('production'),
-    //   extensions: ['js']
+    // 'ember-cli-uglify': {
+    //   enabled: true,
+    //   exclude: ['vendor.js'],
+    //   uglify: {
+    //     // compress: {
+    //     //   collapse_vars: false
+    //     // },
+    //     // sourceMap: true,
+    //     mangle: false, // defaults to true
+    //   }
     // },
     fingerprint: {
       enabled: true
@@ -82,8 +83,7 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
-  app.import('node_modules/pusher-chatkit-client/dist/web/chatkit.js');
-  app.import('vendor/shims/chatkit.js');
+
   app.import('node_modules/push.js/bin/push.js');
   app.import('vendor/shims/push.js');
 
