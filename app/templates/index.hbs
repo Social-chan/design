@@ -1,4 +1,33 @@
-{{#if (media "isDesktop")}}
+{{#if (media "isMobile")}}
+  <div class="flex flex-col justify-center items-center max-w-full bg-indigo-light text-white h-screen">
+    <p class="text-lg mb-3">
+      Descarga nuestras apps en...
+    </p>
+    <div class="flex flex-col justify-center flex-wrap mx-auto">
+      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
+        <i class="fab fa-google-play fa-2x fill-current mr-3"></i>
+        <div class="text-left text-sm tracking-wide">
+          Próximamente en
+          <span class="block text-lg">Google Play</span>
+        </div>
+      </a>
+      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
+        <i class="fab fa-app-store fa-2x fill-current mr-3"></i>
+        <div class="text-left text-sm tracking-wide">
+          Próximamente en
+          <span class="block text-lg">App Store</span>
+        </div>
+      </a>
+    </div>
+
+    <p class="text-lg mt-6">
+      O tambien puedes
+      {{#link-to "login" class="bg-smoke-light text-white p-1"}}acceder{{/link-to}}
+      o
+      {{#link-to "register" class="bg-smoke-light text-white p-1"}}registrarte{{/link-to}}
+    </p>
+  </div>
+{{else}}
   {{component "page/header" user=user class="fixed pin-t w-full p-3 z-50"}}
 
   {{#swiper-container options=swiperOptions pagination=true vertical=true class="max-w-full h-screen swiper-container-inverse"}}
@@ -79,35 +108,6 @@
       </div>
     {{/swiper-slide}}
   {{/swiper-container}}
-{{else}}
-  <div class="flex flex-col justify-center items-center max-w-full bg-indigo-light text-white h-screen">
-    <p class="text-lg mb-3">
-      Descarga nuestras apps en...
-    </p>
-    <div class="flex flex-col justify-center flex-wrap mx-auto">
-      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
-        <i class="fab fa-google-play fa-2x fill-current mr-3"></i>
-        <div class="text-left text-sm tracking-wide">
-          Próximamente en
-          <span class="block text-lg">Google Play</span>
-        </div>
-      </a>
-      <a href="" class="flex items-center bg-smoke-light text-white rounded-full cursor-not-allowed py-2 px-4 my-3">
-        <i class="fab fa-app-store fa-2x fill-current mr-3"></i>
-        <div class="text-left text-sm tracking-wide">
-          Próximamente en
-          <span class="block text-lg">App Store</span>
-        </div>
-      </a>
-    </div>
-
-    <p class="text-lg mt-6">
-      O tambien puedes
-      {{#link-to "login" class="bg-smoke-light text-white p-1"}}acceder{{/link-to}}
-      o
-      {{#link-to "register" class="bg-smoke-light text-white p-1"}}registrarte{{/link-to}}
-    </p>
-  </div>
 {{/if}}
 
 {{component "page/footer" class="fixed pin-b w-full px-8 mb-4 z-50"}}
