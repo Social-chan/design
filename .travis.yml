@@ -1,6 +1,5 @@
 language: node_js
-node_js:
-  - "10"
+node_js: 10
 
 sudo: false
 dist: trusty
@@ -27,17 +26,15 @@ env:
     - FEATURE_SEARCH=false
     - FEATURE_CHATS=false
 
-before_install:
-  - npm config set spin false
-
 branches:
   only:
   - master
   - next
 
 script:
-  - npm run lint:hbs
-  - npm run lint:js
+  # Don't lint and test (yet...)
+  # - npm run lint:hbs
+  # - npm run lint:js
   # - npm test
 
 deploy:
