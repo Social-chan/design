@@ -1,7 +1,6 @@
----
 language: node_js
 node_js:
-  - "6"
+  - "10"
 
 sudo: false
 dist: trusty
@@ -17,11 +16,50 @@ env:
   global:
     # See https://git.io/vdao3 for details.
     - JOBS=1
+    - API_HOST=https://social-chan.com:4200/api
+    - PROXY_HOST=https://social-chan.com:3001
+    - FEATURE_ANIME=true
+    - FEATURE_MANGA=true
+    - FEATURE_MUSIC=true
+    - FEATURE_CLUBS=true
+    - FEATURE_LISTS=true
+    - FEATURE_MONITOR=true
+    - FEATURE_SEARCH=false
+    - FEATURE_CHATS=false
 
 before_install:
   - npm config set spin false
 
+branches:
+  only:
+  - master
+  - next
+
 script:
   - npm run lint:hbs
   - npm run lint:js
-  - npm test
+  # - npm test
+
+deploy:
+  provider: firebase
+  script: npm run build --prod
+  token:
+    secure: "A6Yw96sA6OaBonP2HI/t3eHU6shKaxMXz0/bIj4VwytERQHoWN+CCaj2e/ZIY0aJVrp3/OghGFMRgbTZKlHWtw1UIOvCr9J8q32LYPB2ldLDjE+ychJtdcNO0nMNmA2KoZpS2w69DudpvEHS3tUSCB3ybfm6XygS9rQgakF6FqnybcZGjigmBtvsHNQVkQ6fvEVSKtP0deCfuY0Ztnqp8pBQQPwclA+0svsiUIoIS9LSPIGXTiifSQe3yJ9+N7Dav82rLoYNXkKOKbxlOhhsy23kLrW4IJb4qaLM7HD1RQ2u+PYGlJWbrBV/BN1eSrR0VdLuKbPN15/P7gityOKfu5tzCulnGk0cfY2yfBbqFe1ZwAEugEp9D2n59DzfGW0pei9KfATStYmRvLTU8k31WpJzQzBEDzG5poAS70EER5elc2LOW/AlwXBMf7WnRrxp+SP5JmkghTGL2LJqtgqWZ1hPKNFzSfsMcmT5cZvRue8OqNlW+vcnNaNE0+jExSLmESz9TPYecul/RDYSXBCaTpwnCq0CfNrbo7V6x2ar8BDj3ahwIkC1u4hnt2BjjenZb1leYM+wCMK/4PM1OAvopkYBvs98teGf3KXi7AMFr/Xzyir1LO6Wl+pZt0bmsX54bJPG+0enKvEMr2/GB9jP3PbTUgTo+XYsu2u7RfFdET8="
+  project: "social-chan"
+  on:
+    branch: master
+  local-dir: dist
+  skip-cleanup: true
+  verbose: true
+
+deploy:
+  provider: firebase
+  script: npm run build -e next
+  token:
+    secure: "A6Yw96sA6OaBonP2HI/t3eHU6shKaxMXz0/bIj4VwytERQHoWN+CCaj2e/ZIY0aJVrp3/OghGFMRgbTZKlHWtw1UIOvCr9J8q32LYPB2ldLDjE+ychJtdcNO0nMNmA2KoZpS2w69DudpvEHS3tUSCB3ybfm6XygS9rQgakF6FqnybcZGjigmBtvsHNQVkQ6fvEVSKtP0deCfuY0Ztnqp8pBQQPwclA+0svsiUIoIS9LSPIGXTiifSQe3yJ9+N7Dav82rLoYNXkKOKbxlOhhsy23kLrW4IJb4qaLM7HD1RQ2u+PYGlJWbrBV/BN1eSrR0VdLuKbPN15/P7gityOKfu5tzCulnGk0cfY2yfBbqFe1ZwAEugEp9D2n59DzfGW0pei9KfATStYmRvLTU8k31WpJzQzBEDzG5poAS70EER5elc2LOW/AlwXBMf7WnRrxp+SP5JmkghTGL2LJqtgqWZ1hPKNFzSfsMcmT5cZvRue8OqNlW+vcnNaNE0+jExSLmESz9TPYecul/RDYSXBCaTpwnCq0CfNrbo7V6x2ar8BDj3ahwIkC1u4hnt2BjjenZb1leYM+wCMK/4PM1OAvopkYBvs98teGf3KXi7AMFr/Xzyir1LO6Wl+pZt0bmsX54bJPG+0enKvEMr2/GB9jP3PbTUgTo+XYsu2u7RfFdET8="
+  project: "social-chan-next"
+  on:
+    branch: next
+  local-dir: dist
+  skip-cleanup: true
+  verbose: true
