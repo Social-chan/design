@@ -24,45 +24,47 @@
         </div>
       {{/if}}
       {{component "layout/ads-square"}}
-      <div class="bg-white shadow rounded p-4 mb-3">
-        <p class="text-lg text-indigo-darkest font-bold mb-2">
-          <i class="fas fa-fire"></i> Lo más hablado
-        </p>
-        <ul class="list-reset">
-          <li class="my-3">
-            <a href="#" class="no-underline text-indigo-dark">
-              Sword Art Online
-            </a>
-            <p class="text-sm text-grey-dark">
-              Anime
-            </p>
-          </li>
-          <li class="my-3">
-            <a href="#" class="no-underline text-indigo-dark">
-              Love Live! School Idol Project
-            </a>
-            <p class="text-sm text-grey-dark">
-              Anime
-            </p>
-          </li>
-          <li class="my-3">
-            <a href="#" class="no-underline text-indigo-dark">
-              Steins;gate 0
-            </a>
-            <p class="text-sm text-grey-dark">
-              Anime
-            </p>
-          </li>
-          <li class="my-3">
-            <a href="#" class="no-underline text-indigo-dark">
-              Citrus
-            </a>
-            <p class="text-sm text-grey-dark">
-              Manga
-            </p>
-          </li>
-        </ul>
-      </div>
+      {{#if (or (is-feature "anime") (is-feature "manga"))}}
+        <div class="bg-white shadow rounded p-4 mb-3">
+          <p class="text-lg text-indigo-darkest font-bold mb-2">
+            <i class="fas fa-fire"></i> Lo más hablado
+          </p>
+          <ul class="list-reset">
+            <li class="my-3">
+              <a href="#" class="no-underline text-indigo-dark">
+                Sword Art Online
+              </a>
+              <p class="text-sm text-grey-dark">
+                Anime
+              </p>
+            </li>
+            <li class="my-3">
+              <a href="#" class="no-underline text-indigo-dark">
+                Love Live! School Idol Project
+              </a>
+              <p class="text-sm text-grey-dark">
+                Anime
+              </p>
+            </li>
+            <li class="my-3">
+              <a href="#" class="no-underline text-indigo-dark">
+                Steins;gate 0
+              </a>
+              <p class="text-sm text-grey-dark">
+                Anime
+              </p>
+            </li>
+            <li class="my-3">
+              <a href="#" class="no-underline text-indigo-dark">
+                Citrus
+              </a>
+              <p class="text-sm text-grey-dark">
+                Manga
+              </p>
+            </li>
+          </ul>
+        </div>
+      {{/if}}
     </div>
   </div>
 </div>

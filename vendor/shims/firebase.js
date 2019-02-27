@@ -3,10 +3,10 @@
     'use strict';
 
     return {
-      'default': self['chatkit'],
+      'default': self['firebase'],
       __esModule: true,
     };
   }
 
-  define('chatkit', [], vendorModule);
+  define('firebase', [], vendorModule);
 })();

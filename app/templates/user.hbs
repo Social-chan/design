@@ -47,42 +47,44 @@
         {{/if}}
       </div>
       {{component "layout/ads-square"}}
-      <div class="bg-white rounded shadow mb-3">
-        <ul class="flex items-center list-reset border-b px-3">
-          <li class="flex-1 text-indigo-darker text-sm">
-            <i class="fas fa-star"></i>
-          </li>
-          <li
-            class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
-            Anime
-          </li>
-          <li
-            class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
-            Manga
-          </li>
-          <li
-            class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
-            Personajes
-          </li>
-        </ul>
-        <ul class="list-reset p-3">
-          <li class="my-1">
-            <a href="#" class="no-underline text-indigo-dark text-sm">
-              Steins;gate
-            </a>
-          </li>
-          <li class="my-1">
-            <a href="#" class="no-underline text-indigo-dark text-sm">
-              Sword Art Online
-            </a>
-          </li>
-          <li class="my-1">
-            <a href="#" class="no-underline text-indigo-dark text-sm">
-              Love Live! School Idol Project
-            </a>
-          </li>
-        </ul>
-      </div>
+      {{#if (or (is-feature "anime") (is-feature "manga"))}}
+        <div class="bg-white rounded shadow mb-3">
+          <ul class="flex items-center list-reset border-b px-3">
+            <li class="flex-1 text-indigo-darker text-sm">
+              <i class="fas fa-star"></i>
+            </li>
+            <li
+              class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
+              Anime
+            </li>
+            <li
+              class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
+              Manga
+            </li>
+            <li
+              class="cursor-pointer flex-1 py-4 text-indigo-dark text-sm border-b-2 border-transparent hover:border-indigo-dark px-2">
+              Personajes
+            </li>
+          </ul>
+          <ul class="list-reset p-3">
+            <li class="my-1">
+              <a href="#" class="no-underline text-indigo-dark text-sm">
+                Steins;gate
+              </a>
+            </li>
+            <li class="my-1">
+              <a href="#" class="no-underline text-indigo-dark text-sm">
+                Sword Art Online
+              </a>
+            </li>
+            <li class="my-1">
+              <a href="#" class="no-underline text-indigo-dark text-sm">
+                Love Live! School Idol Project
+              </a>
+            </li>
+          </ul>
+        </div>
+      {{/if}}
     </div>
     <div class="w-full lg:w-3/4">
       {{outlet}}

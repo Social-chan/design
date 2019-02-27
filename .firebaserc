@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "social-chan"
+  },
+  "targets": {
+    "social-chan": {
+      "hosting": {
+        "social-chan": [
+          "social-chan"
+        ],
+        "social-chan-next": [
+          "social-chan-next"
+        ]
+      }
+    }
+  }
+}
